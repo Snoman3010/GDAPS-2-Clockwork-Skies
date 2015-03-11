@@ -13,7 +13,21 @@ namespace ClockworkSkies
 {
     abstract class Piece
     {
-        private Rectangle box;
-        private Sprite image;
+        protected Sprite image;
+        
+        public Sprite Image
+        {
+            get { return image; }
+        }
+
+        public Piece(Texture2D img, Rectangle boundingBox)
+        {
+            image = new Sprite(img, boundingBox);
+        }
+
+        //public abstract void Draw(SpriteBatch spriteBatch, double direction)
+        //{
+        //    image.Draw(spriteBatch, direction);
+        //}
     }
 }

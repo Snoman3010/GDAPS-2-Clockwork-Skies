@@ -19,6 +19,12 @@ namespace ClockworkSkies
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // Test plane
+        Plane testPlane;
+        Texture2D planeImage;
+
+        SpriteFont font;
+
         public Game1()
             : base()
         {
@@ -49,6 +55,11 @@ namespace ClockworkSkies
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            font = Content.Load<SpriteFont>("mainFont");
+
+            planeImage = Content.Load<Texture2D>("temp");
+            testPlane = new Plane(planeImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 4, 3 * (Math.PI / 180));
         }
 
         /// <summary>
@@ -67,10 +78,15 @@ namespace ClockworkSkies
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
             // TODO: Add your update logic here
+
+            KeyboardState kState = Keyboard.GetState();
+            GamePadState gState = GamePad.GetState(0);
+
+            testPlane.Update(kState, gState);
 
             base.Update(gameTime);
         }
@@ -84,6 +100,11 @@ namespace ClockworkSkies
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            testPlane.Draw(spriteBatch);
+            spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
