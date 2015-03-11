@@ -15,5 +15,11 @@ namespace ClockworkSkies
     {
         private Rectangle spriteBox;
         private Texture2D image;
+
+        // Test constructor
+        public Sprite()
+        {
+
+        }
     }
 }
