@@ -20,3 +20,5 @@ D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\temp.png
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\mainFont.xnb
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\temp.png
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\mainFont.xnb

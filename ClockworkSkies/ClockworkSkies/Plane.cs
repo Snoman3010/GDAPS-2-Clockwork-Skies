@@ -13,28 +13,47 @@ namespace ClockworkSkies
 {
     class Plane : MobilePiece
     {
-        private int speed;
+        public int speed;
         private double angularSpeed;
+        private int minSpeed;
+        private int maxSpeed;
+        private int speedChangeTimer;
 
         // Constructor
-        public Plane(Texture2D image, Rectangle bounds, double direction, int spd, double angleSpeed) : base(image, bounds, direction)
+        public Plane(Texture2D image, Rectangle bounds, double direction, int minSpd, int maxSpd, double angleSpeed) : base(image, bounds, direction)
         {
-            speed = spd;
             angularSpeed = angleSpeed;
+            minSpeed = minSpd;
+            maxSpeed = maxSpd;
+            speed = minSpeed;
+            speedChangeTimer = 0;
         }
 
         public override void Update(KeyboardState kState, GamePadState gState)
-        {           
+        {
+            speedChangeTimer--;
+            if (speedChangeTimer <= 0)
+            {
+                if (kState.IsKeyDown(Keys.Up))
+                {
+                    speed++;
+                    if (speed > maxSpeed)
+                    {
+                        speed = maxSpeed;
+                    }
+                    speedChangeTimer = 20;
+                }
 
-            //if(kState.IsKeyDown(Keys.Up))
-            //{
-            //    image.PosY -= speed;
-            //}
-
-            //if (kState.IsKeyDown(Keys.Down))
-            //{
-            //    image.PosY += speed;
-            //}
+                if (kState.IsKeyDown(Keys.Down))
+                {
+                    speed--;
+                    if (speed < minSpeed)
+                    {
+                        speed = minSpeed;
+                    }
+                    speedChangeTimer = 20;
+                }
+            }
 
             if (kState.IsKeyDown(Keys.Left))
             {

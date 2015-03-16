@@ -43,6 +43,7 @@ namespace ClockworkSkies
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace ClockworkSkies
             font = Content.Load<SpriteFont>("mainFont");
 
             planeImage = Content.Load<Texture2D>("temp");
-            testPlane = new Plane(planeImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 4, 3 * (Math.PI / 180));
+            testPlane = new Plane(planeImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 5, 8, 3 * (Math.PI / 180));
         }
 
         /// <summary>
@@ -104,6 +105,7 @@ namespace ClockworkSkies
             spriteBatch.Begin();
             testPlane.Draw(spriteBatch);
             spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
+            spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
