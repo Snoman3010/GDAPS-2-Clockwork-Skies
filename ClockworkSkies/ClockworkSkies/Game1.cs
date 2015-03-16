@@ -21,7 +21,6 @@ namespace ClockworkSkies
 
         // Test plane
         Plane testPlane;
-        Texture2D planeImage;
 
         SpriteFont font;
 
@@ -30,6 +29,11 @@ namespace ClockworkSkies
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferWidth = 1360;
+            graphics.PreferredBackBufferHeight = 768;
+
         }
 
         /// <summary>
@@ -59,8 +63,9 @@ namespace ClockworkSkies
 
             font = Content.Load<SpriteFont>("mainFont");
 
-            planeImage = Content.Load<Texture2D>("temp");
-            testPlane = new Plane(planeImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 5, 8, 3 * (Math.PI / 180));
+            GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
+            GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
+            testPlane = new Plane(GameVariables.PlayerImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 3 * (Math.PI / 180));
         }
 
         /// <summary>
@@ -87,7 +92,10 @@ namespace ClockworkSkies
             KeyboardState kState = Keyboard.GetState();
             GamePadState gState = GamePad.GetState(0);
 
-            testPlane.Update(kState, gState);
+            foreach(Piece piece in GameVariables.pieces)
+            {
+                piece.Update(kState, gState);
+            }
 
             base.Update(gameTime);
         }
@@ -103,7 +111,12 @@ namespace ClockworkSkies
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
-            testPlane.Draw(spriteBatch);
+            
+            foreach(Piece piece in GameVariables.pieces)
+            {
+                piece.Draw(spriteBatch);
+            }
+
             spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
             spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
             spriteBatch.End();
