@@ -46,7 +46,7 @@ namespace ClockworkSkies
 
         public static int BulletSpeed
         {
-            get { return 10; }
+            get { return 15; }
         }
     }
 }

@@ -14,18 +14,28 @@ namespace ClockworkSkies
     abstract class Piece
     {
         protected Sprite image;
-        public double direction;
+        protected float direction;
 
         public Sprite Image
         {
             get { return image; }
         }
 
-        public Piece(Texture2D img, double dir, Rectangle boundingBox)
+        public Piece(Texture2D img, float dir, Vector2 position, int width, int height)
         {
-            image = new Sprite(img, boundingBox);
+            image = new Sprite(img, position, width, height);
             direction = dir;
             GameVariables.pieces.Add(this);
+        }
+
+        public bool Remove()
+        {
+            if(GameVariables.pieces.Contains(this))
+            {
+                GameVariables.pieces.Remove(this);
+            }
+
+            return false;
         }
 
         public abstract void Update(KeyboardState kState, GamePadState gState);

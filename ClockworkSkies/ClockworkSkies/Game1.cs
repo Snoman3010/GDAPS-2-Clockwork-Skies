@@ -65,7 +65,7 @@ namespace ClockworkSkies
 
             GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
-            testPlane = new Plane(GameVariables.PlayerImage, new Rectangle(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50, 32, 32), 0, 3 * (Math.PI / 180));
+            testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
         }
 
         /// <summary>
@@ -92,9 +92,9 @@ namespace ClockworkSkies
             KeyboardState kState = Keyboard.GetState();
             GamePadState gState = GamePad.GetState(0);
 
-            foreach(Piece piece in GameVariables.pieces)
+            for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
-                piece.Update(kState, gState);
+                GameVariables.pieces[i].Update(kState, gState);
             }
 
             base.Update(gameTime);
@@ -117,8 +117,11 @@ namespace ClockworkSkies
                 piece.Draw(spriteBatch);
             }
 
-            spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
-            spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
+            //spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
+            //spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
+
+            //spriteBatch.DrawString(font, "Piece List Length: " + GameVariables.pieces.Count, new Vector2(50, 150), Color.White);
+
             spriteBatch.End();
 
             base.Draw(gameTime);

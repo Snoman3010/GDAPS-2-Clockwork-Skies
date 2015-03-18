@@ -14,7 +14,9 @@ namespace ClockworkSkies
     class Bullet : Piece
     {
 
-        public Bullet(double dir, Rectangle bounds) : base(GameVariables.BulletImage, dir, bounds)
+        private int visibleBuffer = 100; // The amount of padding to go off screen before it despawns
+
+        public Bullet(float dir, Vector2 position, int width, int height) : base(GameVariables.BulletImage, dir, position, width, height)
         {
 
         }
@@ -26,6 +28,16 @@ namespace ClockworkSkies
 
             image.PosX += (int)xComp;
             image.PosY -= (int)yComp;
+
+            if(image.PosX > GameVariables.WindowWidth + visibleBuffer || image.PosX < -visibleBuffer)
+            {
+                Remove();
+            }
+
+            if (image.PosY > GameVariables.WindowHeight + visibleBuffer || image.PosY < -visibleBuffer)
+            {
+                Remove();
+            }
         }
     }
 }

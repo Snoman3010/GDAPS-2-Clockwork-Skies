@@ -13,47 +13,50 @@ namespace ClockworkSkies
 {
     class Sprite
     {
-        private Rectangle spriteBox;
+        private Vector2 position;
+        private int width;
+        private int height;
         private Texture2D image;
 
-        // The X position of the spriteBox
-        public int PosX
+        // The X position of the sprite
+        public float PosX
         {
-            get { return spriteBox.X; }
-            set { spriteBox.X = value; }
+            get { return position.X; }
+            set { position.X = value; }
         }
 
-        // The Y position of the spriteBox
-        public int PosY
+        // The Y position of the sprite
+        public float PosY
         {
-            get { return spriteBox.Y; }
-            set { spriteBox.Y = value; }
+            get { return position.Y; }
+            set { position.Y = value; }
         }
 
-        // The width of the spriteBox (not necessarily the image width)
+        // The width of the sprite
         public int Width
         {
-            get { return spriteBox.Width; }
+            get { return width; }
         }
 
-        // The height of the spriteBox (not necessarily the image height)
+        // The height of the sprite
         public int Height
         {
-            get { return spriteBox.Height; }
+            get { return height; }
         }
 
         // Constructor
-        public Sprite(Texture2D img, Rectangle boundingBox)
+        public Sprite(Texture2D img, Vector2 pos, int w, int h)
         {
-            spriteBox = boundingBox;
             image = img;
+            position = pos;
+            width = w;
+            height = h;
         }
 
         // Called by the main Draw() method to draw all Sprites
-        public void Draw(SpriteBatch spriteBatch, double direction)
+        public void Draw(SpriteBatch spriteBatch, float direction)
         {
-            //spriteBatch.Draw(image, spriteBox, Color.White);
-            spriteBatch.Draw(image, new Vector2(PosX, PosY), null, Color.White, (float)direction, new Vector2(spriteBox.Width / 2, spriteBox.Height / 2), (float)spriteBox.Width / (float)image.Width, SpriteEffects.None, 0);
+            spriteBatch.Draw(image, position, null, Color.White, direction, new Vector2(width / 2, height / 2), width / (float)image.Width, SpriteEffects.None, 0);
         }
     }
 }
