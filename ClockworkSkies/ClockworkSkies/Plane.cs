@@ -11,21 +11,17 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Plane : MobilePiece
+    class Plane : Piece
     {
         public int speed;
         private double angularSpeed;
-        private int minSpeed;
-        private int maxSpeed;
         private int speedChangeTimer;
 
         // Constructor
-        public Plane(Texture2D image, Rectangle bounds, double direction, int minSpd, int maxSpd, double angleSpeed) : base(image, bounds, direction)
+        public Plane(Texture2D image, Rectangle bounds, double direction, double angleSpeed) : base(image, direction, bounds)
         {
             angularSpeed = angleSpeed;
-            minSpeed = minSpd;
-            maxSpeed = maxSpd;
-            speed = minSpeed;
+            speed = GameVariables.PlaneMinSpeed;
             speedChangeTimer = 0;
         }
 
@@ -37,9 +33,9 @@ namespace ClockworkSkies
                 if (kState.IsKeyDown(Keys.Up))
                 {
                     speed++;
-                    if (speed > maxSpeed)
+                    if (speed > GameVariables.PlaneMaxSpeed)
                     {
-                        speed = maxSpeed;
+                        speed = GameVariables.PlaneMaxSpeed;
                     }
                     speedChangeTimer = 20;
                 }
@@ -47,9 +43,9 @@ namespace ClockworkSkies
                 if (kState.IsKeyDown(Keys.Down))
                 {
                     speed--;
-                    if (speed < minSpeed)
+                    if (speed < GameVariables.PlaneMinSpeed)
                     {
-                        speed = minSpeed;
+                        speed = GameVariables.PlaneMinSpeed;
                     }
                     speedChangeTimer = 20;
                 }
@@ -80,11 +76,11 @@ namespace ClockworkSkies
 
             image.PosX += (int)xComp;
             image.PosY -= (int)yComp;
-        }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            image.Draw(spriteBatch, direction);
+            if(kState.IsKeyDown(Keys.Space))
+            {
+                Bullet bullet = new Bullet(direction, new Rectangle(image.PosX, image.PosY, GameVariables.BulletImage.Width, GameVariables.BulletImage.Height));
+            }
         }
     }
 }

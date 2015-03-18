@@ -14,20 +14,25 @@ namespace ClockworkSkies
     abstract class Piece
     {
         protected Sprite image;
-        
+        public double direction;
+
         public Sprite Image
         {
             get { return image; }
         }
 
-        public Piece(Texture2D img, Rectangle boundingBox)
+        public Piece(Texture2D img, double dir, Rectangle boundingBox)
         {
             image = new Sprite(img, boundingBox);
+            direction = dir;
+            GameVariables.pieces.Add(this);
         }
 
-        //public abstract void Draw(SpriteBatch spriteBatch, double direction)
-        //{
-        //    image.Draw(spriteBatch, direction);
-        //}
+        public abstract void Update(KeyboardState kState, GamePadState gState);
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            image.Draw(spriteBatch, direction);
+        }
     }
 }
