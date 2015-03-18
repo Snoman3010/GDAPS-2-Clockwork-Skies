@@ -17,6 +17,7 @@ namespace ClockworkSkies
         Rectangle rect;
         string text;
         bool clicked;
+        bool clickable;
 
         // constructor
         public Button(Rectangle r, string txt)
@@ -24,18 +25,22 @@ namespace ClockworkSkies
             rect = r;
             text = txt;
             clicked = false;
+            clickable = false;
         }
 
         // Update method
         public void Update(MouseState mState)
         {
-            // checks to see if the mouse location is inside the button
-            if(mState.X >= rect.X && mState.X <= rect.X + rect.Width && mState.Y >= rect.Y && mState.Y <= rect.Y + rect.Height)
+            if (clickable)
             {
-                // checks if the left mouse button is pressed and if it is, sets clicked to true
-                if (mState.LeftButton == ButtonState.Pressed)
+                // checks to see if the mouse location is inside the button
+                if (mState.X >= rect.X && mState.X <= rect.X + rect.Width && mState.Y >= rect.Y && mState.Y <= rect.Y + rect.Height)
                 {
-                    clicked = true;
+                    // checks if the left mouse button is pressed and if it is, sets clicked to true
+                    if (mState.LeftButton == ButtonState.Pressed)
+                    {
+                        clicked = true;
+                    }
                 }
             }
         }
