@@ -46,15 +46,22 @@ namespace ClockworkSkies
         }
 
         //Creates a button for each level
-        public static void ShowLevels(SpriteBatch spriteBatch)
+        public void ShowLevels()
         {
             for(int i = 0; i < levels.Count; i++)
             {
                 Button button = new Button(new Rectangle(50, 50 + 100 * i, 200, 100), levels[i]);
                 button.clickable = true;
-                button.Draw(spriteBatch);
                 buttons.Add(button);
 
+            }
+        }
+
+        public void HideLevels()
+        {
+            foreach (Button x in buttons)
+            {
+                x.clickable = false;
             }
         }
 
@@ -63,6 +70,14 @@ namespace ClockworkSkies
             foreach (Button x in buttons)
             {
                 x.Update(mState);
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (Button x in buttons)
+            {
+                x.Draw(spriteBatch);
             }
         }
     }

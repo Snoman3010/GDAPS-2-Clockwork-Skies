@@ -31,8 +31,8 @@ namespace ClockworkSkies
             buttons = new Dictionary<String, Button>();
             buttons.Add("Main", new Button(new Rectangle(0, 0, 0, 0), "Main menu"));
             buttons.Add("Play", new Button(new Rectangle(0, 0, 0, 0), "Play"));
-            buttons.Add("Help", new Button(new Rectangle(0, 0, 0, 0), "Tutorial"));
-            buttons.Add("Option", new Button(new Rectangle(0, 0, 0, 0), "Options"));
+            buttons.Add("Tutorial", new Button(new Rectangle(0, 0, 0, 0), "Tutorial"));
+            buttons.Add("Options", new Button(new Rectangle(0, 0, 0, 0), "Options"));
             buttons.Add("Credits", new Button(new Rectangle(0, 0, 0, 0), "Credits"));
             buttons.Add("Resume", new Button(new Rectangle(0, 0, 0, 0), "Resume"));
             buttons.Add("Exit", new Button(new Rectangle(0, 0, 0, 0), "Exit game"));
@@ -40,6 +40,7 @@ namespace ClockworkSkies
             levels = new LevelList();
 
             buttonsSet = false;
+
         }
 
         private void SetButtons()
@@ -53,6 +54,7 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Y = 568;
                         buttons["Main"].rect.Height = 100;
                         buttons["Main"].clickable = true;
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Main:
@@ -62,16 +64,16 @@ namespace ClockworkSkies
                         buttons["Play"].rect.Y = 568;
                         buttons["Play"].rect.Height = 100;
                         buttons["Play"].clickable = true;
-                        buttons["Help"].rect.X = 320;
-                        buttons["Help"].rect.Width = 200;
-                        buttons["Help"].rect.Y = 568;
-                        buttons["Help"].rect.Height = 100;
-                        buttons["Help"].clickable = true;
-                        buttons["Option"].rect.X = 580;
-                        buttons["Option"].rect.Width = 200;
-                        buttons["Option"].rect.Y = 568;
-                        buttons["Option"].rect.Height = 100;
-                        buttons["Option"].clickable = true;
+                        buttons["Tutorial"].rect.X = 320;
+                        buttons["Tutorial"].rect.Width = 200;
+                        buttons["Tutorial"].rect.Y = 568;
+                        buttons["Tutorial"].rect.Height = 100;
+                        buttons["Tutorial"].clickable = true;
+                        buttons["Options"].rect.X = 580;
+                        buttons["Options"].rect.Width = 200;
+                        buttons["Options"].rect.Y = 568;
+                        buttons["Options"].rect.Height = 100;
+                        buttons["Options"].clickable = true;
                         buttons["Credits"].rect.X = 840;
                         buttons["Credits"].rect.Width = 200;
                         buttons["Credits"].rect.Y = 568;
@@ -82,6 +84,7 @@ namespace ClockworkSkies
                         buttons["Exit"].rect.Y = 568;
                         buttons["Exit"].rect.Height = 100;
                         buttons["Exit"].clickable = true;
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Play:
@@ -91,7 +94,8 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Y = 568;
                         buttons["Main"].rect.Height = 100;
                         buttons["Main"].clickable = true;
-                        levels.GetLevels();
+                        levels.ShowLevels();
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Tutorial:
@@ -101,6 +105,7 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Y = 568;
                         buttons["Main"].rect.Height = 100;
                         buttons["Main"].clickable = true;
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Options:
@@ -110,6 +115,7 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Y = 568;
                         buttons["Main"].rect.Height = 100;
                         buttons["Main"].clickable = true;
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Credits:
@@ -119,6 +125,7 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Y = 568;
                         buttons["Main"].rect.Height = 100;
                         buttons["Main"].clickable = true;
+                        buttonsSet = true;
                         break;
                     }
                 case MenuState.Pause:
@@ -139,11 +146,17 @@ namespace ClockworkSkies
                 pair.Value.clickable = false;
                 pair.Value.clicked = false;
             }
+            levels.HideLevels();
         }
 
         // Updates if either one of its buttons is clicked
-        public void Update()
+        public void Update(MouseState mState)
         {
+            foreach (KeyValuePair<string, Button> pair in buttons)
+            {
+                pair.Value.Update(mState);
+            }
+            levels.Update(mState);
             if (!buttonsSet)
             {
                 ClearButtons();
@@ -171,7 +184,7 @@ namespace ClockworkSkies
                         state = MenuState.Options;
                         break;
                     }
-                    if (buttons["Help"].clicked)
+                    if (buttons["Tutorial"].clicked)
                     {
                         buttonsSet = false;
                         state = MenuState.Tutorial;
@@ -218,6 +231,15 @@ namespace ClockworkSkies
                     break;
                 case MenuState.Pause:
                     break;
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (KeyValuePair<string, Button> pair in buttons)
+            {
+                pair.Value.Draw(spriteBatch);
+                levels.Draw(spriteBatch);
             }
         }
     }
