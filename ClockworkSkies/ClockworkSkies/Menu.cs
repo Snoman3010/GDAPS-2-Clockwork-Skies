@@ -18,7 +18,8 @@ namespace ClockworkSkies
         // attribute
         private Dictionary<String, Button> buttons;
         private MenuState state;
-        private bool buttonsDrawn;
+        private bool buttonsSet;
+        private LevelList levels;
         
         // Constructor
         public Menu(MenuState initialState)
@@ -32,11 +33,13 @@ namespace ClockworkSkies
             buttons.Add("Play", new Button(new Rectangle(0, 0, 0, 0), "Play"));
             buttons.Add("Help", new Button(new Rectangle(0, 0, 0, 0), "Tutorial"));
             buttons.Add("Option", new Button(new Rectangle(0, 0, 0, 0), "Options"));
-            buttons.Add("Credit", new Button(new Rectangle(0, 0, 0, 0), "Credits"));
+            buttons.Add("Credits", new Button(new Rectangle(0, 0, 0, 0), "Credits"));
             buttons.Add("Resume", new Button(new Rectangle(0, 0, 0, 0), "Resume"));
             buttons.Add("Exit", new Button(new Rectangle(0, 0, 0, 0), "Exit game"));
 
-            buttonsDrawn = false;
+            levels = new LevelList();
+
+            buttonsSet = false;
         }
 
         private void SetButtons()
@@ -45,27 +48,77 @@ namespace ClockworkSkies
             {
                 case MenuState.Title:
                     {
-                        
+                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.Width = 200;
+                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Height = 100;
+                        buttons["Main"].clickable = true;
                         break;
                     }
                 case MenuState.Main:
                     {
+                        buttons["Play"].rect.X = 60;
+                        buttons["Play"].rect.Width = 200;
+                        buttons["Play"].rect.Y = 568;
+                        buttons["Play"].rect.Height = 100;
+                        buttons["Play"].clickable = true;
+                        buttons["Help"].rect.X = 320;
+                        buttons["Help"].rect.Width = 200;
+                        buttons["Help"].rect.Y = 568;
+                        buttons["Help"].rect.Height = 100;
+                        buttons["Help"].clickable = true;
+                        buttons["Option"].rect.X = 580;
+                        buttons["Option"].rect.Width = 200;
+                        buttons["Option"].rect.Y = 568;
+                        buttons["Option"].rect.Height = 100;
+                        buttons["Option"].clickable = true;
+                        buttons["Credits"].rect.X = 840;
+                        buttons["Credits"].rect.Width = 200;
+                        buttons["Credits"].rect.Y = 568;
+                        buttons["Credits"].rect.Height = 100;
+                        buttons["Credits"].clickable = true;
+                        buttons["Exit"].rect.X = 1100;
+                        buttons["Exit"].rect.Width = 200;
+                        buttons["Exit"].rect.Y = 568;
+                        buttons["Exit"].rect.Height = 100;
+                        buttons["Exit"].clickable = true;
                         break;
                     }
                 case MenuState.Play:
                     {
+                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.Width = 200;
+                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Height = 100;
+                        buttons["Main"].clickable = true;
+                        levels.GetLevels();
                         break;
                     }
                 case MenuState.Tutorial:
                     {
+                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.Width = 200;
+                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Height = 100;
+                        buttons["Main"].clickable = true;
                         break;
                     }
                 case MenuState.Options:
                     {
+                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.Width = 200;
+                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Height = 100;
+                        buttons["Main"].clickable = true;
                         break;
                     }
                 case MenuState.Credits:
                     {
+                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.Width = 200;
+                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Height = 100;
+                        buttons["Main"].clickable = true;
                         break;
                     }
                 case MenuState.Pause:
@@ -75,10 +128,97 @@ namespace ClockworkSkies
             }
         }
 
+        private void ClearButtons()
+        {
+            foreach (KeyValuePair<string, Button> pair in buttons)
+            {
+                pair.Value.rect.X = 0;
+                pair.Value.rect.Y = 0;
+                pair.Value.rect.Width = 0;
+                pair.Value.rect.Height = 0;
+                pair.Value.clickable = false;
+                pair.Value.clicked = false;
+            }
+        }
+
         // Updates if either one of its buttons is clicked
         public void Update()
         {
-            
+            if (!buttonsSet)
+            {
+                ClearButtons();
+                SetButtons();
+            }
+            switch (state)
+            {
+                case MenuState.Title:
+                    if (buttons["Main"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Main;
+                    }
+                    break;
+                case MenuState.Main:
+                    if (buttons["Play"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Play;
+                        break;
+                    }
+                    if (buttons["Options"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Options;
+                        break;
+                    }
+                    if (buttons["Help"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Tutorial;
+                        break;
+                    }
+                    if (buttons["Credits"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Credits;
+                        break;
+                    }
+                    if (buttons["Exit"].clicked)
+                    {
+                        //Quit the game
+                    }
+                    break;
+                case MenuState.Options:
+                    if (buttons["Main"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Main;
+                    }
+                    break;
+                case MenuState.Tutorial:
+                    if (buttons["Main"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Main;
+                    }
+                    break;
+                case MenuState.Credits:
+                    if (buttons["Main"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Main;
+                    }
+                    break;
+                case MenuState.Play:
+                    if (buttons["Main"].clicked)
+                    {
+                        buttonsSet = false;
+                        state = MenuState.Main;
+                    }
+                    break;
+                case MenuState.Pause:
+                    break;
+            }
         }
     }
 }
