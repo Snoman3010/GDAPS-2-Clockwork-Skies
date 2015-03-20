@@ -36,8 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameVariables.cs" />
+    <Compile Include="LevelList.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
@@ -66,6 +69,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\temp.png">

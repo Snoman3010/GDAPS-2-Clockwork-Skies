@@ -21,8 +21,11 @@ namespace ClockworkSkies
 
         // Test plane
         Plane testPlane;
+        Texture2D button;
 
         SpriteFont font;
+
+        Button button1;
 
         public Game1()
             : base()
@@ -63,9 +66,13 @@ namespace ClockworkSkies
 
             font = Content.Load<SpriteFont>("mainFont");
 
+            button = Content.Load<Texture2D>("button");
+
             GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
             testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
+
+            button1 = new Button(new Rectangle(50, 50, 800, 100), "Button");
         }
 
         /// <summary>
@@ -88,6 +95,7 @@ namespace ClockworkSkies
             //    Exit();
 
             // TODO: Add your update logic here
+            MouseState mState = Mouse.GetState();
 
             KeyboardState kState = Keyboard.GetState();
             GamePadState gState = GamePad.GetState(0);
@@ -96,6 +104,8 @@ namespace ClockworkSkies
             {
                 GameVariables.pieces[i].Update(kState, gState);
             }
+
+            button1.Update(mState);
 
             base.Update(gameTime);
         }
@@ -121,6 +131,8 @@ namespace ClockworkSkies
             //spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
 
             //spriteBatch.DrawString(font, "Piece List Length: " + GameVariables.pieces.Count, new Vector2(50, 150), Color.White);
+
+            button1.Draw(spriteBatch, button, font);
 
             spriteBatch.End();
 

@@ -40,9 +40,19 @@ namespace ClockworkSkies
                     if (mState.LeftButton == ButtonState.Pressed)
                     {
                         clicked = true;
+                        text = "Ow";
                     }
                 }
             }
+        }
+
+        // Draw
+        public void Draw(SpriteBatch image, Texture2D texture, SpriteFont font)
+        {
+            image.Draw(texture, rect, Color.White);
+            image.DrawString(font, text, new Vector2(rect.Center.X, rect.Center.Y), Color.Black);
+
+            clickable = true;
         }
     }
 }

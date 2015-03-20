@@ -35,3 +35,4 @@ D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\Clockwork
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Tao.Sdl.dll
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\bullet.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\button.png
