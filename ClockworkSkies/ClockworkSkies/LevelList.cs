@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
     class LevelList
     {
-        private List<string> levels;
+        public static List<string> levels;
+        public static List<Button> buttons;
+
+        public LevelList()
+        {
+            levels = new List<string>();
+            buttons = new List<Button>();
+            GetLevels();
+        }
 
         //Find level files
         public void GetLevels()
@@ -28,6 +42,27 @@ namespace ClockworkSkies
             catch (FileNotFoundException fnf)
             {
                 return;
+            }
+        }
+
+        //Creates a button for each level
+        public static void ShowLevels(SpriteBatch spriteBatch)
+        {
+            for(int i = 0; i < levels.Count; i++)
+            {
+                Button button = new Button(new Rectangle(50, 50 + 100 * i, 200, 100), levels[i]);
+                button.clickable = true;
+                button.Draw(spriteBatch);
+                buttons.Add(button);
+
+            }
+        }
+
+        public void Update(MouseState mState)
+        {
+            foreach (Button x in buttons)
+            {
+                x.Update(mState);
             }
         }
     }

@@ -14,10 +14,10 @@ namespace ClockworkSkies
     class Button
     {
         // attributes
-        Rectangle rect;
-        string text;
-        bool clicked;
-        bool clickable;
+        public Rectangle rect;
+        private string text;
+        public bool clicked;
+        public bool clickable;
 
         // constructor
         public Button(Rectangle r, string txt)
@@ -47,12 +47,16 @@ namespace ClockworkSkies
         }
 
         // Draw
-        public void Draw(SpriteBatch image, Texture2D texture, SpriteFont font)
+        public void Draw(SpriteBatch image)
         {
-            image.Draw(texture, rect, Color.White);
-            image.DrawString(font, text, new Vector2(rect.Center.X, rect.Center.Y), Color.Black);
-
-            clickable = true;
+            if (clickable)
+            {
+                image.Draw(GameVariables.ButtonImage, rect, Color.White);
+                image.DrawString(GameVariables.TextFont, text, new Vector2((rect.Center.X + rect.Left) / 2, rect.Center.Y), Color.Black, 0, new Vector2(0, 0), new Vector2((float)0.5, (float)0.5), 0, 0);
+                //image.DrawString(font, text, new Vector2(rect.Center.X/4, rect.Center.Y), Color.Black);
+            
+            }
+            
         }
     }
 }

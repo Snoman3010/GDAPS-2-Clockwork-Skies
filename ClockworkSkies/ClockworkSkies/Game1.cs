@@ -21,11 +21,8 @@ namespace ClockworkSkies
 
         // Test plane
         Plane testPlane;
-        Texture2D button;
 
-        SpriteFont font;
-
-        Button button1;
+        LevelList levelList;
 
         public Game1()
             : base()
@@ -63,16 +60,15 @@ namespace ClockworkSkies
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-
-            font = Content.Load<SpriteFont>("mainFont");
-
-            button = Content.Load<Texture2D>("button");
-
             GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
+            GameVariables.ButtonImage = Content.Load<Texture2D>("button");
+            GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
 
-            button1 = new Button(new Rectangle(50, 50, 800, 100), "Button");
+           // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
+
+            levelList = new LevelList();
         }
 
         /// <summary>
@@ -105,7 +101,7 @@ namespace ClockworkSkies
                 GameVariables.pieces[i].Update(kState, gState);
             }
 
-            button1.Update(mState);
+            levelList.Update(mState);
 
             base.Update(gameTime);
         }
@@ -132,7 +128,9 @@ namespace ClockworkSkies
 
             //spriteBatch.DrawString(font, "Piece List Length: " + GameVariables.pieces.Count, new Vector2(50, 150), Color.White);
 
-            button1.Draw(spriteBatch, button, font);
+            //button1.Draw(spriteBatch, button, font);
+
+            LevelList.ShowLevels(spriteBatch);
 
             spriteBatch.End();
 

@@ -48,5 +48,17 @@ namespace ClockworkSkies
         {
             get { return 15; }
         }
+
+        public static Texture2D ButtonImage
+        {
+            get;
+            set;
+        }
+
+        public static SpriteFont TextFont
+        {
+            get;
+            set;
+        }
     }
 }
