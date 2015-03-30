@@ -62,6 +62,16 @@
             this.EnemyBaseLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -71,6 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -438,37 +450,154 @@
             this.label18.TabIndex = 10;
             this.label18.Text = "Y:";
             // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(210, 209);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(49, 21);
+            this.comboBox4.TabIndex = 3;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(12, 190);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(131, 16);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Player Start Position:";
+            this.label16.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // numericUpDown10
+            // 
+            this.numericUpDown10.Location = new System.Drawing.Point(38, 210);
+            this.numericUpDown10.Maximum = new decimal(new int[] {
+            42,
+            0,
+            0,
+            0});
+            this.numericUpDown10.Name = "numericUpDown10";
+            this.numericUpDown10.Size = new System.Drawing.Size(32, 20);
+            this.numericUpDown10.TabIndex = 7;
+            this.numericUpDown10.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
+            // 
+            // numericUpDown11
+            // 
+            this.numericUpDown11.Location = new System.Drawing.Point(102, 210);
+            this.numericUpDown11.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDown11.Name = "numericUpDown11";
+            this.numericUpDown11.Size = new System.Drawing.Size(32, 20);
+            this.numericUpDown11.TabIndex = 7;
+            this.numericUpDown11.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(13, 210);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 16);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "X:";
+            this.label20.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(76, 210);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(20, 16);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Y:";
+            this.label21.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(140, 210);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(64, 16);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Direction:";
+            this.label22.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(16, 267);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(559, 194);
+            this.panel1.TabIndex = 12;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(13, 243);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 16);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "NPC List:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(82, 240);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "New";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 473);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.EnemyTargetLabel);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.numericUpDown11);
             this.Controls.Add(this.numericUpDown5);
             this.Controls.Add(this.EnemyBaseLabel);
             this.Controls.Add(this.AllyBaseLabel);
             this.Controls.Add(this.AllyTargetLabel);
             this.Controls.Add(this.numericUpDown9);
+            this.Controls.Add(this.numericUpDown10);
             this.Controls.Add(this.numericUpDown4);
             this.Controls.Add(this.numericUpDown7);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.numericUpDown8);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numericUpDown6);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.numericUpDown1);
@@ -488,6 +617,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,6 +660,16 @@
         private System.Windows.Forms.Label EnemyBaseLabel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown numericUpDown11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button1;
     }
 }
 
