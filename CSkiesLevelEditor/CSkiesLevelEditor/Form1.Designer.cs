@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.AllyTargetLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -46,20 +45,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.EnemyTargetLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.AllyBaseLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.EnemyBaseLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -170,16 +166,6 @@
             this.numericUpDown2.Size = new System.Drawing.Size(32, 20);
             this.numericUpDown2.TabIndex = 7;
             // 
-            // AllyTargetLabel
-            // 
-            this.AllyTargetLabel.AutoSize = true;
-            this.AllyTargetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllyTargetLabel.Location = new System.Drawing.Point(94, 74);
-            this.AllyTargetLabel.Name = "AllyTargetLabel";
-            this.AllyTargetLabel.Size = new System.Drawing.Size(63, 16);
-            this.AllyTargetLabel.TabIndex = 8;
-            this.AllyTargetLabel.Text = "Disabled";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -278,17 +264,6 @@
             this.numericUpDown5.TabIndex = 7;
             this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
-            // EnemyTargetLabel
-            // 
-            this.EnemyTargetLabel.AutoSize = true;
-            this.EnemyTargetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyTargetLabel.Location = new System.Drawing.Point(390, 74);
-            this.EnemyTargetLabel.Name = "EnemyTargetLabel";
-            this.EnemyTargetLabel.Size = new System.Drawing.Size(63, 16);
-            this.EnemyTargetLabel.TabIndex = 8;
-            this.EnemyTargetLabel.Text = "Disabled";
-            this.EnemyTargetLabel.Click += new System.EventHandler(this.label9_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -356,16 +331,6 @@
             this.numericUpDown7.Size = new System.Drawing.Size(32, 20);
             this.numericUpDown7.TabIndex = 7;
             // 
-            // AllyBaseLabel
-            // 
-            this.AllyBaseLabel.AutoSize = true;
-            this.AllyBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllyBaseLabel.Location = new System.Drawing.Point(94, 130);
-            this.AllyBaseLabel.Name = "AllyBaseLabel";
-            this.AllyBaseLabel.Size = new System.Drawing.Size(63, 16);
-            this.AllyBaseLabel.TabIndex = 8;
-            this.AllyBaseLabel.Text = "Disabled";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -419,16 +384,6 @@
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(32, 20);
             this.numericUpDown9.TabIndex = 7;
-            // 
-            // EnemyBaseLabel
-            // 
-            this.EnemyBaseLabel.AutoSize = true;
-            this.EnemyBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyBaseLabel.Location = new System.Drawing.Point(382, 130);
-            this.EnemyBaseLabel.Name = "EnemyBaseLabel";
-            this.EnemyBaseLabel.Size = new System.Drawing.Size(63, 16);
-            this.EnemyBaseLabel.TabIndex = 8;
-            this.EnemyBaseLabel.Text = "Disabled";
             // 
             // label17
             // 
@@ -575,15 +530,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.EnemyTargetLabel);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown11);
             this.Controls.Add(this.numericUpDown5);
-            this.Controls.Add(this.EnemyBaseLabel);
-            this.Controls.Add(this.AllyBaseLabel);
-            this.Controls.Add(this.AllyTargetLabel);
             this.Controls.Add(this.numericUpDown9);
             this.Controls.Add(this.numericUpDown10);
             this.Controls.Add(this.numericUpDown4);
@@ -634,7 +585,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label AllyTargetLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
@@ -644,20 +594,17 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.Label EnemyTargetLabel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.Label AllyBaseLabel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.Label EnemyBaseLabel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboBox4;
