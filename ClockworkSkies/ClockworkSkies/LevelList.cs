@@ -79,6 +79,7 @@ namespace ClockworkSkies
             }
         }
 
+        // Loads the specified level
         public void LoadLevel(string level)
         {
             StreamReader reader = null;
@@ -87,25 +88,25 @@ namespace ClockworkSkies
                 reader = new StreamReader(level);
 
                 string line = null;
-                while((line = reader.ReadLine()) != null)
+                while((line = reader.ReadLine()) != null) // Reads until there is nothing left to read
                 {
-                    if(line[0] == ':')
+                    if(line[0] == ':') // The first character of a readable line must be :
                     {
-                        string lineData = line.Substring(3);
+                        string lineData = line.Substring(3); // Starts reading from the 3rd character position in the string (Format should be :E-content)
 
-                        switch(line[1])
+                        switch(line[1]) // Saves the data differently depending on the line header
                         {
-                            case 'L':
+                            case 'L': // The level name
                                 levelName = lineData;
                                 break;
-                            case 'T':
-                                int.TryParse(lineData, out timeLimit); // Fail to load time error
+                            case 'T': // The time limit
+                                int.TryParse(lineData, out timeLimit);
                                 break;
-                            case 'V':
-                                int.TryParse(lineData, out victoryCondition); // Fail to load victory condition error
+                            case 'V': // The victory condition
+                                int.TryParse(lineData, out victoryCondition);
                                 break;
-                            case 'A':
-                                string[] targetAlliedValues = lineData.Split(','); // Failed to load allied base error
+                            case 'A': // The target ally
+                                string[] targetAlliedValues = lineData.Split(',');
 
                                 int targetAliedXPos = 0;
                                 int.TryParse(targetAlliedValues[0], out targetAliedXPos);
@@ -119,7 +120,7 @@ namespace ClockworkSkies
                                 int.TryParse(targetAlliedValues[2], out targetAliedDirection);
                                 alliedTargetInfo.Z = targetAliedDirection;
                                 break;
-                            case 'R':
+                            case 'R': // The target enemy
                                 string[] targetEnemyValues = lineData.Split(',');
 
                                 int targetEnemyXPos = 0;
@@ -134,7 +135,7 @@ namespace ClockworkSkies
                                 int.TryParse(targetEnemyValues[2], out targetEnemyDirection);
                                 enemyTargetInfo.Z = targetEnemyDirection;
                                 break;
-                            case 'F':
+                            case 'F': // The allied base
                                 string[] alliedBaseValues = lineData.Split(',');
 
                                 int alliedBaseXPos = 0;
@@ -145,7 +146,7 @@ namespace ClockworkSkies
                                 int.TryParse(alliedBaseValues[1], out alliedBaseYPos);
                                 alliedBase.Y = alliedBaseYPos;
                                 break;
-                            case 'B':
+                            case 'B': // The enemy base
                                 string[] enemyBaseValues = lineData.Split(',');
 
                                 int enemyBaseXPos = 0;
@@ -156,7 +157,7 @@ namespace ClockworkSkies
                                 int.TryParse(enemyBaseValues[1], out enemyBaseYPos);
                                 enemyBase.Y = enemyBaseYPos;
                                 break;
-                            case 'P':
+                            case 'P': // The player
                                 string[] playerStartValues = lineData.Split(',');
 
                                 int playerXPos = 0;
@@ -171,7 +172,7 @@ namespace ClockworkSkies
                                 int.TryParse(playerStartValues[2], out playerDirection);
                                 playerInfo.Z = playerDirection;
                                 break;
-                            case 'E':
+                            case 'E': // The npcs
                                 string[] npcValues = lineData.Split(',');
 
                                 int npcXPos = 0;
@@ -194,12 +195,12 @@ namespace ClockworkSkies
                     }
                 }
             }
-            catch(IOException e)
+            catch(IOException e) // If there is a problem reading the file, show an error message
             {
                 showErrorMessage = true;
                 errorMessage = e.Message;
             }
-            finally
+            finally // Close the file if it's opened
             {
                 if (reader != null)
                 {
@@ -229,6 +230,7 @@ namespace ClockworkSkies
                 x.Draw(spriteBatch);
             }
 
+            // Draw an error message string if need be
             if(showErrorMessage)
             {
                 spriteBatch.DrawString(GameVariables.TextFont, errorMessage, new Vector2(50, 400), Color.Red);
