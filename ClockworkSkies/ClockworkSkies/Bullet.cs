@@ -21,7 +21,7 @@ namespace ClockworkSkies
 
         }
 
-        public override void Update(KeyboardState kState, GamePadState gState)
+        public override void Update()
         {
             double xComp = GameVariables.BulletSpeed * Math.Sin(direction);
             double yComp = GameVariables.BulletSpeed * Math.Cos(direction);

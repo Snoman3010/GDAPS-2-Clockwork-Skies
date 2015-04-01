@@ -99,7 +99,7 @@ namespace ClockworkSkies
 
             for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
-                GameVariables.pieces[i].Update(kState, gState);
+                GameVariables.pieces[i].Update();
             }
             gameMenu.Update(mState);
 

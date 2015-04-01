@@ -19,6 +19,7 @@ namespace ClockworkSkies
         private int speedChangeTimer; // Prevents the plane from changing speeds instantaneously
         private float fireTime; // The time in seconds it takes to fire one bullet
         private int savedFireTime; // The time when the last bullet was fired
+        private Dictionary<string, bool> keyPressed; // dictionary to hold key presses
 
         // Constructor
         public Plane(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate) : base(image, direction, position, width, height)
@@ -29,14 +30,28 @@ namespace ClockworkSkies
             speedChangeTimer = 0;
             fireTime = rate;
             savedFireTime = 0;
+            // creates dictionary and sets keypressed values to false
+            keyPressed = new Dictionary<string, bool>();
+            keyPressed.Add("upKey", false);
+            keyPressed.Add("leftKey", false);
+            keyPressed.Add("downKey", false);
+            keyPressed.Add("rightKey", false);
+            keyPressed.Add("spaceKey", false);
         }
 
-        public override void Update(KeyboardState kState, GamePadState gState)
+        // property
+        public Dictionary<string, bool> KeyPressed
+        {
+            get { return keyPressed; }
+            set { keyPressed = value; }
+        }
+
+        public override void Update()
         {
             speedChangeTimer--;
             if (speedChangeTimer <= 0)
             {
-                if (kState.IsKeyDown(Keys.Up)) // Increases the speed if the up button is pressed
+                if (keyPressed["upKey"] == true) // Increases the speed if the up button is pressed
                 {
                     speed++;
                     if (speed > GameVariables.PlaneMaxSpeed) // Limits the speed to the plane's max speed
@@ -46,7 +61,7 @@ namespace ClockworkSkies
                     speedChangeTimer = 20;
                 }
 
-                if (kState.IsKeyDown(Keys.Down)) // Decreases the speed if the down button is pressed
+                if (keyPressed["downKey"] == true) // Decreases the speed if the down button is pressed
                 {
                     speed--;
                     if (speed < GameVariables.PlaneMinSpeed) // Limits the speed to the plane's min speed
@@ -57,7 +72,7 @@ namespace ClockworkSkies
                 }
             }
 
-            if (kState.IsKeyDown(Keys.Left)) // Turns the plane counterclockwise if left is pressed
+            if (keyPressed["leftKey"] == true) // Turns the plane counterclockwise if left is pressed
             {
                 direction -= angularSpeed;
 
@@ -67,7 +82,7 @@ namespace ClockworkSkies
                 }
             }
 
-            if (kState.IsKeyDown(Keys.Right)) // Turns the plane clockwise if right is pressed
+            if (keyPressed["rightKey"] == true) // Turns the plane clockwise if right is pressed
             {
                 direction += angularSpeed;
 
@@ -85,7 +100,7 @@ namespace ClockworkSkies
             image.PosY -= yComp;
 
             // Fires a bullet if space is pressed and the delta time between bullets is greater than or equal to the fire time
-            if (kState.IsKeyDown(Keys.Space) && Environment.TickCount - savedFireTime >= fireTime)
+            if (keyPressed["spaceKey"] == true && Environment.TickCount - savedFireTime >= fireTime)
             {
                 // Calculates the point from which the bullet fires
                 float halfWidthX = (image.Width / 2) * (float)Math.Sin(direction + Math.PI / 2);

@@ -38,7 +38,7 @@ namespace ClockworkSkies
             return false;
         }
 
-        public abstract void Update(KeyboardState kState, GamePadState gState);
+        public abstract void Update();
 
         public void Draw(SpriteBatch spriteBatch)
         {
