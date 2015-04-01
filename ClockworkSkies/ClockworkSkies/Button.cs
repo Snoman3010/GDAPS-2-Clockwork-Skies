@@ -20,6 +20,11 @@ namespace ClockworkSkies
         public bool clickable;
         private bool previousMouse;
 
+        public string Text
+        {
+            get { return text; }
+        }
+
         // constructor
         public Button(Rectangle r, string txt)
         {
