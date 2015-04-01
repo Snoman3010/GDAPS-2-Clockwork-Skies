@@ -13,10 +13,10 @@ namespace CSkiesLevelEditor
         private Label xLabel;
         private Label yLabel;
         private Label directionLabel;
-        private ComboBox typeBox;
-        private ComboBox directionBox;
-        private NumericUpDown xUpDown;
-        private NumericUpDown yUpDown;
+        public ComboBox typeBox;
+        public ComboBox directionBox;
+        public NumericUpDown xUpDown;
+        public NumericUpDown yUpDown;
         private Button deleteButton;
         private int position;
 
@@ -32,6 +32,23 @@ namespace CSkiesLevelEditor
             xUpDown = xUD;
             yUpDown = yUD;
             deleteButton = button;
+
+            directionBox.Items.Add(directions.N);
+            directionBox.Items.Add(directions.E);
+            directionBox.Items.Add(directions.S);
+            directionBox.Items.Add(directions.W);
+            directionBox.Items.Add(directions.NE);
+            directionBox.Items.Add(directions.NW);
+            directionBox.Items.Add(directions.SE);
+            directionBox.Items.Add(directions.SW);
+
+            typeBox.Items.Add(NPCTypes.Enemy);
+            typeBox.Items.Add(NPCTypes.Ally);
+
+            directionBox.SelectedIndex = 2;
+            typeBox.SelectedIndex = 0;
+
+            deleteButton.Click += new EventHandler(deleteButton_Click);
         }
 
         public void moveUp()

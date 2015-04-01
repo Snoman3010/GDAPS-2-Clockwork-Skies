@@ -68,6 +68,8 @@
             this.panelNPCList = new System.Windows.Forms.Panel();
             this.labelNPC = new System.Windows.Forms.Label();
             this.buttonNewNPC = new System.Windows.Forms.Button();
+            this.labelExport = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAllyX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAllyY)).BeginInit();
@@ -116,6 +118,7 @@
             this.comboBoxVictory.Name = "comboBoxVictory";
             this.comboBoxVictory.Size = new System.Drawing.Size(163, 21);
             this.comboBoxVictory.TabIndex = 3;
+            this.comboBoxVictory.SelectedIndexChanged += new System.EventHandler(this.comboBoxVictory_SelectedIndexChanged);
             // 
             // numericUpDownTime
             // 
@@ -513,11 +516,33 @@
             this.buttonNewNPC.UseVisualStyleBackColor = true;
             this.buttonNewNPC.Click += new System.EventHandler(this.buttonNewNPC_Click);
             // 
+            // labelExport
+            // 
+            this.labelExport.AutoSize = true;
+            this.labelExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExport.Location = new System.Drawing.Point(289, 210);
+            this.labelExport.Name = "labelExport";
+            this.labelExport.Size = new System.Drawing.Size(85, 16);
+            this.labelExport.TabIndex = 15;
+            this.labelExport.Text = "Export Level:";
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(380, 207);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(75, 23);
+            this.buttonExport.TabIndex = 16;
+            this.buttonExport.Text = "Export";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 473);
+            this.Controls.Add(this.buttonExport);
+            this.Controls.Add(this.labelExport);
             this.Controls.Add(this.buttonNewNPC);
             this.Controls.Add(this.labelNPC);
             this.Controls.Add(this.panelNPCList);
@@ -618,6 +643,8 @@
         private System.Windows.Forms.Panel panelNPCList;
         private System.Windows.Forms.Label labelNPC;
         private System.Windows.Forms.Button buttonNewNPC;
+        private System.Windows.Forms.Label labelExport;
+        private System.Windows.Forms.Button buttonExport;
     }
 }
 
