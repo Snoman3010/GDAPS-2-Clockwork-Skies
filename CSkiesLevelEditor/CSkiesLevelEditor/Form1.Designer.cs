@@ -511,12 +511,13 @@
             this.buttonNewNPC.TabIndex = 14;
             this.buttonNewNPC.Text = "New";
             this.buttonNewNPC.UseVisualStyleBackColor = true;
+            this.buttonNewNPC.Click += new System.EventHandler(this.buttonNewNPC_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 473);
+            this.ClientSize = new System.Drawing.Size(593, 473);
             this.Controls.Add(this.buttonNewNPC);
             this.Controls.Add(this.labelNPC);
             this.Controls.Add(this.panelNPCList);
