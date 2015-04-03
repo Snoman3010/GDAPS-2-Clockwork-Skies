@@ -23,6 +23,7 @@ namespace ClockworkSkies
         Plane testPlane;
         Menu gameMenu;
         Player testPlayer;
+        Enemy[] testEnemy = new Enemy[3];
 
 
         public Game1()
@@ -67,6 +68,13 @@ namespace ClockworkSkies
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             //testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
             testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
+
+            testEnemy[0] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height - 50), 32,
+                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
+            testEnemy[1] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 4, GraphicsDevice.Viewport.Height - 50), 32,
+                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
+            testEnemy[2] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 5, GraphicsDevice.Viewport.Height - 50), 32,
+                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
 
            // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
             gameMenu = new Menu(MenuState.Title, this);
