@@ -19,7 +19,7 @@ namespace ClockworkSkies
         private int speedChangeTimer; // Prevents the plane from changing speeds instantaneously
         private float fireTime; // The time in seconds it takes to fire one bullet
         private int savedFireTime; // The time when the last bullet was fired
-        private Dictionary<string, bool> keyPressed; // dictionary to hold key presses
+        public Dictionary<string, bool> keyPressed; // dictionary to hold key presses
 
         // Constructor
         public Plane(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate) : base(image, direction, position, width, height)
@@ -40,11 +40,11 @@ namespace ClockworkSkies
         }
 
         // property
-        public Dictionary<string, bool> KeyPressed
-        {
-            get { return keyPressed; }
-            set { keyPressed = value; }
-        }
+        //public Dictionary<string, bool> KeyPressed
+        //{
+        //    get { return keyPressed; }
+        //    set { keyPressed = value; }
+        //}
 
         public override void Update()
         {

@@ -16,6 +16,7 @@ namespace ClockworkSkies
         // attributes
         private Plane plane;
         private int score;
+        public KeyboardState kState;
         //Dictionary<string, bool> keyPressed;
 
         // constructor
@@ -38,46 +39,46 @@ namespace ClockworkSkies
         public void Update()
         {
             // goes through each key, if the key is down it sets the keypressed value to true, if the key is not down it sets the keypressed value to false
-            KeyboardState kState = new KeyboardState();
+            
             if(kState.IsKeyDown(Keys.Up))
             {
-                plane.KeyPressed["upKey"] = true;
+                plane.keyPressed["upKey"] = true;
             }
-            if (kState.IsKeyDown(Keys.Up) == false)
+            else
             {
-                plane.KeyPressed["upKey"] = false;
+                plane.keyPressed["upKey"] = false;
             }
             if (kState.IsKeyDown(Keys.Left))
             {
-                plane.KeyPressed["leftKey"] = true;
+                plane.keyPressed["leftKey"] = true;
             }
-            if (kState.IsKeyDown(Keys.Left) == false)
+            else
             {
-                plane.KeyPressed["leftKey"] = false;
+                plane.keyPressed["leftKey"] = false;
             }
             if (kState.IsKeyDown(Keys.Down))
             {
-                plane.KeyPressed["downKey"] = true;
+                plane.keyPressed["downKey"] = true;
             }
-            if (kState.IsKeyDown(Keys.Down) == false)
+            else
             {
-                plane.KeyPressed["downKey"] = false;
+                plane.keyPressed["downKey"] = false;
             }
             if (kState.IsKeyDown(Keys.Right))
             {
-                plane.KeyPressed["rightKey"] = true;
+                plane.keyPressed["rightKey"] = true;
             }
-            if (kState.IsKeyDown(Keys.Right) == false)
+            else
             {
-                plane.KeyPressed["rightKey"] = false;
+                plane.keyPressed["rightKey"] = false;
             }
             if(kState.IsKeyDown(Keys.Space))
             {
-                plane.KeyPressed["spaceKey"] = true;
+                plane.keyPressed["spaceKey"] = true;
             }
-            if (kState.IsKeyDown(Keys.Space) == false)
+            else
             {
-                plane.KeyPressed["spaceKey"] = false;
+                plane.keyPressed["spaceKey"] = false;
             }
             
         }
