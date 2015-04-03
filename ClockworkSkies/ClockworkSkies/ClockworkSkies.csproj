@@ -35,11 +35,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Base.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameVariables.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="LevelList.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Piece.cs" />
@@ -68,6 +70,9 @@
   <ItemGroup>
     <Content Include="C:\Program Files %28x86%29\MonoGame\v3.0\Assemblies\WindowsGL\SDL.dll">
       <Link>SDL.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\base.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bullet.png">

@@ -17,6 +17,8 @@ namespace ClockworkSkies
         public static List<string> levels;
         public static List<Button> buttons;
 
+        private Menu gameMenu;
+
         private string levelName;
         private int timeLimit;
         private int victoryCondition;
@@ -32,12 +34,13 @@ namespace ClockworkSkies
 
         private int loadLevelTimer = 0;
 
-        public LevelList()
+        public LevelList(Menu gMenu)
         {
             levels = new List<string>();
             buttons = new List<Button>();
             npcs = new List<Vector4>();
             GetLevels();
+            gameMenu = gMenu;
         }
 
         //Find level files
@@ -229,6 +232,7 @@ namespace ClockworkSkies
                 }
 
                 loadLevelTimer = 0;
+                gameMenu.Hide();
             }
             catch(IOException e) // If there is a problem reading the file, show an error message
             {
