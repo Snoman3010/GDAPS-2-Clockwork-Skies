@@ -65,8 +65,8 @@ namespace ClockworkSkies
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
-            testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
-            testPlayer = new Player(testPlane);
+            //testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
+            testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
 
            // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
             gameMenu = new Menu(MenuState.Title);
