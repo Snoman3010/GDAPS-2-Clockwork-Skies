@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Plane : Piece
+    public class Plane : Piece
     {
         // Attributes
         public int speed; // The translational speed of the plane

@@ -52,3 +52,4 @@ D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\OpenTK.dll
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Tao.Sdl.dll
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\base.png

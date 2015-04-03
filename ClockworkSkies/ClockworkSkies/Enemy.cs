@@ -11,21 +11,20 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Enemy
+    public class Enemy : NPC
     {
         // attributes
-        Plane plane;
         Player target;
         
         // Constructor
         public Enemy(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate, Player play)
+            : base(image, position, width, height, direction, angleSpeed, rate)
         {
-            plane = new Plane(image, position, width, height, direction, angleSpeed, rate);  // create new plane
             target = play;
         }
 
         // AI stuff
-        public void Update()
+        public override void Update()
         {
             
         }

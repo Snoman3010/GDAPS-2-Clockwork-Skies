@@ -11,15 +11,15 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    enum MenuState { Title, Main, Play, Tutorial, Options, Credits, Pause };
+    public enum MenuState { Title, Main, Play, Tutorial, Options, Credits, Pause };
 
-    class Menu
+    public class Menu
     {
         // attribute
         private Dictionary<String, Button> buttons;
         private MenuState state;
         private bool buttonsSet;
-        private LevelList levels;
+        public LevelList levels;
         private Game1 mainGame;
         
         // Constructor

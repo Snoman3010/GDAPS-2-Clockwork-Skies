@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Player
+    public class Player
     {
         // attributes
         private Plane plane;

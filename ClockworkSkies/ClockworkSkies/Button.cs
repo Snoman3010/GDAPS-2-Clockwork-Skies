@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Button
+    public class Button
     {
         // attributes
         public Rectangle rect;

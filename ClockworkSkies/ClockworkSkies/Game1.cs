@@ -20,9 +20,9 @@ namespace ClockworkSkies
         SpriteBatch spriteBatch;
 
         // Test plane
-        Plane testPlane;
+        //Plane testPlane;
         Menu gameMenu;
-        Player testPlayer;
+        //Player testPlayer;
         Enemy[] testEnemy = new Enemy[3];
 
 
@@ -65,16 +65,17 @@ namespace ClockworkSkies
             GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
+            GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             //testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
-            testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
+            //testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
 
-            testEnemy[0] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height - 50), 32,
-                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
-            testEnemy[1] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 4, GraphicsDevice.Viewport.Height - 50), 32,
-                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
-            testEnemy[2] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 5, GraphicsDevice.Viewport.Height - 50), 32,
-                                    32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
+            //testEnemy[0] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height - 50), 32,
+            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
+            //testEnemy[1] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 4, GraphicsDevice.Viewport.Height - 50), 32,
+            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
+            //testEnemy[2] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 5, GraphicsDevice.Viewport.Height - 50), 32,
+            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
 
            // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
             gameMenu = new Menu(MenuState.Title, this);
@@ -107,9 +108,13 @@ namespace ClockworkSkies
             //KeyboardState kState = Keyboard.GetState();
             GamePadState gState = GamePad.GetState(0);
 
-            testPlayer.kState = Keyboard.GetState();
+            //testPlayer.kState = Keyboard.GetState();
+            if (gameMenu.levels.currentLevel != null)
+            {
+                gameMenu.levels.currentLevel.p1.kState = Keyboard.GetState();
+            }
 
-            testPlayer.Update();
+            //testPlayer.Update();
 
             for (int i = 0; i < GameVariables.pieces.Count; i++)
             {

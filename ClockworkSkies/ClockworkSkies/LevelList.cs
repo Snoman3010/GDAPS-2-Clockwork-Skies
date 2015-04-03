@@ -12,12 +12,13 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class LevelList
+    public class LevelList
     {
         public static List<string> levels;
         public static List<Button> buttons;
 
         private Menu gameMenu;
+        public Level currentLevel;
 
         private string levelName;
         private int timeLimit;
@@ -233,6 +234,7 @@ namespace ClockworkSkies
 
                 loadLevelTimer = 0;
                 gameMenu.Hide();
+                currentLevel = new Level(timeLimit, victoryCondition, playerInfo, alliedTargetInfo, enemyTargetInfo, alliedBase, enemyBase, npcs);
             }
             catch(IOException e) // If there is a problem reading the file, show an error message
             {

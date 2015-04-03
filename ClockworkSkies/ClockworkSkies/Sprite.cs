@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    class Sprite
+    public class Sprite
     {
         private Vector2 position;
         private int width;

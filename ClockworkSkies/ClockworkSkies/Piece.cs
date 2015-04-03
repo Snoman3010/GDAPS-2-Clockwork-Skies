@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    abstract class Piece
+    public abstract class Piece
     {
         protected Sprite image;
         protected float direction;
