@@ -39,13 +39,6 @@ namespace ClockworkSkies
             keyPressed.Add("spaceKey", false);
         }
 
-        // property
-        //public Dictionary<string, bool> KeyPressed
-        //{
-        //    get { return keyPressed; }
-        //    set { keyPressed = value; }
-        //}
-
         public override void Update()
         {
             speedChangeTimer--;
