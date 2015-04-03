@@ -69,8 +69,8 @@ namespace ClockworkSkies
             testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
 
            // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
-            gameMenu = new Menu(MenuState.Title);
-
+            gameMenu = new Menu(MenuState.Title, this);
+            
 
         }
 
