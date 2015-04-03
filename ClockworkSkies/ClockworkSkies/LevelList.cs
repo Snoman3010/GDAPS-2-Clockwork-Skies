@@ -29,6 +29,7 @@ namespace ClockworkSkies
 
         private bool showErrorMessage = false;
         private string errorMessage = "";
+        private int errorTimer = 0;
 
         public LevelList()
         {
@@ -100,94 +101,125 @@ namespace ClockworkSkies
                                 levelName = lineData;
                                 break;
                             case 'T': // The time limit
-                                int.TryParse(lineData, out timeLimit);
+                                try
+                                {
+                                    timeLimit = int.Parse(lineData);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's time limit.";
+                                    return;
+                                }
                                 break;
                             case 'V': // The victory condition
-                                int.TryParse(lineData, out victoryCondition);
+                                try
+                                {
+                                    victoryCondition = int.Parse(lineData);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's victory condition.";
+                                    return;
+                                }
                                 break;
                             case 'A': // The target ally
-                                string[] targetAlliedValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] targetAlliedValues = lineData.Split(',');
 
-                                int targetAliedXPos = 0;
-                                int.TryParse(targetAlliedValues[0], out targetAliedXPos);
-                                alliedTargetInfo.X = targetAliedXPos;
-
-                                int targetAliedYPos = 0;
-                                int.TryParse(targetAlliedValues[1], out targetAliedYPos);
-                                alliedTargetInfo.Y = targetAliedYPos;
-
-                                int targetAliedDirection = 0;
-                                int.TryParse(targetAlliedValues[2], out targetAliedDirection);
-                                alliedTargetInfo.Z = targetAliedDirection;
+                                    alliedTargetInfo.X = int.Parse(targetAlliedValues[0]);
+                                    alliedTargetInfo.Y = int.Parse(targetAlliedValues[1]);
+                                    alliedTargetInfo.Z = int.Parse(targetAlliedValues[2]);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's target ally.";
+                                    return;
+                                }
                                 break;
                             case 'R': // The target enemy
-                                string[] targetEnemyValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] targetEnemyValues = lineData.Split(',');
 
-                                int targetEnemyXPos = 0;
-                                int.TryParse(targetEnemyValues[0], out targetEnemyXPos);
-                                enemyTargetInfo.X = targetEnemyXPos;
-
-                                int targetEnemyYPos = 0;
-                                int.TryParse(targetEnemyValues[1], out targetEnemyYPos);
-                                enemyTargetInfo.Y = targetEnemyYPos;
-
-                                int targetEnemyDirection = 0;
-                                int.TryParse(targetEnemyValues[2], out targetEnemyDirection);
-                                enemyTargetInfo.Z = targetEnemyDirection;
+                                    enemyTargetInfo.X = int.Parse(targetEnemyValues[0]);
+                                    enemyTargetInfo.Y = int.Parse(targetEnemyValues[1]);
+                                    enemyTargetInfo.Z = int.Parse(targetEnemyValues[2]);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's target enemy.";
+                                    return;
+                                }
                                 break;
                             case 'F': // The allied base
-                                string[] alliedBaseValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] alliedBaseValues = lineData.Split(',');
 
-                                int alliedBaseXPos = 0;
-                                int.TryParse(alliedBaseValues[0], out alliedBaseXPos);
-                                alliedBase.X = alliedBaseXPos;
-
-                                int alliedBaseYPos = 0;
-                                int.TryParse(alliedBaseValues[1], out alliedBaseYPos);
-                                alliedBase.Y = alliedBaseYPos;
+                                    alliedBase.X = int.Parse(alliedBaseValues[0]); ;
+                                    alliedBase.Y = int.Parse(alliedBaseValues[1]);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's allied base.";
+                                    return;
+                                }
                                 break;
                             case 'B': // The enemy base
-                                string[] enemyBaseValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] enemyBaseValues = lineData.Split(',');
 
-                                int enemyBaseXPos = 0;
-                                int.TryParse(enemyBaseValues[0], out enemyBaseXPos);
-                                enemyBase.X = enemyBaseXPos;
-
-                                int enemyBaseYPos = 0;
-                                int.TryParse(enemyBaseValues[1], out enemyBaseYPos);
-                                enemyBase.Y = enemyBaseYPos;
+                                    enemyBase.X = int.Parse(enemyBaseValues[0]);
+                                    enemyBase.Y = int.Parse(enemyBaseValues[1]);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the level's enemy base.";
+                                    return;
+                                }
                                 break;
                             case 'P': // The player
-                                string[] playerStartValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] playerStartValues = lineData.Split(',');
 
-                                int playerXPos = 0;
-                                int.TryParse(playerStartValues[0], out playerXPos);
-                                playerInfo.X = playerXPos;
-
-                                int playerYPos = 0;
-                                int.TryParse(playerStartValues[1], out playerYPos);
-                                playerInfo.Y = playerYPos;
-
-                                int playerDirection = 0;
-                                int.TryParse(playerStartValues[2], out playerDirection);
-                                playerInfo.Z = playerDirection;
+                                    playerInfo.X = int.Parse(playerStartValues[0]);
+                                    playerInfo.Y = int.Parse(playerStartValues[1]);
+                                    playerInfo.Z = int.Parse(playerStartValues[2]);
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load the player.";
+                                    return;
+                                }
                                 break;
                             case 'E': // The npcs
-                                string[] npcValues = lineData.Split(',');
+                                try
+                                {
+                                    string[] npcValues = lineData.Split(',');
 
-                                int npcXPos = 0;
-                                int.TryParse(npcValues[0], out npcXPos);
+                                    int npcXPos = int.Parse(npcValues[0]);
+                                    int npcYPos = int.Parse(npcValues[1]);
+                                    int npcDirection = int.Parse(npcValues[2]);
+                                    int npcType = int.Parse(npcValues[2]);
 
-                                int npcYPos = 0;
-                                int.TryParse(npcValues[1], out npcYPos);
-
-                                int npcDirection = 0;
-                                int.TryParse(npcValues[2], out npcDirection);
-
-                                int npcType = 0;
-                                int.TryParse(npcValues[2], out npcType);
-
-                                npcs.Add(new Vector4(npcXPos, npcYPos, npcDirection, npcType));
+                                    npcs.Add(new Vector4(npcXPos, npcYPos, npcDirection, npcType));
+                                }
+                                catch(Exception)
+                                {
+                                    showErrorMessage = true;
+                                    errorMessage = "Failed to load an NPC.";
+                                    return;
+                                }
                                 break;
                             default:
                                 break;
@@ -221,19 +253,25 @@ namespace ClockworkSkies
                     LoadLevel(x.Text);
                 }
             }
+
+            errorTimer++;
+            if(errorTimer > 5000 && showErrorMessage)
+            {
+                showErrorMessage = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            // Draw an error message string if need be
+            if (showErrorMessage)
+            {
+                spriteBatch.DrawString(GameVariables.TextFont, errorMessage, new Vector2(50, 400), Color.Red);
+            }
+
             foreach (Button x in buttons)
             {
                 x.Draw(spriteBatch);
-            }
-
-            // Draw an error message string if need be
-            if(showErrorMessage)
-            {
-                spriteBatch.DrawString(GameVariables.TextFont, errorMessage, new Vector2(50, 400), Color.Red);
             }
         }
     }
