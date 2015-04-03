@@ -20,9 +20,9 @@ namespace ClockworkSkies
         //Dictionary<string, bool> keyPressed;
 
         // constructor
-        public Player(Plane pln)
+        public Player(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate)
         {
-            plane = pln;
+            plane = new Plane(image, position, width, height, direction, angleSpeed, rate);
             score = 0;
             /*
             // creates dictionary and sets keypressed values to false
