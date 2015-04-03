@@ -13,6 +13,7 @@ namespace ClockworkSkies
 {
     public class Sprite
     {
+        //attributes
         private Vector2 position;
         private int width;
         private int height;

@@ -14,6 +14,7 @@ namespace ClockworkSkies
 {
     public class LevelList
     {
+        //attributes
         public static List<string> levels;
         public static List<Button> buttons;
 
@@ -35,6 +36,7 @@ namespace ClockworkSkies
 
         private int loadLevelTimer = 0;
 
+        //constructor
         public LevelList(Menu gMenu)
         {
             levels = new List<string>();
@@ -262,6 +264,10 @@ namespace ClockworkSkies
                     LoadLevel(x.Text);
                     loadLevelTimer++;
                 }
+            }
+            if (currentLevel != null)
+            {
+                currentLevel.Update();
             }
         }
 

@@ -13,6 +13,7 @@ namespace ClockworkSkies
 {
     public abstract class Piece
     {
+        //attributes
         protected Sprite image;
         protected float direction;
 
@@ -21,6 +22,7 @@ namespace ClockworkSkies
             get { return image; }
         }
 
+        //constructor
         public Piece(Texture2D img, float dir, Vector2 position, int width, int height)
         {
             image = new Sprite(img, position, width, height);

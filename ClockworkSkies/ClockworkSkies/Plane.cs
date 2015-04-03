@@ -22,13 +22,13 @@ namespace ClockworkSkies
         public Dictionary<string, bool> keyPressed; // dictionary to hold key presses
 
         // Constructor
-        public Plane(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate) : base(image, direction, position, width, height)
+        public Plane(Texture2D image, Vector2 position, float direction) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize)
         {
             // Sets all the default values
-            angularSpeed = angleSpeed;
+            angularSpeed = GameVariables.PlaneAngleSpeed;
             speed = GameVariables.PlaneMinSpeed;
             speedChangeTimer = 0;
-            fireTime = rate;
+            fireTime = GameVariables.FireRate;
             savedFireTime = 0;
             // creates dictionary and sets keypressed values to false
             keyPressed = new Dictionary<string, bool>();

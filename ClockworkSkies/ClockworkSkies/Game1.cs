@@ -19,11 +19,8 @@ namespace ClockworkSkies
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        // Test plane
-        //Plane testPlane;
         Menu gameMenu;
-        //Player testPlayer;
-        Enemy[] testEnemy = new Enemy[3];
+
 
 
         public Game1()
@@ -33,8 +30,8 @@ namespace ClockworkSkies
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = false;
-            graphics.PreferredBackBufferWidth = 1360;
-            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = GameVariables.WindowWidth;
+            graphics.PreferredBackBufferHeight = GameVariables.WindowHeight;
 
         }
 
@@ -67,17 +64,7 @@ namespace ClockworkSkies
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
-            //testPlane = new Plane(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
-            //testPlayer = new Player(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50), 32, 32, 0, 3 * (float)(Math.PI / 180), 150);
 
-            //testEnemy[0] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height - 50), 32,
-            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
-            //testEnemy[1] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 4, GraphicsDevice.Viewport.Height - 50), 32,
-            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
-            //testEnemy[2] = new Enemy(GameVariables.PlayerImage, new Vector2(GraphicsDevice.Viewport.Width / 5, GraphicsDevice.Viewport.Height - 50), 32,
-            //                        32, 0, 3 * (float)(Math.PI / 180), 150, testPlayer);
-
-           // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
             gameMenu = new Menu(MenuState.Title, this);
             
 
@@ -99,22 +86,16 @@ namespace ClockworkSkies
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
 
             // TODO: Add your update logic here
             MouseState mState = Mouse.GetState();
 
-            //KeyboardState kState = Keyboard.GetState();
             GamePadState gState = GamePad.GetState(0);
 
-            //testPlayer.kState = Keyboard.GetState();
             if (gameMenu.levels.currentLevel != null)
             {
                 gameMenu.levels.currentLevel.p1.kState = Keyboard.GetState();
             }
-
-            //testPlayer.Update();
 
             for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
@@ -142,12 +123,6 @@ namespace ClockworkSkies
                 piece.Draw(spriteBatch);
             }
 
-            //spriteBatch.DrawString(font, "Direction: " + testPlane.direction, new Vector2(50, 50), Color.White);
-            //spriteBatch.DrawString(font, "Speed: " + testPlane.speed, new Vector2(50, 100), Color.White);
-
-            //spriteBatch.DrawString(font, "Piece List Length: " + GameVariables.pieces.Count, new Vector2(50, 150), Color.White);
-
-            //button1.Draw(spriteBatch, button, font);
             gameMenu.Draw(spriteBatch);
 
             spriteBatch.End();

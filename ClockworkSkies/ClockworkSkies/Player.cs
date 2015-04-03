@@ -17,22 +17,13 @@ namespace ClockworkSkies
         private Plane plane;
         private int score;
         public KeyboardState kState;
-        //Dictionary<string, bool> keyPressed;
 
         // constructor
-        public Player(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate)
+        public Player(Texture2D image, Vector2 position, float direction)
         {
-            plane = new Plane(image, position, width, height, direction, angleSpeed, rate);
+            plane = new Plane(GameVariables.PlayerImage, position, direction);
             score = 0;
-            /*
-            // creates dictionary and sets keypressed values to false
-            keyPressed = new Dictionary<string, bool>();
-            keyPressed.Add("upKey", false);
-            keyPressed.Add("leftKey", false);
-            keyPressed.Add("downKey", false);
-            keyPressed.Add("rightKey", false);
-            keyPressed.Add("spaceKey", false);
-            */
+            kState = new KeyboardState();
         }
 
         // Update method

@@ -13,11 +13,14 @@ namespace ClockworkSkies
 {
     public abstract class NPC
     {
+        //attrubutes
         protected Plane plane;
 
-        public NPC(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate)
+        //constructor
+        public NPC(Texture2D image, Vector2 position, float direction)
         {
-            plane = new Plane(image, position, width, height, direction, angleSpeed, rate);
+            //create plane
+            plane = new Plane(image, position, direction);
         }
 
         public abstract void Update();

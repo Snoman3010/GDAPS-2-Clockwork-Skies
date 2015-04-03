@@ -13,15 +13,16 @@ namespace ClockworkSkies
 {
     public class Ally : NPC
     {
-        public Ally(Texture2D image, Vector2 position, int width, int height, float direction, float angleSpeed, float rate)
-            : base(image, position, width, height, direction, angleSpeed, rate)
+        //constructor
+        public Ally(Texture2D image, Vector2 position, float direction)
+            : base(image, position, direction)
         {
-
+            
         }
 
         public override void Update()
         {
-            //throw new NotImplementedException();
+            //AI for allied planes goes here
         }
     }
 }

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace CSkiesLevelEditor
 {
-    enum directions { N, E, S, W, NE, NW, SE, SW};
+    enum directions { N, NE, E, SE, S, SW, W, NW};
     enum NPCTypes { Enemy, Ally};
     enum victoryConditions { Elimination, Survival, Escort, EnemyEscort, DestroyBase, DefendBase, DoubleEscort, DoubleBase};
 
