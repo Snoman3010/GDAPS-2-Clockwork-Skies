@@ -38,7 +38,7 @@ namespace ClockworkSkies
             buttons.Add("Resume", new Button(new Rectangle(0, 0, 0, 0), "Resume"));
             buttons.Add("Exit", new Button(new Rectangle(0, 0, 0, 0), "Exit game"));
 
-            levels = new LevelList();
+            levels = new LevelList(this);
 
             buttonsSet = false;
 
@@ -244,6 +244,16 @@ namespace ClockworkSkies
                 pair.Value.Draw(spriteBatch);
                 levels.Draw(spriteBatch);
             }
+        }
+
+        public void Hide()
+        {
+            ClearButtons();
+        }
+
+        public void Show()
+        {
+            buttonsSet = false;
         }
     }
 }
