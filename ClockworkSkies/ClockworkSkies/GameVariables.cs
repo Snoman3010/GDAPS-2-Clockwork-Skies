@@ -55,6 +55,12 @@ namespace ClockworkSkies
             set;
         }
 
+        public static Texture2D BaseImage
+        {
+            get;
+            set;
+        }
+
         public static SpriteFont TextFont
         {
             get;
