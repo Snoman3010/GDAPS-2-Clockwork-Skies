@@ -20,9 +20,10 @@ namespace ClockworkSkies
         private MenuState state;
         private bool buttonsSet;
         private LevelList levels;
+        private Game1 mainGame;
         
         // Constructor
-        public Menu(MenuState initialState)
+        public Menu(MenuState initialState, Game1 mG)
         {
             // Set up menu state
             state = initialState;
@@ -40,6 +41,8 @@ namespace ClockworkSkies
             levels = new LevelList();
 
             buttonsSet = false;
+
+            mainGame = mG;
 
         }
 
@@ -198,7 +201,7 @@ namespace ClockworkSkies
                     }
                     if (buttons["Exit"].clicked)
                     {
-                        //Quit the game
+                        mainGame.Exit();
                     }
                     break;
                 case MenuState.Options:

@@ -73,8 +73,8 @@ namespace ClockworkSkies
             testBase = new Base(new Vector2(100, 100));
 
            // button1 = new Button(new Rectangle(50, 50, 200, 100), "Button");
-            gameMenu = new Menu(MenuState.Title);
-
+            gameMenu = new Menu(MenuState.Title, this);
+            
 
         }
 

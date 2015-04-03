@@ -29,7 +29,8 @@ namespace ClockworkSkies
 
         private bool showErrorMessage = false;
         private string errorMessage = "";
-        private int errorTimer = 0;
+
+        private int loadLevelTimer = 0;
 
         public LevelList()
         {
@@ -54,7 +55,7 @@ namespace ClockworkSkies
                     reader.Close();
                 }
             }
-            catch (FileNotFoundException fnf)
+            catch (FileNotFoundException)
             {
                 return;
             }
@@ -210,7 +211,7 @@ namespace ClockworkSkies
                                     int npcXPos = int.Parse(npcValues[0]);
                                     int npcYPos = int.Parse(npcValues[1]);
                                     int npcDirection = int.Parse(npcValues[2]);
-                                    int npcType = int.Parse(npcValues[2]);
+                                    int npcType = int.Parse(npcValues[3]);
 
                                     npcs.Add(new Vector4(npcXPos, npcYPos, npcDirection, npcType));
                                 }
@@ -226,6 +227,8 @@ namespace ClockworkSkies
                         }
                     }
                 }
+
+                loadLevelTimer = 0;
             }
             catch(IOException e) // If there is a problem reading the file, show an error message
             {
@@ -247,17 +250,12 @@ namespace ClockworkSkies
             {
                 x.Update(mState);
 
-                if(x.clicked)
+                if(x.clicked && loadLevelTimer == 0)
                 {
                     // Load corresponding level
                     LoadLevel(x.Text);
+                    loadLevelTimer++;
                 }
-            }
-
-            errorTimer++;
-            if(errorTimer > 5000 && showErrorMessage)
-            {
-                showErrorMessage = false;
             }
         }
 
