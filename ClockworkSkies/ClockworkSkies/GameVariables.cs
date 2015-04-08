@@ -13,6 +13,8 @@ namespace ClockworkSkies
 {
     class GameVariables
     {
+        private static Random rng = new Random();
+
         //Player sprite
         public static Texture2D PlayerImage
         {
@@ -25,6 +27,13 @@ namespace ClockworkSkies
             get;
             set;
         }
+        // smoke sprite
+        public static Texture2D SmokeImage
+        {
+            get;
+            set;
+        }
+
         //Width of game window
         public static int WindowWidth
         {
@@ -37,6 +46,8 @@ namespace ClockworkSkies
         }
         //List of all pieces
         public static List<Piece> pieces = new List<Piece>();
+
+        public static List<Smoke> smokeList = new List<Smoke>();
         //Max speed of plane
         public static int PlaneMaxSpeed
         {
@@ -89,7 +100,12 @@ namespace ClockworkSkies
         //invincibility timer
         public static float InvulnTimer
         {
-            get { return 300; }
+            get { return 150; }
+        }
+
+        public static int GetRandom(int min, int max)
+        {
+            return rng.Next(min, max);
         }
     }
 }

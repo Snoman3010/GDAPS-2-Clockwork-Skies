@@ -37,6 +37,7 @@ namespace ClockworkSkies
         public int Width
         {
             get { return width; }
+            set { width = value; }
         }
 
         // The height of the sprite

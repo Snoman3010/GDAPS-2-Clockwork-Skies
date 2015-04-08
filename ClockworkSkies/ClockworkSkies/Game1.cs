@@ -64,6 +64,7 @@ namespace ClockworkSkies
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
+            GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
 
             gameMenu = new Menu(MenuState.Title, this);
             
@@ -101,6 +102,12 @@ namespace ClockworkSkies
             {
                 GameVariables.pieces[i].Update();
             }
+
+            for (int i = 0; i < GameVariables.smokeList.Count; i++)
+            {
+                GameVariables.smokeList[i].Update();
+            }
+
             gameMenu.Update(mState);
 
             base.Update(gameTime);
@@ -119,10 +126,15 @@ namespace ClockworkSkies
             spriteBatch.Begin();
 
             GameVariables.pieces.Reverse();
-            
-            foreach(Piece piece in GameVariables.pieces)
+
+            for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
-                piece.Draw(spriteBatch);
+                GameVariables.pieces[i].Draw(spriteBatch);
+            }
+
+            for (int i = 0; i < GameVariables.smokeList.Count; i++)
+            {
+                GameVariables.smokeList[i].Draw(spriteBatch);
             }
 
             GameVariables.pieces.Reverse();

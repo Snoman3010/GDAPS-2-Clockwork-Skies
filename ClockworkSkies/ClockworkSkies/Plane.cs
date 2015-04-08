@@ -35,7 +35,8 @@ namespace ClockworkSkies
             timeSinceDamage = 0;
             savedFireTime = 0;
             life = 4;
-            smokeTimer = new Random().Next(150, 600);
+            smokeTimer = GameVariables.GetRandom(10, 35);
+
             // creates dictionary and sets keypressed values to false
             keyPressed = new Dictionary<string, bool>();
             keyPressed.Add("upKey", false);
@@ -59,7 +60,10 @@ namespace ClockworkSkies
             if (life <= 2 && smokeTimer <=0)
             {
                 //new smoke puff
-                smokeTimer = new Random().Next(150, 600);
+                float halfWidthX = (image.Width / 2) * (float)Math.Sin(direction + Math.PI / 2);
+                float halfWidthY = (image.Width / 2) * (float)Math.Cos(direction + Math.PI / 2);
+                Smoke smoke = new Smoke(new Vector2(image.PosX, image.PosY));
+                smokeTimer = GameVariables.GetRandom(10, 35);
             }
             if (speedChangeTimer <= 0)
             {
