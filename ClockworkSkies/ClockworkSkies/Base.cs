@@ -32,14 +32,18 @@ namespace ClockworkSkies
             TestForHit();
             if(life <= 0)
             {
-                this.Remove();
+                Remove();
             }
         }
 
         public void TakeDamage()
         {
-            //if(timeSinceDamage <=)
-            life--;
+            if(timeSinceDamage <= GameVariables.InvulnTimer)
+            {
+                life--;
+                timeSinceDamage = 0;
+            }
+            
 
         }
 
@@ -55,7 +59,7 @@ namespace ClockworkSkies
                 if (colliding)
                 {
                     TakeDamage();
-                    timeSinceDamage = 0;
+                    
                     if (GameVariables.pieces[i] is Bullet)
                     {
                         GameVariables.pieces[i].Remove();
