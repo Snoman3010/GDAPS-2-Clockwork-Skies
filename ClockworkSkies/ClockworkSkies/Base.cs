@@ -38,7 +38,7 @@ namespace ClockworkSkies
 
         public void TakeDamage()
         {
-            if(timeSinceDamage <= GameVariables.InvulnTimer)
+            if(timeSinceDamage >= GameVariables.InvulnTimer)
             {
                 life--;
                 timeSinceDamage = 0;
