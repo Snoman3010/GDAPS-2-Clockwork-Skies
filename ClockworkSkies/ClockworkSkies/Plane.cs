@@ -20,10 +20,9 @@ namespace ClockworkSkies
         private float fireTime; // The time in seconds it takes to fire one bullet
         private int savedFireTime; // The time when the last bullet was fired
         public Dictionary<string, bool> keyPressed; // dictionary to hold key presses
-        private bool friendly;
 
         // Constructor
-        public Plane(Texture2D image, Vector2 position, float direction, bool friendly) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize)
+        public Plane(Texture2D image, Vector2 position, float direction, bool allied) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize, allied)
         {
             // Sets all the default values
             angularSpeed = GameVariables.PlaneAngleSpeed;
@@ -42,6 +41,7 @@ namespace ClockworkSkies
 
         public override void Update()
         {
+            TestForHit();
             speedChangeTimer--;
             if (speedChangeTimer <= 0)
             {
@@ -100,8 +100,33 @@ namespace ClockworkSkies
                 float halfWidthX = (image.Width / 2) * (float)Math.Sin(direction + Math.PI / 2);
                 float halfWidthY = (image.Width / 2) * (float)Math.Cos(direction + Math.PI / 2);
 
-                Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), friendly);
+                Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), Friendly);
                 savedFireTime = Environment.TickCount; // sets the new fire time
+            }
+        }
+
+        public void TakeDamage()
+        {
+
+        }
+
+        public void TestForHit()
+        {
+            for (int i = 0; i < GameVariables.pieces.Count; i++)
+            {
+                bool colliding = false;
+                if (GameVariables.pieces[i].Friendly != Friendly)
+                {
+                    colliding = IsColiding(GameVariables.pieces[i]);
+                }
+                if (colliding)
+                {
+                    TakeDamage();
+                    if (GameVariables.pieces[i] is Bullet)
+                    {
+                        GameVariables.pieces[i].Remove();
+                    }
+                }
             }
         }
     }

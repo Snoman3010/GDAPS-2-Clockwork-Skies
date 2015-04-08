@@ -16,17 +16,24 @@ namespace ClockworkSkies
         //attributes
         protected Sprite image;
         protected float direction;
+        private bool friendly;
 
         public Sprite Image
         {
             get { return image; }
         }
 
+        public bool Friendly
+        {
+            get { return friendly; }
+        }
+
         //constructor
-        public Piece(Texture2D img, float dir, Vector2 position, int width, int height)
+        public Piece(Texture2D img, float dir, Vector2 position, int width, int height, bool allied)
         {
             image = new Sprite(img, position, width, height);
             direction = dir;
+            friendly = allied;
             GameVariables.pieces.Add(this);
         }
 

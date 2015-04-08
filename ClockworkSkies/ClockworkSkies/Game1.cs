@@ -117,11 +117,15 @@ namespace ClockworkSkies
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
+
+            GameVariables.pieces.Reverse();
             
             foreach(Piece piece in GameVariables.pieces)
             {
                 piece.Draw(spriteBatch);
             }
+
+            GameVariables.pieces.Reverse();
 
             gameMenu.Draw(spriteBatch);
 

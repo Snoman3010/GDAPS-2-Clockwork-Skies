@@ -21,8 +21,10 @@ namespace ClockworkSkies
         {
             //create plane
             plane = new Plane(image, position, direction, ally);
+            plane.keyPressed["leftKey"] = true;
         }
 
         public abstract void Update();
+
     }
 }

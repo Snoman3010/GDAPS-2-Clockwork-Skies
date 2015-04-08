@@ -1,13 +1,3 @@
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\SDL.dll
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\ClockworkSkies.exe
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\ClockworkSkies.pdb
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Lidgren.Network.dll
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\MonoGame.Framework.dll
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\OpenTK.dll
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Tao.Sdl.dll
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\SDL.dll
@@ -20,8 +10,6 @@ D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\temp.png
 D:\Users\rpj5582\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\mainFont.xnb
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\temp.png
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\mainFont.xnb
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\SDL.dll
@@ -36,8 +24,6 @@ D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\Clockwork
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\bullet.png
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\button.png
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\bullet.png
-D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\button.png
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\SDL.dll
@@ -52,4 +38,17 @@ D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\OpenTK.dll
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Tao.Sdl.dll
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\SDL.dll
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\base.png
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\bullet.png
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\button.png
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\temp.png
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\mainFont.xnb
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\ClockworkSkies.exe
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\ClockworkSkies.pdb
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Lidgren.Network.dll
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\MonoGame.Framework.dll
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\OpenTK.dll
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Tao.Sdl.dll
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
+D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
