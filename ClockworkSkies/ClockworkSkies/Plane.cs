@@ -20,6 +20,9 @@ namespace ClockworkSkies
         private float fireTime; // The time in seconds it takes to fire one bullet
         private int savedFireTime; // The time when the last bullet was fired
         public Dictionary<string, bool> keyPressed; // dictionary to hold key presses
+        private int timeSinceDamage;
+        private int life;
+        private int smokeTimer;
 
         // Constructor
         public Plane(Texture2D image, Vector2 position, float direction, bool allied) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize, allied)
@@ -29,7 +32,10 @@ namespace ClockworkSkies
             speed = GameVariables.PlaneMinSpeed;
             speedChangeTimer = 0;
             fireTime = GameVariables.FireRate;
+            timeSinceDamage = 0;
             savedFireTime = 0;
+            life = 4;
+            smokeTimer = new Random().Next(150, 600);
             // creates dictionary and sets keypressed values to false
             keyPressed = new Dictionary<string, bool>();
             keyPressed.Add("upKey", false);
@@ -42,7 +48,19 @@ namespace ClockworkSkies
         public override void Update()
         {
             TestForHit();
+            if (life <= 0)
+            {
+                Remove();
+                return;
+            }
             speedChangeTimer--;
+            timeSinceDamage++;
+            smokeTimer--;
+            if (life <= 2 && smokeTimer <=0)
+            {
+                //new smoke puff
+                smokeTimer = new Random().Next(150, 600);
+            }
             if (speedChangeTimer <= 0)
             {
                 if (keyPressed["upKey"] == true) // Increases the speed if the up button is pressed
@@ -107,7 +125,11 @@ namespace ClockworkSkies
 
         public void TakeDamage()
         {
-
+            if (timeSinceDamage >= GameVariables.InvulnTimer)
+            {
+                life--;
+                timeSinceDamage = 0;
+            }
         }
 
         public void TestForHit()
