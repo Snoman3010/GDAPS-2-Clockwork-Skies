@@ -46,5 +46,36 @@ namespace ClockworkSkies
         {
             image.Draw(spriteBatch, direction);
         }
+
+        public Vector2 FindCenter()
+        {
+            float xCenter = image.PosX + (image.Width / 2);
+            float yCenter = image.PosY + (image.Height / 2);
+            return new Vector2(xCenter, yCenter);
+        }
+
+        private float FindDistance(Vector2 pointA, Vector2 pointB)
+        {
+            float xDistance = pointB.X - pointA.X;
+            float yDistance = pointB.Y - pointA.Y;
+            float distance = (float) Math.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
+            return distance;
+        }
+
+        public bool IsColiding(Piece other)
+        {
+            Vector2 thisCenter = FindCenter();
+            Vector2 otherCenter = other.FindCenter();
+            float currentDistance = FindDistance(thisCenter, otherCenter);
+            float collideDistance = image.Width + other.Image.Width;
+            if (currentDistance <= collideDistance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
