@@ -85,5 +85,11 @@ namespace ClockworkSkies
         {
             get { return 150; }
         }
+
+        //invincibility timer
+        public static float InvulnTimer
+        {
+            get { return 300; }
+        }
     }
 }
