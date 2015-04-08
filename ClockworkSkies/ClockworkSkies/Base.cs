@@ -16,21 +16,30 @@ namespace ClockworkSkies
         // attributes
         private int life;
         private Vector2 position;
+        private int timeSinceDamage;
 
         // constructor
         public Base(Vector2 pos, bool allied): base(GameVariables.BaseImage, 0, pos, GameVariables.BaseImage.Width, GameVariables.BaseImage.Height, allied)
         {
             life = 10;
             position = pos;
+            timeSinceDamage = 0;
         }
 
         public override void Update()
         {
+            timeSinceDamage++;
             TestForHit();
+            if(life <= 0)
+            {
+                this.Remove();
+            }
         }
 
         public void TakeDamage()
         {
+            //if(timeSinceDamage <=)
+            life--;
 
         }
 
@@ -46,6 +55,7 @@ namespace ClockworkSkies
                 if (colliding)
                 {
                     TakeDamage();
+                    timeSinceDamage = 0;
                     if (GameVariables.pieces[i] is Bullet)
                     {
                         GameVariables.pieces[i].Remove();
