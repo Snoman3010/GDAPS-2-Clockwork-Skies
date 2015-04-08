@@ -15,11 +15,13 @@ namespace ClockworkSkies
     {
         //attributes
         private int visibleBuffer = 100; // The amount of padding to go off screen before it despawns
+        private bool alliedTeam;
 
         //constructor
-        public Bullet(float dir, Vector2 position, int width, int height) : base(GameVariables.BulletImage, dir, position, width, height)
+        public Bullet(float dir, Vector2 position, bool aTeam)
+            : base(GameVariables.BulletImage, dir, position, GameVariables.BulletImage.Width, GameVariables.BulletImage.Height)
         {
-
+            alliedTeam = aTeam;
         }
 
         public override void Update()

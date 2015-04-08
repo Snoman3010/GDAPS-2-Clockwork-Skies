@@ -15,7 +15,7 @@ namespace ClockworkSkies
     {
         //constructor
         public Ally(Texture2D image, Vector2 position, float direction)
-            : base(image, position, direction)
+            : base(image, position, direction, true)
         {
             
         }

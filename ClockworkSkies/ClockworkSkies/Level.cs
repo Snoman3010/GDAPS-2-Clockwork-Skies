@@ -47,12 +47,12 @@ namespace ClockworkSkies
             //set allied base if present
             if ((victory == victoryConditions.DefendBase)||(victory == victoryConditions.DoubleBase))
             {
-                allyBase = new Base(allyBaseData);
+                allyBase = new Base(allyBaseData, true);
             }
             //set enemy base if present
             if ((victory == victoryConditions.DestroyBase)||(victory == victoryConditions.DoubleBase))
             {
-                enemyBase = new Base(enemyBaseData);
+                enemyBase = new Base(enemyBaseData, false);
             }
             //create NPC list
             npcs = new List<NPC>();

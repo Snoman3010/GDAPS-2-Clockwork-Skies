@@ -18,7 +18,7 @@ namespace ClockworkSkies
         
         // Constructor
         public Enemy(Texture2D image, Vector2 position, float direction, Player play)
-            : base(image, position, direction)
+            : base(image, position, direction, false)
         {
             target = play;
         }

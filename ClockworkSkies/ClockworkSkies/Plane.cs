@@ -20,9 +20,10 @@ namespace ClockworkSkies
         private float fireTime; // The time in seconds it takes to fire one bullet
         private int savedFireTime; // The time when the last bullet was fired
         public Dictionary<string, bool> keyPressed; // dictionary to hold key presses
+        private bool friendly;
 
         // Constructor
-        public Plane(Texture2D image, Vector2 position, float direction) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize)
+        public Plane(Texture2D image, Vector2 position, float direction, bool friendly) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize)
         {
             // Sets all the default values
             angularSpeed = GameVariables.PlaneAngleSpeed;
@@ -99,7 +100,7 @@ namespace ClockworkSkies
                 float halfWidthX = (image.Width / 2) * (float)Math.Sin(direction + Math.PI / 2);
                 float halfWidthY = (image.Width / 2) * (float)Math.Cos(direction + Math.PI / 2);
 
-                Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), GameVariables.BulletImage.Width, GameVariables.BulletImage.Height);
+                Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), friendly);
                 savedFireTime = Environment.TickCount; // sets the new fire time
             }
         }

@@ -17,10 +17,10 @@ namespace ClockworkSkies
         protected Plane plane;
 
         //constructor
-        public NPC(Texture2D image, Vector2 position, float direction)
+        public NPC(Texture2D image, Vector2 position, float direction, bool ally)
         {
             //create plane
-            plane = new Plane(image, position, direction);
+            plane = new Plane(image, position, direction, ally);
         }
 
         public abstract void Update();

@@ -21,7 +21,7 @@ namespace ClockworkSkies
         // constructor
         public Player(Texture2D image, Vector2 position, float direction)
         {
-            plane = new Plane(GameVariables.PlayerImage, position, direction);
+            plane = new Plane(GameVariables.PlayerImage, position, direction, true);
             score = 0;
             kState = new KeyboardState();
         }
