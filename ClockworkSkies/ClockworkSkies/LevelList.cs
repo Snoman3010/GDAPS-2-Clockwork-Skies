@@ -268,7 +268,14 @@ namespace ClockworkSkies
             if (currentLevel != null)
             {
                 currentLevel.Update();
+                if (currentLevel.currentState == gameState.Lost || currentLevel.currentState == gameState.Won)
+                {
+                    currentLevel.Clear();
+                    currentLevel = null;
+                    gameMenu.Show();
+                }
             }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -15,6 +15,12 @@ namespace ClockworkSkies
     {
         private static Random rng = new Random();
 
+        public static Game1 MainGame
+        {
+            get;
+            set;
+        }
+
         //Player sprite
         public static Texture2D PlayerImage
         {

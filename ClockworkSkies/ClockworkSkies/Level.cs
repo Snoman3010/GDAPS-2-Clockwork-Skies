@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.GamerServices;
 namespace ClockworkSkies
 {
     public enum victoryConditions { Elimination, Survival, Escort, EnemyEscort, DestroyBase, DefendBase, DoubleEscort, DoubleBase };
+    public enum gameState { Playing, Won, Lost};
 
     public class Level
     {
@@ -24,6 +25,7 @@ namespace ClockworkSkies
         private List<NPC> npcs;
         private int timer;
         private victoryConditions victory;
+        public gameState currentState;
 
         //constructor
         public Level(int time, int win, Vector3 playerData, Vector3 allyTarget, Vector3 enemyTarget, Vector2 allyBaseData, Vector2 enemyBaseData, List<Vector4> NPCList)
@@ -31,7 +33,7 @@ namespace ClockworkSkies
             //create player
             p1 = new Player(GameVariables.PlayerImage, new Vector2(playerData.X, playerData.Y), (float)(Math.PI * 2 * playerData.Z / 8));
             //set time limit
-            timer = time;
+            timer = time * 60;
             //set vicrory condition
             victory = (victoryConditions)win;
             //set target ally if present
@@ -70,7 +72,7 @@ namespace ClockworkSkies
                 }
                 npcs.Add(newNPC);
             }
-
+            currentState = gameState.Playing;
         }
 
         public void Update()
@@ -93,12 +95,166 @@ namespace ClockworkSkies
             {
                 enemyBase.Update();
             }
-            foreach (NPC npc in npcs)
+            for (int i = 0; i < npcs.Count; i++ )
             {
-                npc.Update();
+                npcs[i].Update();
+                if (npcs[i].IsDead())
+                {
+                    npcs.RemoveAt(i);
+                }
+            }
+            //victory test code
+            if (p1.IsDead())
+            {
+                currentState = gameState.Lost;
+                return;
+            }
+            bool enemysLeft = false;
+            switch (victory)
+            {
+                case victoryConditions.Elimination:
+                    for (int i = 0; i < npcs.Count; i++)
+                    {
+                        if (npcs[i] is Enemy)
+                        {
+                            enemysLeft = true;
+                        }
+                    }
+                    if (!enemysLeft)
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.Survival:
+                    for (int i = 0; i < npcs.Count; i++)
+                    {
+                        if (npcs[i] is Enemy)
+                        {
+                            enemysLeft = true;
+                        }
+                    }
+                    if (!enemysLeft)
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.Escort:
+                    if (targetAlly.IsDead())
+                    {
+                        currentState = gameState.Lost;
+                        return;
+                    }
+                    for (int i = 0; i < npcs.Count; i++)
+                    {
+                        if (npcs[i] is Enemy)
+                        {
+                            enemysLeft = true;
+                        }
+                    }
+                    if (!enemysLeft)
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.EnemyEscort:
+                    if (targetEnemy.IsDead())
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.DoubleEscort:
+                    if (targetAlly.IsDead())
+                    {
+                        currentState = gameState.Lost;
+                        return;
+                    }
+                    if (targetEnemy.IsDead())
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.DefendBase:
+                    if (allyBase.IsDead())
+                    {
+                        currentState = gameState.Lost;
+                        return;
+                    }
+                    for (int i = 0; i < npcs.Count; i++)
+                    {
+                        if (npcs[i] is Enemy)
+                        {
+                            enemysLeft = true;
+                        }
+                    }
+                    if (!enemysLeft)
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.DestroyBase:
+                    if (enemyBase.IsDead())
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
+                case victoryConditions.DoubleBase:
+                    if (allyBase.IsDead())
+                    {
+                        currentState = gameState.Lost;
+                        return;
+                    }
+                    if (enemyBase.IsDead())
+                    {
+                        currentState = gameState.Won;
+                        return;
+                    }
+                    break;
             }
             //timer code
-            //victory test code
+            timer--;
+            if (timer <= 0)
+            {
+                switch (victory)
+                {
+                    case victoryConditions.Elimination:
+                        currentState = gameState.Lost;
+                        return;
+                    case victoryConditions.Survival:
+                        currentState = gameState.Won;
+                        return;
+                    case victoryConditions.Escort:
+                        currentState = gameState.Won;
+                        return;
+                    case victoryConditions.EnemyEscort:
+                        currentState = gameState.Lost;
+                        return;
+                    case victoryConditions.DoubleEscort:
+                        currentState = gameState.Lost;
+                        return;
+                    case victoryConditions.DefendBase:
+                        currentState = gameState.Won;
+                        return;
+                    case victoryConditions.DestroyBase:
+                        currentState = gameState.Lost;
+                        return;
+                    case victoryConditions.DoubleBase:
+                        currentState = gameState.Lost;
+                        return;
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            GameVariables.pieces.Clear();
+            GameVariables.smokeList.Clear();
         }
     }
 }

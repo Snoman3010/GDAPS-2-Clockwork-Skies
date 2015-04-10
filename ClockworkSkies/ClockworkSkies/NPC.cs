@@ -26,5 +26,10 @@ namespace ClockworkSkies
 
         public abstract void Update();
 
+        public bool IsDead()
+        {
+            return plane.dead;
+        }
+
     }
 }
