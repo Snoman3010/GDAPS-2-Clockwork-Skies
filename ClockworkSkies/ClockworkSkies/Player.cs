@@ -15,14 +15,12 @@ namespace ClockworkSkies
     {
         // attributes
         private Plane plane;
-        private int score;
         public KeyboardState kState;
 
         // constructor
         public Player(Texture2D image, Vector2 position, float direction)
         {
             plane = new Plane(GameVariables.PlayerImage, position, direction, true);
-            score = 0;
             kState = new KeyboardState();
         }
 
@@ -72,6 +70,11 @@ namespace ClockworkSkies
                 plane.keyPressed["spaceKey"] = false;
             }
             
+        }
+
+        public bool IsDead()
+        {
+            return plane.dead;
         }
     }
 }

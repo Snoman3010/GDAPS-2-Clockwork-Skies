@@ -17,6 +17,8 @@ namespace ClockworkSkies
         private int life;
         private Vector2 position;
         private int timeSinceDamage;
+        private int smokeTimer;
+        private bool dead;
 
         // constructor
         public Base(Vector2 pos, bool allied): base(GameVariables.BaseImage, 0, pos, GameVariables.BaseImage.Width, GameVariables.BaseImage.Height, allied)
@@ -24,15 +26,24 @@ namespace ClockworkSkies
             life = 10;
             position = pos;
             timeSinceDamage = 0;
+            smokeTimer = GameVariables.GetRandom(10, 35);
+            dead = false;
         }
 
         public override void Update()
         {
             timeSinceDamage++;
+            smokeTimer--;
             TestForHit();
             if(life <= 0)
             {
                 Remove();
+                dead = true;
+            }
+            if (life <= 3 && smokeTimer <= 0)
+            {
+                Smoke smoke = new Smoke(new Vector2(GameVariables.GetRandom((int)image.PosX - 35, (int)image.PosX + image.Width - 35), GameVariables.GetRandom((int)image.PosY - 35 , (int)image.PosY + image.Width - 35)));
+                smokeTimer = GameVariables.GetRandom(10, 35);
             }
         }
 
@@ -66,6 +77,11 @@ namespace ClockworkSkies
                     }
                 }
             }
+        }
+
+        public bool IsDead()
+        {
+            return dead;
         }
     }
 }

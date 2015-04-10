@@ -32,6 +32,7 @@ namespace ClockworkSkies
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferWidth = GameVariables.WindowWidth;
             graphics.PreferredBackBufferHeight = GameVariables.WindowHeight;
+            
 
         }
 
@@ -65,6 +66,8 @@ namespace ClockworkSkies
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
+
+            GameVariables.MainGame = this;
 
             gameMenu = new Menu(MenuState.Title, this);
             
