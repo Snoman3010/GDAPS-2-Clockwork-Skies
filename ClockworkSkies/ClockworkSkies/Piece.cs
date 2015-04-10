@@ -17,15 +17,24 @@ namespace ClockworkSkies
         protected Sprite image;
         protected float direction;
         private bool friendly;
+        protected bool shouldDraw;
 
+        // The sprite of the piece
         public Sprite Image
         {
             get { return image; }
         }
 
+        // Whether or not the piece is friendly
         public bool Friendly
         {
             get { return friendly; }
+        }
+
+        // Whether or not the piece should be drawn
+        public bool ShouldDraw
+        {
+            get { return shouldDraw; }
         }
 
         //constructor
@@ -34,9 +43,11 @@ namespace ClockworkSkies
             image = new Sprite(img, position, width, height);
             direction = dir;
             friendly = allied;
-            GameVariables.pieces.Add(this);
+            shouldDraw = true;
+            GameVariables.pieces.Add(this); // Adds the piece to the pieces list
         }
-
+        
+        // Removes the piece from the pieces list
         public bool Remove()
         {
             if(GameVariables.pieces.Contains(this))
@@ -54,6 +65,7 @@ namespace ClockworkSkies
             image.Draw(spriteBatch, direction);
         }
 
+        // Returns the center position of the piece
         public Vector2 FindCenter()
         {
             float xCenter = image.PosX + (image.Width / 2);
@@ -61,6 +73,7 @@ namespace ClockworkSkies
             return new Vector2(xCenter, yCenter);
         }
 
+        // Returns the distance between two points
         private float FindDistance(Vector2 pointA, Vector2 pointB)
         {
             float xDistance = pointB.X - pointA.X;
@@ -69,6 +82,7 @@ namespace ClockworkSkies
             return distance;
         }
 
+        // Returns true if two pieces are colliding, otherwise false
         public bool IsColiding(Piece other)
         {
             Vector2 thisCenter = FindCenter();

@@ -23,6 +23,9 @@ namespace ClockworkSkies
         private int timeSinceDamage;
         private int life;
         private int smokeTimer;
+        private bool isHit;
+        private int flashTimer;
+        public bool dead;
 
         // Constructor
         public Plane(Texture2D image, Vector2 position, float direction, bool allied) : base(image, direction, position, GameVariables.PlaneSize, GameVariables.PlaneSize, allied)
@@ -36,6 +39,9 @@ namespace ClockworkSkies
             savedFireTime = 0;
             life = 4;
             smokeTimer = GameVariables.GetRandom(10, 35);
+            isHit = false;
+            flashTimer = 0;
+            dead = false;
 
             // creates dictionary and sets keypressed values to false
             keyPressed = new Dictionary<string, bool>();
@@ -52,10 +58,10 @@ namespace ClockworkSkies
             if (life <= 0)
             {
                 Remove();
+                dead = true;
                 return;
             }
             speedChangeTimer--;
-            timeSinceDamage++;
             smokeTimer--;
             if (life <= 2 && smokeTimer <=0)
             {
@@ -65,6 +71,31 @@ namespace ClockworkSkies
                 Smoke smoke = new Smoke(new Vector2(image.PosX, image.PosY));
                 smokeTimer = GameVariables.GetRandom(10, 35);
             }
+
+            // Checks if it is time to take away invinsibility frames
+            if (timeSinceDamage > GameVariables.InvulnTimer && isHit)
+            {
+                timeSinceDamage = 0; // resets the invincibility timer
+                isHit = false; // no longer has invincibility
+                shouldDraw = true; // ensures the plane will be drawn afterward
+            }
+
+            // If the plane has invincibility frames, make the plane flash and add to the timer
+            if (isHit)
+            {
+                if(flashTimer > 5)
+                {
+                    shouldDraw = !shouldDraw;
+                    flashTimer = 0;
+                }
+                else
+                {
+                    flashTimer++;
+                }
+
+                timeSinceDamage++;
+            }
+
             if (speedChangeTimer <= 0)
             {
                 if (keyPressed["upKey"] == true) // Increases the speed if the up button is pressed
@@ -127,28 +158,27 @@ namespace ClockworkSkies
             }
         }
 
+        // Damages the plane and gives the plane invincibility frames
         public void TakeDamage()
         {
-            if (timeSinceDamage >= GameVariables.InvulnTimer)
-            {
-                life--;
-                timeSinceDamage = 0;
-            }
+            isHit = true;
+            life--;
         }
 
+        // Tests for collisions with all pieces in the level
         public void TestForHit()
         {
             for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
                 bool colliding = false;
-                if (GameVariables.pieces[i].Friendly != Friendly)
+                if (GameVariables.pieces[i].Friendly != Friendly) // Avoid collision with friendly pieces
                 {
                     colliding = IsColiding(GameVariables.pieces[i]);
                 }
-                if (colliding)
+                if (colliding && !isHit) // If there is a collision and the plane isn't invincible, take damage
                 {
                     TakeDamage();
-                    if (GameVariables.pieces[i] is Bullet)
+                    if (GameVariables.pieces[i] is Bullet) // Remove the piece if it is a bullet
                     {
                         GameVariables.pieces[i].Remove();
                     }

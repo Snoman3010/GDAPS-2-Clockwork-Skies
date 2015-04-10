@@ -32,7 +32,6 @@ namespace ClockworkSkies
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferWidth = GameVariables.WindowWidth;
             graphics.PreferredBackBufferHeight = GameVariables.WindowHeight;
-
         }
 
         /// <summary>
@@ -129,7 +128,10 @@ namespace ClockworkSkies
 
             for (int i = 0; i < GameVariables.pieces.Count; i++)
             {
-                GameVariables.pieces[i].Draw(spriteBatch);
+                if (GameVariables.pieces[i].ShouldDraw)
+                {
+                    GameVariables.pieces[i].Draw(spriteBatch);
+                }
             }
 
             for (int i = 0; i < GameVariables.smokeList.Count; i++)
