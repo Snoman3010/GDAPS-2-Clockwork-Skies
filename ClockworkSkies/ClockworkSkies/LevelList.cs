@@ -236,7 +236,9 @@ namespace ClockworkSkies
 
                 loadLevelTimer = 0;
                 gameMenu.Hide();
-                currentLevel = new Level(timeLimit, victoryCondition, playerInfo, alliedTargetInfo, enemyTargetInfo, alliedBase, enemyBase, npcs);
+                currentLevel = new Level(timeLimit, victoryCondition, playerInfo, alliedTargetInfo, enemyTargetInfo, alliedBase, enemyBase, npcs, levelName);
+
+                npcs.Clear();
             }
             catch(IOException e) // If there is a problem reading the file, show an error message
             {
@@ -261,6 +263,7 @@ namespace ClockworkSkies
                 if(x.clicked && loadLevelTimer == 0)
                 {
                     // Load corresponding level
+                    x.clicked = false;
                     LoadLevel(x.Text);
                     loadLevelTimer++;
                 }
@@ -272,7 +275,9 @@ namespace ClockworkSkies
                 {
                     currentLevel.Clear();
                     currentLevel = null;
+
                     gameMenu.Show();
+                    loadLevelTimer = 0;
                 }
             }
             

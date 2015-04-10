@@ -26,10 +26,12 @@ namespace ClockworkSkies
         private int timer;
         private victoryConditions victory;
         public gameState currentState;
+        private string levelName;
 
         //constructor
-        public Level(int time, int win, Vector3 playerData, Vector3 allyTarget, Vector3 enemyTarget, Vector2 allyBaseData, Vector2 enemyBaseData, List<Vector4> NPCList)
+        public Level(int time, int win, Vector3 playerData, Vector3 allyTarget, Vector3 enemyTarget, Vector2 allyBaseData, Vector2 enemyBaseData, List<Vector4> NPCList, string name)
         {
+            levelName = name;
             //create player
             p1 = new Player(GameVariables.PlayerImage, new Vector2(playerData.X, playerData.Y), (float)(Math.PI * 2 * playerData.Z / 8));
             //set time limit
@@ -77,6 +79,7 @@ namespace ClockworkSkies
 
         public void Update()
         {
+            GameVariables.MainGame.Window.Title = levelName + ", Remaining Time: " + (timer / 60);
             //run update methods for Player, NPCS and bases
             p1.Update();
             if (targetAlly != null)
@@ -255,6 +258,7 @@ namespace ClockworkSkies
         {
             GameVariables.pieces.Clear();
             GameVariables.smokeList.Clear();
+            GameVariables.MainGame.Window.Title = "Clockwork Skies";
         }
     }
 }
