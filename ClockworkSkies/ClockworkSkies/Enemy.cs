@@ -26,7 +26,7 @@ namespace ClockworkSkies
         // AI stuff
         public override void Update()
         {
-            
+            base.Update();
         }
 
         // Check if the player is in sight - must be within enemy's range of sight

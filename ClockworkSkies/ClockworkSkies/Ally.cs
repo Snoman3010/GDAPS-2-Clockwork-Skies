@@ -22,6 +22,7 @@ namespace ClockworkSkies
 
         public override void Update()
         {
+            base.Update();
             //AI for allied planes goes here
         }
     }

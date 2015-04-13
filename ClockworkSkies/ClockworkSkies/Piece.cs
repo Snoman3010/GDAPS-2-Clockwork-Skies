@@ -19,6 +19,11 @@ namespace ClockworkSkies
         private bool friendly;
         protected bool shouldDraw;
 
+        public float Direction
+        {
+            get { return direction; }
+        }
+
         // The sprite of the piece
         public Sprite Image
         {
