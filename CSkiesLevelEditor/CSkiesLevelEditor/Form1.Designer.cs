@@ -161,7 +161,7 @@
             // 
             this.numericUpDownAllyX.Location = new System.Drawing.Point(38, 94);
             this.numericUpDownAllyX.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -193,7 +193,7 @@
             // 
             this.numericUpDownAllyY.Location = new System.Drawing.Point(102, 94);
             this.numericUpDownAllyY.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});
@@ -245,7 +245,7 @@
             // 
             this.numericUpDownEnemyX.Location = new System.Drawing.Point(314, 94);
             this.numericUpDownEnemyX.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -258,7 +258,7 @@
             // 
             this.numericUpDownEnemyY.Location = new System.Drawing.Point(378, 94);
             this.numericUpDownEnemyY.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});
@@ -314,7 +314,7 @@
             // 
             this.numericUpDownABaseX.Location = new System.Drawing.Point(38, 150);
             this.numericUpDownABaseX.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -326,7 +326,7 @@
             // 
             this.numericUpDownABaseY.Location = new System.Drawing.Point(102, 150);
             this.numericUpDownABaseY.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});
@@ -368,7 +368,7 @@
             // 
             this.numericUpDownEBaseX.Location = new System.Drawing.Point(314, 150);
             this.numericUpDownEBaseX.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -380,7 +380,7 @@
             // 
             this.numericUpDownEBaseY.Location = new System.Drawing.Point(378, 150);
             this.numericUpDownEBaseY.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});
@@ -433,7 +433,7 @@
             // 
             this.numericUpDownPlayerX.Location = new System.Drawing.Point(38, 210);
             this.numericUpDownPlayerX.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -446,7 +446,7 @@
             // 
             this.numericUpDownPlayerY.Location = new System.Drawing.Point(102, 210);
             this.numericUpDownPlayerY.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});

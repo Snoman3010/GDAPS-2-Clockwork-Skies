@@ -19,20 +19,24 @@ namespace ClockworkSkies
         private int timeSinceDamage;
         private int smokeTimer;
         private bool dead;
+        private int flashTimer;
+        private bool isHit;
 
         // constructor
-        public Base(Vector2 pos, bool allied): base(GameVariables.BaseImage, 0, pos, GameVariables.BaseImage.Width, GameVariables.BaseImage.Height, allied)
+        public Base(Vector2 pos, bool allied)
+            : base(GameVariables.BaseImage, 0, pos, GameVariables.PlaneSize * 2, GameVariables.PlaneSize * 2, allied)
         {
             life = 10;
             position = pos;
             timeSinceDamage = 0;
             smokeTimer = GameVariables.GetRandom(10, 35);
             dead = false;
+            flashTimer = 0;
+            isHit = false;
         }
 
         public override void Update()
         {
-            timeSinceDamage++;
             smokeTimer--;
             TestForHit();
             if(life <= 0)
@@ -45,17 +49,36 @@ namespace ClockworkSkies
                 Smoke smoke = new Smoke(new Vector2(GameVariables.GetRandom((int)image.PosX - 35, (int)image.PosX + image.Width - 35), GameVariables.GetRandom((int)image.PosY - 35 , (int)image.PosY + image.Width - 35)));
                 smokeTimer = GameVariables.GetRandom(10, 35);
             }
+
+            // Checks if it is time to take away invinsibility frames
+            if (timeSinceDamage > GameVariables.InvulnTimer && isHit)
+            {
+                timeSinceDamage = 0; // resets the invincibility timer
+                isHit = false; // no longer has invincibility
+                shouldDraw = true; // ensures the plane will be drawn afterward
+            }
+
+            // If the plane has invincibility frames, make the plane flash and add to the timer
+            if (isHit)
+            {
+                if (flashTimer > 5)
+                {
+                    shouldDraw = !shouldDraw;
+                    flashTimer = 0;
+                }
+                else
+                {
+                    flashTimer++;
+                }
+
+                timeSinceDamage++;
+            }
         }
 
         public void TakeDamage()
         {
-            if(timeSinceDamage >= GameVariables.InvulnTimer)
-            {
-                life--;
-                timeSinceDamage = 0;
-            }
-            
-
+            isHit = true;
+            life--;
         }
 
         public void TestForHit()
@@ -67,14 +90,13 @@ namespace ClockworkSkies
                 {
                     colliding = IsColiding(GameVariables.pieces[i]);
                 }
-                if (colliding)
+                if (colliding && !isHit)
                 {
                     TakeDamage();
-                    
-                    if (GameVariables.pieces[i] is Bullet)
-                    {
-                        GameVariables.pieces[i].Remove();
-                    }
+                }
+                if (colliding && GameVariables.pieces[i] is Bullet)
+                {
+                    GameVariables.pieces[i].Remove();
                 }
             }
         }

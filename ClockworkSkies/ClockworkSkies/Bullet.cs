@@ -18,7 +18,7 @@ namespace ClockworkSkies
 
         //constructor
         public Bullet(float dir, Vector2 position, bool allied)
-            : base(GameVariables.BulletImage, dir, position, GameVariables.BulletImage.Width, GameVariables.BulletImage.Height, allied)
+            : base(GameVariables.BulletImage, dir, position, GameVariables.PlaneSize / 4, GameVariables.PlaneSize / 4, allied)
         {
 
         }

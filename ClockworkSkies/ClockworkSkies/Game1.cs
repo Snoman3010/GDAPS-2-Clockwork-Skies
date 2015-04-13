@@ -46,6 +46,7 @@ namespace ClockworkSkies
 
             base.Initialize();
             IsMouseVisible = true;
+            
         }
 
         /// <summary>

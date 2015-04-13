@@ -43,12 +43,12 @@ namespace ClockworkSkies
         //Width of game window
         public static int WindowWidth
         {
-            get { return 1360; }
+            get { return 1920; }
         }
         //height of game window
         public static int WindowHeight
         {
-            get { return 768; }
+            get { return 1080; }
         }
         //List of all pieces
         public static List<Piece> pieces = new List<Piece>();
@@ -90,7 +90,7 @@ namespace ClockworkSkies
         //size of the plane
         public static int PlaneSize
         {
-            get { return 32; }
+            get { return WindowWidth / 60; } //made it a function of window width so it will be easier to make it playable on multiple resolutions
         }
         //how fast the plane can turn
         public static float PlaneAngleSpeed

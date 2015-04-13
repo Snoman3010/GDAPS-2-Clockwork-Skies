@@ -178,10 +178,10 @@ namespace ClockworkSkies
                 if (colliding && !isHit) // If there is a collision and the plane isn't invincible, take damage
                 {
                     TakeDamage();
-                    if (GameVariables.pieces[i] is Bullet) // Remove the piece if it is a bullet
-                    {
-                        GameVariables.pieces[i].Remove();
-                    }
+                }
+                if (colliding && GameVariables.pieces[i] is Bullet)
+                {
+                    GameVariables.pieces[i].Remove();
                 }
             }
         }

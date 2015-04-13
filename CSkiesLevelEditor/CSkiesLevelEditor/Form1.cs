@@ -166,7 +166,7 @@ namespace CSkiesLevelEditor
             NumericUpDown xUpDown = new NumericUpDown();
             xUpDown.Location = new System.Drawing.Point(175, (NPCList.Count * 30) + 4);
             xUpDown.Maximum = new decimal(new int[] {
-            42,
+            60,
             0,
             0,
             0});
@@ -178,7 +178,7 @@ namespace CSkiesLevelEditor
             NumericUpDown yUpDown = new NumericUpDown();
             yUpDown.Location = new System.Drawing.Point(239, (NPCList.Count * 30) + 4);
             yUpDown.Maximum = new decimal(new int[] {
-            24,
+            33,
             0,
             0,
             0});
@@ -476,23 +476,23 @@ namespace CSkiesLevelEditor
                 writer.WriteLine(":P-" + ((numericUpDownPlayerX.Value * 32) + 11) + "," + (numericUpDownPlayerY.Value * 32) + "," + (int)(directions)comboBoxPlayerDirection.SelectedItem);
                 if ((victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.Escort || (victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DoubleEscort)
                 {
-                    writer.WriteLine(":A-" + ((numericUpDownAllyX.Value * 32) + 11) + "," + (numericUpDownAllyY.Value * 32) + "," + (int)(directions)comboBoxAllyDirection.SelectedItem);
+                    writer.WriteLine(":A-" + (numericUpDownAllyX.Value * 32) + "," + ((numericUpDownAllyY.Value * 32) + 12) + "," + (int)(directions)comboBoxAllyDirection.SelectedItem);
                 }
                 if ((victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.EnemyEscort || (victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DoubleEscort)
                 {
-                    writer.WriteLine(":R-" + ((numericUpDownEnemyX.Value * 32) + 11) + "," + (numericUpDownEnemyY.Value * 32) + "," + (int)(directions)comboBoxEnemyDirection.SelectedItem);
+                    writer.WriteLine(":R-" + (numericUpDownEnemyX.Value * 32) + "," + ((numericUpDownEnemyY.Value * 32) + 12) + "," + (int)(directions)comboBoxEnemyDirection.SelectedItem);
                 }
                 if ((victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DefendBase || (victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DoubleBase)
                 {
-                    writer.WriteLine(":F-" + ((numericUpDownABaseX.Value * 32) + 11) + "," + (numericUpDownABaseY.Value * 32));
+                    writer.WriteLine(":F-" + (numericUpDownABaseX.Value * 32) + "," + ((numericUpDownABaseY.Value * 32) + 12));
                 }
                 if ((victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DestroyBase || (victoryConditions)comboBoxVictory.SelectedItem == victoryConditions.DoubleBase)
                 {
-                    writer.WriteLine(":B-" + ((numericUpDownEBaseX.Value * 32) + 11) + "," + (numericUpDownEBaseY.Value * 32));
+                    writer.WriteLine(":B-" + (numericUpDownEBaseX.Value * 32) + "," + ((numericUpDownEBaseY.Value * 32) + 12));
                 }
                 foreach (NPCControlSet set in NPCList)
                 {
-                    writer.WriteLine(":E-" + ((set.xUpDown.Value * 32) + 11) + "," + (set.yUpDown.Value * 32) + "," + (int)(directions)set.directionBox.SelectedItem + "," + (int)(NPCTypes)set.typeBox.SelectedItem);
+                    writer.WriteLine(":E-" + (set.xUpDown.Value * 32) + "," + ((set.yUpDown.Value * 32) + 12) + "," + (int)(directions)set.directionBox.SelectedItem + "," + (int)(NPCTypes)set.typeBox.SelectedItem);
                 }
             }
             catch (Exception imanexceptiondammit)
