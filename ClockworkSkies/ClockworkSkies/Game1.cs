@@ -19,7 +19,7 @@ namespace ClockworkSkies
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Menu gameMenu;
+        public Menu gameMenu;
 
 
 

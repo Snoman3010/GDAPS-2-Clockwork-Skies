@@ -17,6 +17,11 @@ namespace ClockworkSkies
         private Plane plane;
         public KeyboardState kState;
 
+        public Plane Plane
+        {
+            get { return plane; }
+        }
+
         // constructor
         public Player(Texture2D image, Vector2 position, float direction)
         {

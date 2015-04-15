@@ -67,6 +67,8 @@ namespace ClockworkSkies
                 if (data.W == 0)
                 {
                     newNPC = new Enemy(GameVariables.PlayerImage, new Vector2(data.X, data.Y), (float)(Math.PI * 2 * data.Z / 8), p1);
+                    newNPC.Target = p1.Plane;
+                    newNPC.hunting = true;
                 }
                 else
                 {
