@@ -173,39 +173,45 @@ namespace ClockworkSkies
                     //{
                     //    angle = angle + (float)(1.5 * Math.PI);
                     //}
-                    float angle = 0;
+                    float targetDirection = 0;
                     if (xDistance > 0 && yDistance > 0)
                     {
-                        angle = (float)(Math.Atan(yDistance / xDistance) + (1.5 * Math.PI));
+                        targetDirection = (float)(Math.Atan(yDistance / xDistance) + (1.5 * Math.PI));
                     }
                     else if (xDistance > 0 && yDistance < 0)
                     {
-                        angle = (float)((1.5 * Math.PI) - Math.Atan(-yDistance / xDistance));
+                        targetDirection = (float)((1.5 * Math.PI) - Math.Atan(-yDistance / xDistance));
                     }
                     else if (xDistance < 0 && yDistance < 0)
                     {
-                        angle = (float)(Math.Atan(-yDistance / -xDistance) + (Math.PI / 2));
+                        targetDirection = (float)(Math.Atan(-yDistance / -xDistance) + (Math.PI / 2));
                     }
                     else if (xDistance < 0 && yDistance > 0)
                     {
-                        angle = (float)(Math.PI - Math.Atan(yDistance / -xDistance));
+                        targetDirection = (float)((Math.PI / 2) - Math.Atan(yDistance / -xDistance));
+                    }
+
+                    float angle = targetDirection - plane.Direction;
+                    if (angle < 0)
+                    {
+                        angle = angle + (float)(2 * Math.PI);
                     }
 
                     Console.WriteLine(angle * 180 / Math.PI);
-                    if (angle < Math.PI)
+                    if (angle > Math.PI)
                     {
-                        plane.keyPressed["leftKey"] = false;
-                        plane.keyPressed["rightKey"] = true;
+                        plane.keyPressed["leftKey"] = true;
+                        plane.keyPressed["rightKey"] = false;
                     }
-                    else if (angle > -0.05 && angle < 0.05)
+                    else if (angle < 0.05)
                     {
                         plane.keyPressed["leftKey"] = false;
                         plane.keyPressed["rightKey"] = false;
                     }
                     else
                     {
-                        plane.keyPressed["leftKey"] = true;
-                        plane.keyPressed["rightKey"] = false;
+                        plane.keyPressed["leftKey"] = false;
+                        plane.keyPressed["rightKey"] = true;
                     }
 
                 }
