@@ -103,5 +103,12 @@ namespace ClockworkSkies
                 return false;
             }
         }
+
+        public float FindDistance(Piece other)
+        {
+            Vector2 thisCenter = FindCenter();
+            Vector2 otherCenter = other.FindCenter();
+            return FindDistance(thisCenter, otherCenter);
+        }
     }
 }

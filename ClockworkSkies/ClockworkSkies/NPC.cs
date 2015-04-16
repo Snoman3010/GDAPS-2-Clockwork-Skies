@@ -153,26 +153,6 @@ namespace ClockworkSkies
                     }
                     float xDistance = plane.Image.PosX - target.Image.PosX;
                     float yDistance = plane.Image.PosY - target.Image.PosY;
-                    //Vector2 targetDistance = new Vector2(-xDistance, -yDistance);
-                    //Vector2 planeDirection = new Vector2((float)(plane.speed * Math.Cos(plane.Direction)), (float)(plane.speed * Math.Sin(plane.Direction)));
-                    //float angle = (float)Math.Acos((double)(Vector2.Dot(targetDistance, planeDirection) / (targetDistance.Length() * planeDirection.Length())));
-                    
-                    //if (xDistance < 0 && yDistance < 0)
-                    //{
-                    //    angle = angle + (float)(Math.PI / 4);
-                    //}
-                    //if (plane.Image.PosX - target.Image.PosX < 0 && plane.Image.PosY - target.Image.PosY < 0)
-                    //{
-                    //    angle = angle + (float)(Math.PI / 2);
-                    //}
-                    //else if (plane.Image.PosX - target.Image.PosX > 0 && plane.Image.PosY - target.Image.PosY < 0)
-                    //{
-                    //    angle = angle + (float)Math.PI;
-                    //}
-                    //else if (plane.Image.PosX - target.Image.PosX > 0 && plane.Image.PosY - target.Image.PosY > 0)
-                    //{
-                    //    angle = angle + (float)(1.5 * Math.PI);
-                    //}
                     float targetDirection = 0;
                     if (xDistance > 0 && yDistance > 0)
                     {
@@ -197,7 +177,7 @@ namespace ClockworkSkies
                         angle = angle + (float)(2 * Math.PI);
                     }
 
-                    Console.WriteLine(angle * 180 / Math.PI);
+                    //Console.WriteLine(angle * 180 / Math.PI);
                     if (angle > Math.PI)
                     {
                         plane.keyPressed["leftKey"] = true;
@@ -213,11 +193,82 @@ namespace ClockworkSkies
                         plane.keyPressed["leftKey"] = false;
                         plane.keyPressed["rightKey"] = true;
                     }
-
+                    //test for switching to avoid mode
+                    for (int i = 0; i < GameVariables.pieces.Count; i++)
+                    {
+                        if (!(GameVariables.pieces[i] is Bullet) && plane.Friendly != GameVariables.pieces[i].Friendly)
+                        {
+                            if (plane.FindDistance(GameVariables.pieces[i]) <= (4 * GameVariables.PlaneSize))
+                            {
+                                hunting = false;
+                            }
+                        }
+                    }
                 }
                 else
                 {
+                    plane.keyPressed["spaceKey"] = false;
+                    plane.keyPressed["upKey"] = true;
+                    plane.keyPressed["downKey"] = false;
+                    Piece avoidMe = null;
+                    for (int i = 0; i < GameVariables.pieces.Count; i++)
+                    {
+                        if (!(GameVariables.pieces[i] is Bullet) && plane.Friendly != GameVariables.pieces[i].Friendly)
+                        {
+                            if (plane.FindDistance(GameVariables.pieces[i]) <= (12 * GameVariables.PlaneSize))
+                            {
+                                avoidMe = GameVariables.pieces[i];
+                            }
+                        }
+                    }
+                    if (avoidMe == null && target != null)
+                    {
+                        hunting = true;
+                    }
+                    else if (avoidMe != null)
+                    {
+                        float xDistance = plane.Image.PosX - avoidMe.Image.PosX;
+                        float yDistance = plane.Image.PosY - avoidMe.Image.PosY;
+                        float avoidDirection = 0;
+                        if (xDistance > 0 && yDistance > 0)
+                        {
+                            avoidDirection = (float)(Math.Atan(yDistance / xDistance) + (1.5 * Math.PI));
+                        }
+                        else if (xDistance > 0 && yDistance < 0)
+                        {
+                            avoidDirection = (float)((1.5 * Math.PI) - Math.Atan(-yDistance / xDistance));
+                        }
+                        else if (xDistance < 0 && yDistance < 0)
+                        {
+                            avoidDirection = (float)(Math.Atan(-yDistance / -xDistance) + (Math.PI / 2));
+                        }
+                        else if (xDistance < 0 && yDistance > 0)
+                        {
+                            avoidDirection = (float)((Math.PI / 2) - Math.Atan(yDistance / -xDistance));
+                        }
 
+                        float angle = avoidDirection - plane.Direction;
+                        if (angle < 0)
+                        {
+                            angle = angle + (float)(2 * Math.PI);
+                        }
+
+                        if (angle < Math.PI)
+                        {
+                            plane.keyPressed["leftKey"] = true;
+                            plane.keyPressed["rightKey"] = false;
+                        }
+                        else if (angle <  Math.PI + 0.05 && angle > Math.PI - 0.05)
+                        {
+                            plane.keyPressed["leftKey"] = false;
+                            plane.keyPressed["rightKey"] = false;
+                        }
+                        else
+                        {
+                            plane.keyPressed["leftKey"] = false;
+                            plane.keyPressed["rightKey"] = true;
+                        }
+                    }
                 }
             }
         }

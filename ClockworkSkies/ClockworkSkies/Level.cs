@@ -22,7 +22,7 @@ namespace ClockworkSkies
         private Ally targetAlly;
         private Base enemyBase;
         private Base allyBase;
-        private List<NPC> npcs;
+        public List<NPC> npcs;
         private int timer;
         private victoryConditions victory;
         public gameState currentState;
