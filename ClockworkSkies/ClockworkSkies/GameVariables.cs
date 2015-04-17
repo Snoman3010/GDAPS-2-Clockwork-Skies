@@ -27,6 +27,18 @@ namespace ClockworkSkies
             get;
             set;
         }
+
+        public static Texture2D AllyImage
+        {
+            get;
+            set;
+        }
+
+        public static Texture2D EnemyImage
+        {
+            get;
+            set;
+        }
         //bullet sprite
         public static Texture2D BulletImage
         {
@@ -90,7 +102,7 @@ namespace ClockworkSkies
         //size of the plane
         public static int PlaneSize
         {
-            get { return WindowWidth / 60; } //made it a function of window width so it will be easier to make it playable on multiple resolutions
+            get { return WindowWidth / 50; } //made it a function of window width so it will be easier to make it playable on multiple resolutions
         }
         //how fast the plane can turn
         public static float PlaneAngleSpeed
