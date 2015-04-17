@@ -264,6 +264,7 @@ namespace ClockworkSkies
             if (p1.IsDead())
             {
                 currentState = gameState.Lost;
+                Console.WriteLine("Lose");
                 return;
             }
             bool enemysLeft = false;
@@ -280,6 +281,7 @@ namespace ClockworkSkies
                     if (!enemysLeft)
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -294,6 +296,7 @@ namespace ClockworkSkies
                     if (!enemysLeft)
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -301,6 +304,7 @@ namespace ClockworkSkies
                     if (targetAlly.IsDead())
                     {
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     }
                     for (int i = 0; i < npcs.Count; i++)
@@ -313,6 +317,7 @@ namespace ClockworkSkies
                     if (!enemysLeft)
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -320,6 +325,7 @@ namespace ClockworkSkies
                     if (targetEnemy.IsDead())
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -327,11 +333,13 @@ namespace ClockworkSkies
                     if (targetAlly.IsDead())
                     {
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     }
                     if (targetEnemy.IsDead())
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -339,6 +347,7 @@ namespace ClockworkSkies
                     if (allyBase.IsDead())
                     {
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     }
                     for (int i = 0; i < npcs.Count; i++)
@@ -351,6 +360,7 @@ namespace ClockworkSkies
                     if (!enemysLeft)
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -358,6 +368,7 @@ namespace ClockworkSkies
                     if (enemyBase.IsDead())
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -365,11 +376,13 @@ namespace ClockworkSkies
                     if (allyBase.IsDead())
                     {
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     }
                     if (enemyBase.IsDead())
                     {
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     }
                     break;
@@ -382,27 +395,35 @@ namespace ClockworkSkies
                 {
                     case victoryConditions.Elimination:
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     case victoryConditions.Survival:
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     case victoryConditions.Escort:
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     case victoryConditions.EnemyEscort:
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     case victoryConditions.DoubleEscort:
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     case victoryConditions.DefendBase:
                         currentState = gameState.Won;
+                        Console.WriteLine("Win");
                         return;
                     case victoryConditions.DestroyBase:
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                     case victoryConditions.DoubleBase:
                         currentState = gameState.Lost;
+                        Console.WriteLine("Lose");
                         return;
                 }
             }
