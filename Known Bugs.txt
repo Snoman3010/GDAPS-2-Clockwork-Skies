@@ -1,0 +1,1 @@
+NPCs may get stuck going in circles just off screen

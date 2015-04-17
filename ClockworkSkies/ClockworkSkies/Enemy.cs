@@ -14,13 +14,13 @@ namespace ClockworkSkies
     public class Enemy : NPC
     {
         // attributes
-        Player target;
+        //Player target;
         
         // Constructor
         public Enemy(Texture2D image, Vector2 position, float direction, Player play)
             : base(image, position, direction, false)
         {
-            target = play;
+            //target = play;
         }
 
         // AI stuff

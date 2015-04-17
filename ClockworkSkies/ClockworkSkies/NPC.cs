@@ -39,6 +39,16 @@ namespace ClockworkSkies
             set { target = value; }
         }
 
+        public bool Friendly
+        {
+            get { return plane.Friendly; }
+        }
+
+        public Plane Plane
+        {
+            get { return plane; }
+        }
+
 
         public virtual void Update()
         {

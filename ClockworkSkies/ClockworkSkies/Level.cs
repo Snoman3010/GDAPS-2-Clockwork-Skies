@@ -61,20 +61,143 @@ namespace ClockworkSkies
             //create NPC list
             npcs = new List<NPC>();
             //create NPCs and add to list
+            int allyCount = 0;
             foreach (Vector4 data in NPCList)
             {
                 NPC newNPC = null;
                 if (data.W == 0)
                 {
                     newNPC = new Enemy(GameVariables.PlayerImage, new Vector2(data.X, data.Y), (float)(Math.PI * 2 * data.Z / 8), p1);
-                    newNPC.Target = p1.Plane;
-                    newNPC.hunting = true;
                 }
                 else
                 {
                     newNPC = new Ally(GameVariables.PlayerImage, new Vector2(data.X, data.Y), (float)(Math.PI * 2 * data.Z / 8));
+                    allyCount++;
                 }
                 npcs.Add(newNPC);
+            }
+            //set NPC targets
+            bool specialAllyTargeted = false;
+            bool specialEnemyTargeted = false;
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                int specialProb = 0;
+                if (npcs[i].Friendly)
+                {
+                    if (enemyBase != null)
+                    {
+                        if (!specialEnemyTargeted)
+                        {
+                            npcs[i].Target = enemyBase;
+                            specialEnemyTargeted = true;
+                        }
+                        else
+                        {
+                            specialProb = 3;
+                        }
+                    }
+                    else if (targetEnemy != null)
+                    {
+                        if (!specialEnemyTargeted)
+                        {
+                            npcs[i].Target = targetEnemy.Plane;
+                            specialEnemyTargeted = true;
+                        }
+                        else
+                        {
+                            specialProb = 3;
+                        }
+                    }
+                    if (npcs[i].Target == null)
+                    {
+                        if (GameVariables.GetRandom(0, 10) < specialProb)
+                        {
+                            if (enemyBase != null)
+                            {
+                                npcs[i].Target = enemyBase;
+                            }
+                            else if (targetEnemy != null)
+                            {
+                                npcs[i].Target = targetEnemy.Plane;
+                            }
+                        }
+                        else
+                        {
+                            Plane targetMe = null;
+                            while (targetMe == null)
+                            {
+                                int random = GameVariables.GetRandom(0, npcs.Count);
+                                if (npcs[random].Friendly != npcs[i].Friendly)
+                                {
+                                    targetMe = npcs[random].Plane;
+                                }
+                            }
+                            npcs[i].Target = targetMe;
+                        }
+                    }
+                }
+                else
+                {
+                    if (allyBase != null)
+                    {
+                        if (!specialAllyTargeted)
+                        {
+                            npcs[i].Target = allyBase;
+                            specialAllyTargeted = true;
+                        }
+                        else
+                        {
+                            specialProb = 3;
+                        }
+                    }
+                    else if (targetAlly != null)
+                    {
+                        if (!specialAllyTargeted)
+                        {
+                            npcs[i].Target = targetAlly.Plane;
+                            specialAllyTargeted = true;
+                        }
+                        else
+                        {
+                            specialProb = 3;
+                        }
+                    }
+                    if (npcs[i].Target == null)
+                    {
+                        if (GameVariables.GetRandom(0, 10) < specialProb)
+                        {
+                            if (allyBase != null)
+                            {
+                                npcs[i].Target = allyBase;
+                            }
+                            else if (targetAlly != null)
+                            {
+                                npcs[i].Target = targetAlly.Plane;
+                            }
+                        }
+                        else
+                        {
+                            if (GameVariables.GetRandom(0, 6) > 2 || allyCount == 0)
+                            {
+                                npcs[i].Target = p1.Plane;
+                            }
+                            else
+                            {
+                                Plane targetMe = null;
+                                while (targetMe == null)
+                                {
+                                    int random = GameVariables.GetRandom(0, npcs.Count);
+                                    if (npcs[random].Friendly != npcs[i].Friendly)
+                                    {
+                                        targetMe = npcs[random].Plane;
+                                    }
+                                }
+                                npcs[i].Target = targetMe;
+                            }
+                        }
+                    }
+                }
+                npcs[i].hunting = true;
             }
             currentState = gameState.Playing;
         }
@@ -106,6 +229,35 @@ namespace ClockworkSkies
                 if (npcs[i].IsDead())
                 {
                     npcs.RemoveAt(i);
+                }
+                else if (npcs[i].Target is Plane)
+                {
+                    Plane target = (Plane)npcs[i].Target;
+                    if (target.dead)
+                    {
+                        if (npcs[i].Friendly)
+                        {
+                            if (targetEnemy != null)
+                            {
+                                npcs[i].Target = targetEnemy.Plane;
+                            }
+                            else
+                            {
+                                npcs[i].Target = null;
+                            }
+                        }
+                        else
+                        {
+                            if (targetAlly != null)
+                            {
+                                npcs[i].Target = targetAlly.Plane;
+                            }
+                            else
+                            {
+                                npcs[i].Target = p1.Plane;
+                            }
+                        }
+                    }
                 }
             }
             //victory test code
