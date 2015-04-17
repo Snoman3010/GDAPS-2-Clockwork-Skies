@@ -59,7 +59,9 @@ namespace ClockworkSkies
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            GameVariables.PlayerImage = Content.Load<Texture2D>("temp");
+            GameVariables.PlayerImage = Content.Load<Texture2D>("player_plane");
+            GameVariables.AllyImage = Content.Load<Texture2D>("ally_plane");
+            GameVariables.EnemyImage = Content.Load<Texture2D>("enemy_plane");
             GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
