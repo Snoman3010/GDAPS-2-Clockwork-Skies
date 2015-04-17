@@ -198,7 +198,7 @@ namespace ClockworkSkies
                     {
                         if (!(GameVariables.pieces[i] is Bullet) && plane.Friendly != GameVariables.pieces[i].Friendly)
                         {
-                            if (plane.FindDistance(GameVariables.pieces[i]) <= (4 * GameVariables.PlaneSize))
+                            if (plane.FindDistance(GameVariables.pieces[i]) <= (8 * GameVariables.PlaneSize))
                             {
                                 hunting = false;
                             }
@@ -215,7 +215,7 @@ namespace ClockworkSkies
                     {
                         if (!(GameVariables.pieces[i] is Bullet) && plane.Friendly != GameVariables.pieces[i].Friendly)
                         {
-                            if (plane.FindDistance(GameVariables.pieces[i]) <= (12 * GameVariables.PlaneSize))
+                            if (plane.FindDistance(GameVariables.pieces[i]) <= (16 * GameVariables.PlaneSize))
                             {
                                 avoidMe = GameVariables.pieces[i];
                             }
