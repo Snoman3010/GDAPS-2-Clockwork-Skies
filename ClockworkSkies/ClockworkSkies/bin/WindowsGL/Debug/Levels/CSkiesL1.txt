@@ -4,5 +4,5 @@ Level generated with the official Clockwork Skies level editor.
 :V-0
 :P-1065,704,0
 :E-171,540,1,0
- :E-1291,576,7,0
+:E-1291,576,7,0
  :E-395,96,3,0

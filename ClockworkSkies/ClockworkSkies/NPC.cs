@@ -18,6 +18,10 @@ namespace ClockworkSkies
         protected bool wasOffScreen = false;
         protected Piece target;
         public bool hunting;
+        private int burstTimer = 0;
+        private int burstTimerMax = 25;
+        private int burstTimerDelay = 30;
+        private bool isBursting = false;
 
         //constructor
         public NPC(Texture2D image, Vector2 position, float direction, bool ally)
@@ -145,7 +149,21 @@ namespace ClockworkSkies
                 //On-screen AI Logic
                 if (hunting)
                 {
-                    plane.keyPressed["spaceKey"] = true;
+                    burstTimer++;
+
+                    if(burstTimer >= burstTimerMax && isBursting)
+                    {
+                        burstTimer = 0;
+                        plane.keyPressed["spaceKey"] = false;
+                        isBursting = false;
+                    }
+                    else if(burstTimer >= burstTimerDelay && !isBursting)
+                    {
+                        burstTimer = 0;
+                        plane.keyPressed["spaceKey"] = true;
+                        isBursting = true;
+                    }
+
                     if (plane.speed < 6)
                     {
                         plane.keyPressed["upKey"] = true;
@@ -193,7 +211,7 @@ namespace ClockworkSkies
                         plane.keyPressed["leftKey"] = true;
                         plane.keyPressed["rightKey"] = false;
                     }
-                    else if (angle < 0.05)
+                    else if (angle <= Math.PI / 8)
                     {
                         plane.keyPressed["leftKey"] = false;
                         plane.keyPressed["rightKey"] = false;
