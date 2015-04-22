@@ -97,19 +97,24 @@ namespace ClockworkSkies
 
             GamePadState gState = GamePad.GetState(0);
 
-            if (gameMenu.levels.currentLevel != null)
-            {
-                gameMenu.levels.currentLevel.p1.kState = Keyboard.GetState();
-            }
 
-            for (int i = 0; i < GameVariables.pieces.Count; i++)
-            {
-                GameVariables.pieces[i].Update();
-            }
 
-            for (int i = 0; i < GameVariables.smokeList.Count; i++)
+            if (GameVariables.GameUnpaused)
             {
-                GameVariables.smokeList[i].Update();
+                if (gameMenu.levels.currentLevel != null)
+                {
+                    gameMenu.levels.currentLevel.p1.kState = Keyboard.GetState();
+                }
+
+                for (int i = 0; i < GameVariables.pieces.Count; i++)
+                {
+                    GameVariables.pieces[i].Update();
+                }
+
+                for (int i = 0; i < GameVariables.smokeList.Count; i++)
+                {
+                    GameVariables.smokeList[i].Update();
+                }
             }
 
             gameMenu.Update(mState);

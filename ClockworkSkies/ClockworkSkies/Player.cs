@@ -74,7 +74,14 @@ namespace ClockworkSkies
             {
                 plane.keyPressed["spaceKey"] = false;
             }
-            
+
+            if (kState.IsKeyDown(Keys.Escape))
+            {
+                GameVariables.GameUnpaused = false;
+                GameVariables.MainGame.gameMenu.State = MenuState.Pause;
+                GameVariables.MainGame.gameMenu.Show();
+                GameVariables.MainGame.gameMenu.levels.loadLevelTimer = 0;
+            }
         }
 
         public bool IsDead()

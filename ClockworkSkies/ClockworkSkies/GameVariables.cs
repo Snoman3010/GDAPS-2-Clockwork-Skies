@@ -15,6 +15,14 @@ namespace ClockworkSkies
     {
         private static Random rng = new Random();
 
+        private static bool running = true;
+
+        public static bool GameUnpaused
+        {
+            get { return running; }
+            set { running = value; }
+        }
+
         public static Game1 MainGame
         {
             get;
@@ -119,6 +127,16 @@ namespace ClockworkSkies
         public static float InvulnTimer
         {
             get { return 150; }
+        }
+
+        public static int ButtonWidth
+        {
+            get { return 200; }
+        }
+
+        public static int ButtonHeight
+        {
+            get { return 100; }
         }
 
         public static int GetRandom(int min, int max)

@@ -34,7 +34,7 @@ namespace ClockworkSkies
         private bool showErrorMessage = false;
         private string errorMessage = "";
 
-        private int loadLevelTimer = 0;
+        public int loadLevelTimer = 0;
 
         //constructor
         public LevelList(Menu gMenu)
@@ -275,7 +275,7 @@ namespace ClockworkSkies
                 {
                     currentLevel.Clear();
                     currentLevel = null;
-
+                    gameMenu.State = MenuState.Play;
                     gameMenu.Show();
                     loadLevelTimer = 0;
                 }
