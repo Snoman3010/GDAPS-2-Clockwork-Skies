@@ -58,9 +58,9 @@ namespace ClockworkSkies
             {
                 case MenuState.Title:
                     {
-                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
@@ -68,29 +68,29 @@ namespace ClockworkSkies
                     }
                 case MenuState.Main:
                     {
-                        buttons["Play"].rect.X = 60;
+                        buttons["Play"].rect.X = (GameVariables.WindowWidth / 2) - (int)(3.5 * GameVariables.ButtonWidth);
                         buttons["Play"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Play"].rect.Y = 568;
+                        buttons["Play"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Play"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Play"].clickable = true;
-                        buttons["Tutorial"].rect.X = 320;
+                        buttons["Tutorial"].rect.X = (GameVariables.WindowWidth / 2) - (2 * GameVariables.ButtonWidth);
                         buttons["Tutorial"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Tutorial"].rect.Y = 568;
+                        buttons["Tutorial"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Tutorial"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Tutorial"].clickable = true;
-                        buttons["Options"].rect.X = 580;
+                        buttons["Options"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Options"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Options"].rect.Y = 568;
+                        buttons["Options"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Options"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Options"].clickable = true;
-                        buttons["Credits"].rect.X = 840;
+                        buttons["Credits"].rect.X = (GameVariables.WindowWidth / 2) + GameVariables.ButtonWidth;
                         buttons["Credits"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Credits"].rect.Y = 568;
+                        buttons["Credits"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Credits"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Credits"].clickable = true;
-                        buttons["Exit"].rect.X = 1100;
+                        buttons["Exit"].rect.X = (GameVariables.WindowWidth / 2) + (int)(2.5 * GameVariables.ButtonWidth);
                         buttons["Exit"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Exit"].rect.Y = 568;
+                        buttons["Exit"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Exit"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Exit"].clickable = true;
                         buttonsSet = true;
@@ -98,9 +98,9 @@ namespace ClockworkSkies
                     }
                 case MenuState.Play:
                     {
-                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         levels.ShowLevels();
@@ -109,9 +109,9 @@ namespace ClockworkSkies
                     }
                 case MenuState.Tutorial:
                     {
-                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
@@ -119,9 +119,9 @@ namespace ClockworkSkies
                     }
                 case MenuState.Options:
                     {
-                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
@@ -129,9 +129,9 @@ namespace ClockworkSkies
                     }
                 case MenuState.Credits:
                     {
-                        buttons["Main"].rect.X = 580;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
@@ -139,14 +139,14 @@ namespace ClockworkSkies
                     }
                 case MenuState.Pause:
                     {
-                        buttons["Resume"].rect.X = 580;
+                        buttons["Resume"].rect.X = (GameVariables.WindowWidth / 2) - (int)(1.5 * GameVariables.ButtonWidth);
                         buttons["Resume"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Resume"].rect.Y = 568;
+                        buttons["Resume"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Resume"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Resume"].clickable = true;
-                        buttons["Main"].rect.X = 840;
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) + (int)(GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
-                        buttons["Main"].rect.Y = 568;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
@@ -259,6 +259,7 @@ namespace ClockworkSkies
                         state = MenuState.Main;
                         levels.currentLevel.Clear();
                         levels.currentLevel = null;
+                        GameVariables.GameUnpaused = true;
                         break;
                     }
                     if (buttons["Resume"].clicked)
