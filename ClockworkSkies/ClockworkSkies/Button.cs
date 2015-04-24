@@ -59,7 +59,9 @@ namespace ClockworkSkies
             if (clickable)
             {
                 image.Draw(GameVariables.ButtonImage, rect, Color.White);
-                image.DrawString(GameVariables.TextFont, text, new Vector2((rect.Center.X + rect.Left) / 2, rect.Center.Y), Color.Black, 0, new Vector2(0, 0), new Vector2((float)0.5, (float)0.5), 0, 0);
+                Vector2 textSize = GameVariables.TextFont.MeasureString(text);
+                Vector2 fontScale = new Vector2(0.75f, 0.75f);
+                image.DrawString(GameVariables.TextFont, text, new Vector2(rect.Center.X - (textSize.X / 2) * fontScale.X, rect.Center.Y - (textSize.Y / 2) * fontScale.Y), Color.Yellow, 0, new Vector2(0, 0), fontScale, 0, 0);
             }
             
         }
