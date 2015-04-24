@@ -77,3 +77,5 @@ D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.exe
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.pdb
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\enemy_bullet.png
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\player_bullet.png

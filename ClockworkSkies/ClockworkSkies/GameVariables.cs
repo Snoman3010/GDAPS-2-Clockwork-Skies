@@ -53,6 +53,11 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D EnemyBulletImage
+        {
+            get;
+            set;
+        }
         // smoke sprite
         public static Texture2D SmokeImage
         {

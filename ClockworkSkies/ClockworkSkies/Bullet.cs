@@ -20,7 +20,8 @@ namespace ClockworkSkies
         public Bullet(float dir, Vector2 position, bool allied)
             : base(GameVariables.BulletImage, dir, position, GameVariables.PlaneSize / 4, GameVariables.PlaneSize / 4, allied)
         {
-
+            if (!allied)
+                image = new Sprite(GameVariables.EnemyBulletImage, position, GameVariables.PlaneSize / 4, GameVariables.PlaneSize / 4);
         }
 
         public override void Update()

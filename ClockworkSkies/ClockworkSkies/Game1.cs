@@ -62,7 +62,8 @@ namespace ClockworkSkies
             GameVariables.PlayerImage = Content.Load<Texture2D>("player_plane");
             GameVariables.AllyImage = Content.Load<Texture2D>("ally_plane");
             GameVariables.EnemyImage = Content.Load<Texture2D>("enemy_plane");
-            GameVariables.BulletImage = Content.Load<Texture2D>("bullet");
+            GameVariables.BulletImage = Content.Load<Texture2D>("player_bullet");
+            GameVariables.EnemyBulletImage = Content.Load<Texture2D>("enemy_bullet");
             GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
