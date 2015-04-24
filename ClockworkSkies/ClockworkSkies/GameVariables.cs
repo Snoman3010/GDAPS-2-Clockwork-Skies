@@ -29,6 +29,12 @@ namespace ClockworkSkies
             set;
         }
 
+        public static Texture2D GameTitle
+        {
+            get;
+            set;
+        }
+
         //Player sprite
         public static Texture2D PlayerImage
         {
