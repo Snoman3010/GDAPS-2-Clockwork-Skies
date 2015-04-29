@@ -17,7 +17,7 @@ namespace ClockworkSkies
         //attributes
         public static List<string> levels;
         public static List<Button> buttons;
-
+        
         private Menu gameMenu;
         public Level currentLevel;
 
@@ -36,6 +36,12 @@ namespace ClockworkSkies
 
         public int loadLevelTimer = 0;
 
+        private Button play;
+        private Button next;
+        private Button previous;
+        private int page;
+        private int pageMax;
+
         //constructor
         public LevelList(Menu gMenu)
         {
@@ -44,6 +50,14 @@ namespace ClockworkSkies
             npcs = new List<Vector4>();
             GetLevels();
             gameMenu = gMenu;
+            play = new Button(new Rectangle(1250, 650, 200, 100), "Play Level");
+            next = new Button(new Rectangle(450, 650, 200, 100), "Next Page");
+            previous = new Button(new Rectangle(50, 650, 200, 100), "Previous Page");
+            play.clickable = true;
+            next.clickable = true;
+            previous.clickable = true;
+            page = 0;
+            pageMax = 0;
         }
 
         //Find level files
@@ -72,9 +86,35 @@ namespace ClockworkSkies
         {
             for(int i = 0; i < levels.Count; i++)
             {
-                Button button = new Button(new Rectangle(50, 50 + 100 * i, 200, 100), levels[i]);
-                button.clickable = true;
-                buttons.Add(button);
+                int vPos = i;
+                int hPos = 0;
+                while (vPos >= 6)
+                {
+                    vPos = vPos - 6;
+                    hPos++;
+                }
+                if (hPos < 3)
+                {
+                    Button button = new Button(new Rectangle(50 + 200 * hPos, 50 + 100 * vPos, 200, 100), levels[i]);
+                    button.clickable = true;
+                    buttons.Add(button);
+                }
+                else
+                {
+                    int currentPage = 0;
+                    while (hPos >= 3)
+                    {
+                        hPos = hPos - 3;
+                        currentPage++;
+                        if (pageMax < currentPage)
+                        {
+                            pageMax = currentPage;
+                        }
+                    }
+                    Button button = new Button(new Rectangle(50 + 200 * hPos, 50 + 100 * vPos, 200, 100), levels[i]);
+                    buttons.Add(button);
+                }
+                
 
             }
         }
@@ -90,6 +130,7 @@ namespace ClockworkSkies
         // Loads the specified level
         public void LoadLevel(string level)
         {
+            npcs.Clear();
             StreamReader reader = null;
             try
             {
@@ -235,10 +276,7 @@ namespace ClockworkSkies
                 }
 
                 loadLevelTimer = 0;
-                gameMenu.Hide();
-                currentLevel = new Level(timeLimit, victoryCondition, playerInfo, alliedTargetInfo, enemyTargetInfo, alliedBase, enemyBase, npcs, levelName);
-
-                npcs.Clear();
+                
             }
             catch(IOException e) // If there is a problem reading the file, show an error message
             {
@@ -256,6 +294,85 @@ namespace ClockworkSkies
 
         public void Update(MouseState mState)
         {
+            if (gameMenu.State == MenuState.Play && currentLevel == null)
+            {
+                play.Update(mState);
+                next.Update(mState);
+                previous.Update(mState);
+
+                if (play.clicked)
+                {
+                    play.clicked = false;
+                    if (levelName != null)
+                    {
+                        gameMenu.Hide();
+                        currentLevel = new Level(timeLimit, victoryCondition, playerInfo, alliedTargetInfo, enemyTargetInfo, alliedBase, enemyBase, npcs, levelName);
+
+                        npcs.Clear();
+                    }
+                }
+
+                if (next.clicked)
+                {
+                    next.clicked = false;
+                    if (page < pageMax)
+                    {
+                        try
+                        {
+                            for (int i = 0 + (18 * page); i < 18 + (18 * page); i++)
+                            {
+                                buttons[i].clickable = false;
+                            }
+                        }
+                        catch (ArgumentOutOfRangeException e)
+                        {
+
+                        }
+                        page++;
+                        try
+                        {
+                            for (int i = 0 + (18 * page); i < 18 + (18 * page); i++)
+                            {
+                                buttons[i].clickable = true;
+                            }
+                        }
+                        catch (ArgumentOutOfRangeException e)
+                        {
+
+                        }
+                    }
+                }
+                else if (previous.clicked)
+                {
+                    previous.clicked = false;
+                    if (page > 0)
+                    {
+                        try
+                        {
+                            for (int i = 0 + (18 * page); i < 18 + (18 * page); i++)
+                            {
+                                buttons[i].clickable = false;
+                            }
+                        }
+                        catch (ArgumentOutOfRangeException e)
+                        {
+
+                        }
+                        page--;
+                        try
+                        {
+                            for (int i = 0 + (18 * page); i < 18 + (18 * page); i++)
+                            {
+                                buttons[i].clickable = true;
+                            }
+                        }
+                        catch (ArgumentOutOfRangeException e)
+                        {
+
+                        }
+                    }
+                }
+            }
             foreach (Button x in buttons)
             {
                 x.Update(mState);
@@ -265,7 +382,7 @@ namespace ClockworkSkies
                     // Load corresponding level
                     x.clicked = false;
                     LoadLevel(x.Text);
-                    loadLevelTimer++;
+                    //loadLevelTimer++;
                 }
             }
             if (currentLevel != null)
@@ -289,6 +406,22 @@ namespace ClockworkSkies
             if (showErrorMessage)
             {
                 spriteBatch.DrawString(GameVariables.TextFont, errorMessage, new Vector2(50, 400), Color.Red);
+            }
+
+            if (gameMenu.State == MenuState.Play && currentLevel == null)
+            {
+                play.Draw(spriteBatch);
+                next.Draw(spriteBatch);
+                previous.Draw(spriteBatch);
+                spriteBatch.DrawString(GameVariables.TextFont, "Selected Level:", new Vector2(900, 70), Color.BlueViolet);
+                if (levelName != null)
+                {
+                    spriteBatch.DrawString(GameVariables.TextFont, levelName, new Vector2(1200, 70), Color.BlueViolet);
+                }
+                else
+                {
+                    spriteBatch.DrawString(GameVariables.TextFont, "Please choose a level", new Vector2(1200, 70), Color.BlueViolet);
+                }
             }
 
             foreach (Button x in buttons)
