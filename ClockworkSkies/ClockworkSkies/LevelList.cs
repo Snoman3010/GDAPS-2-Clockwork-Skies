@@ -390,9 +390,17 @@ namespace ClockworkSkies
                 currentLevel.Update();
                 if (currentLevel.currentState == gameState.Lost || currentLevel.currentState == gameState.Won)
                 {
+                    if (currentLevel.currentState == gameState.Lost)
+                    {
+                        gameMenu.GameOverMessage = "You Lost!";
+                    }
+                    else
+                    {
+                        gameMenu.GameOverMessage = "You Won!";
+                    }
                     currentLevel.Clear();
                     currentLevel = null;
-                    gameMenu.State = MenuState.Play;
+                    gameMenu.State = MenuState.GameOver;
                     gameMenu.Show();
                     loadLevelTimer = 0;
                 }

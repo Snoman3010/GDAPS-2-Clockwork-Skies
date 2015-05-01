@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ClockworkSkies
 {
-    public enum MenuState { Title, Main, Play, Tutorial, Options, Credits, Pause };
+    public enum MenuState { Title, Main, Play, Tutorial, Options, Credits, Pause, GameOver };
 
     public class Menu
     {
@@ -21,11 +21,18 @@ namespace ClockworkSkies
         private bool buttonsSet;
         public LevelList levels;
         private Game1 mainGame;
+        private string gameOverMessage;
 
         public MenuState State
         {
             get { return state; }
             set { state = value; }
+        }
+
+        public string GameOverMessage
+        {
+            get { return gameOverMessage; }
+            set { gameOverMessage = value; }
         }
         
         // Constructor
@@ -50,6 +57,7 @@ namespace ClockworkSkies
 
             mainGame = mG;
 
+            gameOverMessage = "";
         }
 
         private void SetButtons()
@@ -145,6 +153,16 @@ namespace ClockworkSkies
                         buttons["Resume"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Resume"].clickable = true;
                         buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) + (int)(GameVariables.ButtonWidth / 2);
+                        buttons["Main"].rect.Width = GameVariables.ButtonWidth;
+                        buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
+                        buttons["Main"].rect.Height = GameVariables.ButtonHeight;
+                        buttons["Main"].clickable = true;
+                        buttonsSet = true;
+                        break;
+                    }
+                case MenuState.GameOver:
+                    {
+                        buttons["Main"].rect.X = (GameVariables.WindowWidth / 2) - (GameVariables.ButtonWidth / 2);
                         buttons["Main"].rect.Width = GameVariables.ButtonWidth;
                         buttons["Main"].rect.Y = GameVariables.WindowHeight - (3 * GameVariables.ButtonHeight);
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
@@ -268,6 +286,15 @@ namespace ClockworkSkies
                         Hide();
                     }
                     break;
+                case MenuState.GameOver:
+                    {
+                        if (buttons["Main"].clicked)
+                        {
+                            buttonsSet = false;
+                            state = MenuState.Main;
+                        }
+                        break;
+                    }
             }
         }
 
@@ -277,6 +304,10 @@ namespace ClockworkSkies
             {
                 pair.Value.Draw(spriteBatch);
                 levels.Draw(spriteBatch);
+            }
+            if (state == MenuState.GameOver)
+            {
+                spriteBatch.DrawString(GameVariables.TextFont, gameOverMessage, new Vector2(900, 200), Color.DarkGreen);
             }
         }
 
