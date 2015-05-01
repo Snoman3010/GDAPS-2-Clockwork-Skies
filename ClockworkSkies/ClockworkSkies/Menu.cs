@@ -307,7 +307,8 @@ namespace ClockworkSkies
             }
             if (state == MenuState.GameOver)
             {
-                spriteBatch.DrawString(GameVariables.TextFont, gameOverMessage, new Vector2(900, 200), Color.DarkGreen);
+                Vector2 messageSize = GameVariables.TextFont.MeasureString(gameOverMessage);
+                spriteBatch.DrawString(GameVariables.TextFont, gameOverMessage, new Vector2((GameVariables.WindowWidth / 2) - (messageSize.X / 2), messageSize.Y * 5), Color.DarkGreen, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
             }
         }
 

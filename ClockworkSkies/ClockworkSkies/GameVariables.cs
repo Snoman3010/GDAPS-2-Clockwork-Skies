@@ -142,17 +142,27 @@ namespace ClockworkSkies
 
         public static int ButtonWidth
         {
-            get { return 200; }
+            get { return (int)(WindowWidth / 9.6); }
         }
 
         public static int ButtonHeight
         {
-            get { return 100; }
+            get { return (int)(WindowHeight / 10.8); }
         }
 
         public static int GetRandom(int min, int max)
         {
             return rng.Next(min, max);
+        }
+
+        public static float WidthMultiplier
+        {
+            get { return (float)(WindowWidth / 1920.0); }
+        }
+
+        public static float HeightMultiplier
+        {
+            get { return (float)(WindowHeight / 1080.0); }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ClockworkSkies
         // Constructor
         public Smoke(Vector2 position)
         {
-            puffy = new Sprite(GameVariables.SmokeImage, position, 16, 16);
+            puffy = new Sprite(GameVariables.SmokeImage, position, GameVariables.PlaneSize / 2, GameVariables.PlaneSize / 2);
             timer = 120;
             GameVariables.smokeList.Add(this);
             orgWidth = 16;

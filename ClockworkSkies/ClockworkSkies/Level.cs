@@ -33,7 +33,7 @@ namespace ClockworkSkies
         {
             levelName = name;
             //create player
-            p1 = new Player(GameVariables.PlayerImage, new Vector2(playerData.X, playerData.Y), (float)(Math.PI * 2 * playerData.Z / 8));
+            p1 = new Player(new Vector2(playerData.X, playerData.Y), (float)(Math.PI * 2 * playerData.Z / 8));
             //set time limit
             timer = time * 60;
             //set vicrory condition

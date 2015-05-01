@@ -23,7 +23,7 @@ namespace ClockworkSkies
         }
 
         // constructor
-        public Player(Texture2D image, Vector2 position, float direction)
+        public Player(Vector2 position, float direction)
         {
             plane = new Plane(GameVariables.PlayerImage, position, direction, true);
             kState = new KeyboardState();
@@ -33,6 +33,23 @@ namespace ClockworkSkies
         public void Update()
         {
             // goes through each key, if the key is down it sets the keypressed value to true, if the key is not down it sets the keypressed value to false
+            //if (plane.Image.PosX < 0)
+            //{
+            //    plane.Image.PosX = plane.Image.PosX + GameVariables.WindowWidth;
+            //}
+            //else if(plane.Image.PosX > GameVariables.WindowWidth)
+            //{
+            //    plane.Image.PosX = plane.Image.PosX - GameVariables.WindowWidth;
+            //}
+
+            //if(plane.Image.PosY < 0)
+            //{
+            //    plane.Image.PosY = plane.Image.PosY + GameVariables.WindowHeight;
+            //}
+            //else if (plane.Image.PosY > GameVariables.WindowHeight)
+            //{
+            //    plane.Image.PosY = plane.Image.PosY - GameVariables.WindowHeight;
+            //}
             
             if(kState.IsKeyDown(Keys.Up))
             {

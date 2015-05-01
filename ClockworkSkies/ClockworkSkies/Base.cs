@@ -46,7 +46,7 @@ namespace ClockworkSkies
             }
             if (life <= 3 && smokeTimer <= 0)
             {
-                Smoke smoke = new Smoke(new Vector2(GameVariables.GetRandom((int)image.PosX - 35, (int)image.PosX + image.Width - 35), GameVariables.GetRandom((int)image.PosY - 35 , (int)image.PosY + image.Width - 35)));
+                Smoke smoke = new Smoke(new Vector2(GameVariables.GetRandom((int)image.PosX, (int)image.PosX + image.Width), GameVariables.GetRandom((int)image.PosY, (int)image.PosY + image.Width)));
                 smokeTimer = GameVariables.GetRandom(10, 35);
             }
 

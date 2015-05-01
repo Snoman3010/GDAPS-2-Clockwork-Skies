@@ -1,9 +1,0 @@
-Level generated with the official Clockwork Skies level editor.
-:L-Test Level 2
-:T-180
-:V-7
-:P-459,448,0
-:F-75,64
-:B-1291,704
-:E-427,96,3,0
-:E-875,672,7,1

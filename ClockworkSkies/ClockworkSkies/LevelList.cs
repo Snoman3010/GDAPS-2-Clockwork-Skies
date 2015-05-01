@@ -50,9 +50,9 @@ namespace ClockworkSkies
             npcs = new List<Vector4>();
             GetLevels();
             gameMenu = gMenu;
-            play = new Button(new Rectangle(1250, 650, 200, 100), "Play Level");
-            next = new Button(new Rectangle(450, 650, 200, 100), "Next Page");
-            previous = new Button(new Rectangle(50, 650, 200, 100), "Previous Page");
+            play = new Button(new Rectangle((int)(GameVariables.ButtonWidth * 6.25), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight), "Play Level");
+            next = new Button(new Rectangle((int)(GameVariables.ButtonWidth * 2.25), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight), "Next Page");
+            previous = new Button(new Rectangle((GameVariables.ButtonWidth / 4), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight), "Previous Page");
             play.clickable = true;
             next.clickable = true;
             previous.clickable = true;
@@ -86,6 +86,7 @@ namespace ClockworkSkies
         {
             for(int i = 0; i < levels.Count; i++)
             {
+                LoadLevel(levels[i]);
                 int vPos = i;
                 int hPos = 0;
                 while (vPos >= 6)
@@ -95,7 +96,7 @@ namespace ClockworkSkies
                 }
                 if (hPos < 3)
                 {
-                    Button button = new Button(new Rectangle(50 + 200 * hPos, 50 + 100 * vPos, 200, 100), levels[i]);
+                    Button button = new Button(new Rectangle((GameVariables.ButtonWidth / 4) + GameVariables.ButtonWidth * hPos, (GameVariables.ButtonHeight / 2) + GameVariables.ButtonHeight * vPos, GameVariables.ButtonWidth, GameVariables.ButtonHeight), levelName);
                     button.clickable = true;
                     buttons.Add(button);
                 }
@@ -111,12 +112,16 @@ namespace ClockworkSkies
                             pageMax = currentPage;
                         }
                     }
-                    Button button = new Button(new Rectangle(50 + 200 * hPos, 50 + 100 * vPos, 200, 100), levels[i]);
+                    Button button = new Button(new Rectangle((GameVariables.ButtonWidth / 4) + GameVariables.ButtonWidth * hPos, (GameVariables.ButtonHeight / 2) + GameVariables.ButtonHeight * vPos, GameVariables.ButtonWidth, GameVariables.ButtonHeight), levelName);
                     buttons.Add(button);
                 }
                 
 
             }
+
+            levelName = null;
+            timeLimit = 0;
+            victoryCondition = -1;
         }
 
         public void HideLevels()
@@ -177,8 +182,8 @@ namespace ClockworkSkies
                                 {
                                     string[] targetAlliedValues = lineData.Split(',');
 
-                                    alliedTargetInfo.X = int.Parse(targetAlliedValues[0]);
-                                    alliedTargetInfo.Y = int.Parse(targetAlliedValues[1]);
+                                    alliedTargetInfo.X = GameVariables.WidthMultiplier * int.Parse(targetAlliedValues[0]);
+                                    alliedTargetInfo.Y = GameVariables.HeightMultiplier * int.Parse(targetAlliedValues[1]);
                                     alliedTargetInfo.Z = int.Parse(targetAlliedValues[2]);
                                 }
                                 catch(Exception)
@@ -193,8 +198,8 @@ namespace ClockworkSkies
                                 {
                                     string[] targetEnemyValues = lineData.Split(',');
 
-                                    enemyTargetInfo.X = int.Parse(targetEnemyValues[0]);
-                                    enemyTargetInfo.Y = int.Parse(targetEnemyValues[1]);
+                                    enemyTargetInfo.X = GameVariables.WidthMultiplier * int.Parse(targetEnemyValues[0]);
+                                    enemyTargetInfo.Y = GameVariables.HeightMultiplier * int.Parse(targetEnemyValues[1]);
                                     enemyTargetInfo.Z = int.Parse(targetEnemyValues[2]);
                                 }
                                 catch(Exception)
@@ -209,8 +214,8 @@ namespace ClockworkSkies
                                 {
                                     string[] alliedBaseValues = lineData.Split(',');
 
-                                    alliedBase.X = int.Parse(alliedBaseValues[0]); ;
-                                    alliedBase.Y = int.Parse(alliedBaseValues[1]);
+                                    alliedBase.X = GameVariables.WidthMultiplier * int.Parse(alliedBaseValues[0]); ;
+                                    alliedBase.Y = GameVariables.HeightMultiplier * int.Parse(alliedBaseValues[1]);
                                 }
                                 catch(Exception)
                                 {
@@ -224,8 +229,8 @@ namespace ClockworkSkies
                                 {
                                     string[] enemyBaseValues = lineData.Split(',');
 
-                                    enemyBase.X = int.Parse(enemyBaseValues[0]);
-                                    enemyBase.Y = int.Parse(enemyBaseValues[1]);
+                                    enemyBase.X = GameVariables.WidthMultiplier * int.Parse(enemyBaseValues[0]);
+                                    enemyBase.Y = GameVariables.HeightMultiplier * int.Parse(enemyBaseValues[1]);
                                 }
                                 catch(Exception)
                                 {
@@ -239,8 +244,8 @@ namespace ClockworkSkies
                                 {
                                     string[] playerStartValues = lineData.Split(',');
 
-                                    playerInfo.X = int.Parse(playerStartValues[0]);
-                                    playerInfo.Y = int.Parse(playerStartValues[1]);
+                                    playerInfo.X = GameVariables.WidthMultiplier * int.Parse(playerStartValues[0]);
+                                    playerInfo.Y = GameVariables.HeightMultiplier * int.Parse(playerStartValues[1]);
                                     playerInfo.Z = int.Parse(playerStartValues[2]);
                                 }
                                 catch(Exception)
@@ -255,8 +260,8 @@ namespace ClockworkSkies
                                 {
                                     string[] npcValues = lineData.Split(',');
 
-                                    int npcXPos = int.Parse(npcValues[0]);
-                                    int npcYPos = int.Parse(npcValues[1]);
+                                    float npcXPos = GameVariables.WidthMultiplier * int.Parse(npcValues[0]);
+                                    float npcYPos = GameVariables.HeightMultiplier * int.Parse(npcValues[1]);
                                     int npcDirection = int.Parse(npcValues[2]);
                                     int npcType = int.Parse(npcValues[3]);
 
@@ -373,15 +378,15 @@ namespace ClockworkSkies
                     }
                 }
             }
-            foreach (Button x in buttons)
+            for (int i = 0; i < buttons.Count; i++ )
             {
-                x.Update(mState);
+                buttons[i].Update(mState);
 
-                if(x.clicked && loadLevelTimer == 0)
+                if (buttons[i].clicked && loadLevelTimer == 0)
                 {
                     // Load corresponding level
-                    x.clicked = false;
-                    LoadLevel(x.Text);
+                    buttons[i].clicked = false;
+                    LoadLevel(levels[i]);
                     //loadLevelTimer++;
                 }
             }
@@ -421,14 +426,21 @@ namespace ClockworkSkies
                 play.Draw(spriteBatch);
                 next.Draw(spriteBatch);
                 previous.Draw(spriteBatch);
-                spriteBatch.DrawString(GameVariables.TextFont, "Selected Level:", new Vector2(900, 70), Color.BlueViolet);
+                spriteBatch.DrawString(GameVariables.TextFont, "Selected Level:", new Vector2(900 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 if (levelName != null)
                 {
-                    spriteBatch.DrawString(GameVariables.TextFont, levelName, new Vector2(1200, 70), Color.BlueViolet);
+                    spriteBatch.DrawString(GameVariables.TextFont, levelName, new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 }
                 else
                 {
-                    spriteBatch.DrawString(GameVariables.TextFont, "Please choose a level", new Vector2(1200, 70), Color.BlueViolet);
+                    spriteBatch.DrawString(GameVariables.TextFont, "Please choose a level", new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                }
+                spriteBatch.DrawString(GameVariables.TextFont, "Time Limit:", new Vector2(900 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "" + timeLimit, new Vector2(1200 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "Victory Condition:", new Vector2(900 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                if (victoryCondition != -1)
+                {
+                    spriteBatch.DrawString(GameVariables.TextFont, "" + (victoryConditions)victoryCondition, new Vector2(1200 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 }
             }
 

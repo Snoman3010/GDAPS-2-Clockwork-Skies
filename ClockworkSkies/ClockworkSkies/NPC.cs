@@ -60,92 +60,92 @@ namespace ClockworkSkies
 
 
             //getting back on screen logic
-            if(plane.Image.PosX < 0 || plane.Image.PosX > GameVariables.WindowWidth || plane.Image.PosY < 0 || plane.Image.PosY > GameVariables.WindowHeight)
-            {
-                if (!wasOffScreen)
-                {
-                    if (plane.Image.PosX < 0)
-                    {
-                        plane.keyPressed["upKey"] = false;
-                        plane.keyPressed["downKey"] = true;
-                        plane.keyPressed["spaceKey"] = false;
+            //if(plane.Image.PosX < 0 || plane.Image.PosX > GameVariables.WindowWidth || plane.Image.PosY < 0 || plane.Image.PosY > GameVariables.WindowHeight)
+            //{
+                //if (!wasOffScreen)
+                //{
+                //    if (plane.Image.PosX < 0)
+                //    {
+                //        plane.keyPressed["upKey"] = false;
+                //        plane.keyPressed["downKey"] = true;
+                //        plane.keyPressed["spaceKey"] = false;
 
-                        if (plane.Direction < Math.PI * 1.5)
-                        {
-                            plane.keyPressed["leftKey"] = true;
-                            plane.keyPressed["rightKey"] = false;
-                        }
-                        else
-                        {
-                            plane.keyPressed["leftKey"] = false;
-                            plane.keyPressed["rightKey"] = true;
-                        }
-                    }
-                    else if (plane.Image.PosX > GameVariables.WindowWidth)
-                    {
-                        plane.keyPressed["upKey"] = false;
-                        plane.keyPressed["downKey"] = true;
-                        plane.keyPressed["spaceKey"] = false;
+                //        if (plane.Direction < Math.PI * 1.5)
+                //        {
+                //            plane.keyPressed["leftKey"] = true;
+                //            plane.keyPressed["rightKey"] = false;
+                //        }
+                //        else
+                //        {
+                //            plane.keyPressed["leftKey"] = false;
+                //            plane.keyPressed["rightKey"] = true;
+                //        }
+                //    }
+                //    else if (plane.Image.PosX > GameVariables.WindowWidth)
+                //    {
+                //        plane.keyPressed["upKey"] = false;
+                //        plane.keyPressed["downKey"] = true;
+                //        plane.keyPressed["spaceKey"] = false;
 
-                        if (plane.Direction < Math.PI * 0.5)
-                        {
-                            plane.keyPressed["leftKey"] = true;
-                            plane.keyPressed["rightKey"] = false;
-                        }
-                        else
-                        {
-                            plane.keyPressed["leftKey"] = false;
-                            plane.keyPressed["rightKey"] = true;
-                        }
-                    }
-                    else if (plane.Image.PosY < 0)
-                    {
-                        plane.keyPressed["upKey"] = false;
-                        plane.keyPressed["downKey"] = true;
-                        plane.keyPressed["spaceKey"] = false;
+                //        if (plane.Direction < Math.PI * 0.5)
+                //        {
+                //            plane.keyPressed["leftKey"] = true;
+                //            plane.keyPressed["rightKey"] = false;
+                //        }
+                //        else
+                //        {
+                //            plane.keyPressed["leftKey"] = false;
+                //            plane.keyPressed["rightKey"] = true;
+                //        }
+                //    }
+                //    else if (plane.Image.PosY < 0)
+                //    {
+                //        plane.keyPressed["upKey"] = false;
+                //        plane.keyPressed["downKey"] = true;
+                //        plane.keyPressed["spaceKey"] = false;
 
-                        if (plane.Direction < Math.PI)
-                        {
-                            plane.keyPressed["leftKey"] = false;
-                            plane.keyPressed["rightKey"] = true;
-                        }
-                        else
-                        {
-                            plane.keyPressed["leftKey"] = true;
-                            plane.keyPressed["rightKey"] = false;
-                        }
-                    }
-                    else if (plane.Image.PosY > GameVariables.WindowHeight)
-                    {
-                        plane.keyPressed["upKey"] = false;
-                        plane.keyPressed["downKey"] = true;
-                        plane.keyPressed["spaceKey"] = false;
+                //        if (plane.Direction < Math.PI)
+                //        {
+                //            plane.keyPressed["leftKey"] = false;
+                //            plane.keyPressed["rightKey"] = true;
+                //        }
+                //        else
+                //        {
+                //            plane.keyPressed["leftKey"] = true;
+                //            plane.keyPressed["rightKey"] = false;
+                //        }
+                //    }
+                //    else if (plane.Image.PosY > GameVariables.WindowHeight)
+                //    {
+                //        plane.keyPressed["upKey"] = false;
+                //        plane.keyPressed["downKey"] = true;
+                //        plane.keyPressed["spaceKey"] = false;
 
-                        if (plane.Direction < Math.PI)
-                        {
-                            plane.keyPressed["leftKey"] = true;
-                            plane.keyPressed["rightKey"] = false;
-                        }
-                        else
-                        {
-                            plane.keyPressed["leftKey"] = false;
-                            plane.keyPressed["rightKey"] = true;
-                        }
-                    }
-                }
-                wasOffScreen = true;
-            }
-            else
-            {
-                if (wasOffScreen)
-                {
-                    plane.keyPressed["upKey"] = false;
-                    plane.keyPressed["downKey"] = false;
-                    plane.keyPressed["spaceKey"] = false;
-                    plane.keyPressed["leftKey"] = false;
-                    plane.keyPressed["rightKey"] = false;
-                }
-                wasOffScreen = false;
+                //        if (plane.Direction < Math.PI)
+                //        {
+                //            plane.keyPressed["leftKey"] = true;
+                //            plane.keyPressed["rightKey"] = false;
+                //        }
+                //        else
+                //        {
+                //            plane.keyPressed["leftKey"] = false;
+                //            plane.keyPressed["rightKey"] = true;
+                //        }
+                //    }
+                //}
+                //wasOffScreen = true;
+            //}
+            //else
+            //{
+                //if (wasOffScreen)
+                //{
+                //    plane.keyPressed["upKey"] = false;
+                //    plane.keyPressed["downKey"] = false;
+                //    plane.keyPressed["spaceKey"] = false;
+                //    plane.keyPressed["leftKey"] = false;
+                //    plane.keyPressed["rightKey"] = false;
+                //}
+                //wasOffScreen = false;
                 //On-screen AI Logic
                 if (hunting)
                 {
@@ -298,7 +298,7 @@ namespace ClockworkSkies
                         }
                     }
                 }
-            }
+            //}
         }
 
         public bool IsDead()

@@ -156,6 +156,24 @@ namespace ClockworkSkies
                 Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), Friendly);
                 savedFireTime = Environment.TickCount; // sets the new fire time
             }
+
+            if (Image.PosX < 0)
+            {
+                Image.PosX = Image.PosX + GameVariables.WindowWidth;
+            }
+            else if (Image.PosX > GameVariables.WindowWidth)
+            {
+                Image.PosX = Image.PosX - GameVariables.WindowWidth;
+            }
+
+            if (Image.PosY < 0)
+            {
+                Image.PosY = Image.PosY + GameVariables.WindowHeight;
+            }
+            else if (Image.PosY > GameVariables.WindowHeight)
+            {
+                Image.PosY = Image.PosY - GameVariables.WindowHeight;
+            }
         }
 
         // Damages the plane and gives the plane invincibility frames
