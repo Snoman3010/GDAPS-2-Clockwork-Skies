@@ -74,12 +74,12 @@ namespace ClockworkSkies
         //Width of game window
         public static int WindowWidth
         {
-            get { return 1920; }
+            get { return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width; }
         }
         //height of game window
         public static int WindowHeight
         {
-            get { return 1080; }
+            get { return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; }
         }
         //List of all pieces
         public static List<Piece> pieces = new List<Piece>();
