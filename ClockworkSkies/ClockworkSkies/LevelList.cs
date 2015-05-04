@@ -84,6 +84,8 @@ namespace ClockworkSkies
         //Creates a button for each level
         public void ShowLevels()
         {
+            buttons.Clear();  // reset number of buttons
+            
             for(int i = 0; i < levels.Count; i++)
             {
                 LoadLevel(levels[i]);

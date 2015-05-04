@@ -95,13 +95,10 @@ namespace ClockworkSkies
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
             // TODO: Add your update logic here
             MouseState mState = Mouse.GetState();
 
             GamePadState gState = GamePad.GetState(0);
-
-
 
             if (GameVariables.GameUnpaused)
             {
