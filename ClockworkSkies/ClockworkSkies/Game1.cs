@@ -70,6 +70,8 @@ namespace ClockworkSkies
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
 
+            GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
+
             GameVariables.MainGame = this;
 
             gameMenu = new Menu(MenuState.Title, this);
@@ -118,7 +120,6 @@ namespace ClockworkSkies
                     GameVariables.smokeList[i].Update();
                 }
             }
-
             gameMenu.Update(mState);
 
             base.Update(gameTime);
@@ -136,6 +137,8 @@ namespace ClockworkSkies
 
             spriteBatch.Begin();
 
+            DrawBackground(gameMenu.State);
+
             GameVariables.pieces.Reverse();
 
             for (int i = 0; i < GameVariables.pieces.Count; i++)
@@ -145,7 +148,6 @@ namespace ClockworkSkies
                     GameVariables.pieces[i].Draw(spriteBatch);
                 }
             }
-
             for (int i = 0; i < GameVariables.smokeList.Count; i++)
             {
                 GameVariables.smokeList[i].Draw(spriteBatch);
@@ -158,6 +160,34 @@ namespace ClockworkSkies
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void DrawBackground(MenuState state)
+        {
+            Rectangle screen = new Rectangle(0, 0, GameVariables.WindowWidth, GameVariables.WindowHeight);
+            
+            switch (state)
+            {
+                case MenuState.Title:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Main:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.GameOver:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
         }
     }
 }

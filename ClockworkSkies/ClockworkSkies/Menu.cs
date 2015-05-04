@@ -305,6 +305,7 @@ namespace ClockworkSkies
                 pair.Value.Draw(spriteBatch);
                 levels.Draw(spriteBatch);
             }
+
             if (state == MenuState.GameOver)
             {
                 Vector2 messageSize = GameVariables.TextFont.MeasureString(gameOverMessage);
