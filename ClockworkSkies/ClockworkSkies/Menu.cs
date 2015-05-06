@@ -20,6 +20,7 @@ namespace ClockworkSkies
         private MenuState state;
         private bool buttonsSet;
         public LevelList levels;
+        private Options options;
         private Game1 mainGame;
         private string gameOverMessage;
 
@@ -52,6 +53,8 @@ namespace ClockworkSkies
             buttons.Add("Exit", new Button(new Rectangle(0, 0, 0, 0), "Exit game"));
 
             levels = new LevelList(this);
+
+            options = new Options(this);
 
             buttonsSet = false;
 
@@ -133,6 +136,7 @@ namespace ClockworkSkies
                         buttons["Main"].rect.Height = GameVariables.ButtonHeight;
                         buttons["Main"].clickable = true;
                         buttonsSet = true;
+                        options.ShowOptions();
                         break;
                     }
                 case MenuState.Credits:
@@ -185,6 +189,7 @@ namespace ClockworkSkies
                 pair.Value.clicked = false;
             }
             levels.HideLevels();
+            options.HideOptions();
         }
 
         // Updates if either one of its buttons is clicked
@@ -197,6 +202,7 @@ namespace ClockworkSkies
             if (GameVariables.GameUnpaused)
             {
                 levels.Update(mState);
+                options.Update(mState);
             }
             if (!buttonsSet)
             {
@@ -300,10 +306,12 @@ namespace ClockworkSkies
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            levels.Draw(spriteBatch);
+            options.Draw(spriteBatch);
+
             foreach (KeyValuePair<string, Button> pair in buttons)
             {
                 pair.Value.Draw(spriteBatch);
-                levels.Draw(spriteBatch);
             }
 
             if (state == MenuState.GameOver)

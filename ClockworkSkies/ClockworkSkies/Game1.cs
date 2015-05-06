@@ -69,6 +69,7 @@ namespace ClockworkSkies
             GameVariables.BaseImage = Content.Load<Texture2D>("base");
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
             GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
+            GameVariables.SelectorImage = Content.Load<Texture2D>("selector");
 
             GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
 

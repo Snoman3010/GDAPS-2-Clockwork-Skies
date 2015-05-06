@@ -49,6 +49,7 @@
     <Compile Include="LevelList.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="NPC.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Player.cs" />
@@ -103,6 +104,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\player_plane.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\selector.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\smoke.png">

@@ -71,6 +71,13 @@ namespace ClockworkSkies
             set;
         }
 
+        // selector sprite
+        public static Texture2D SelectorImage
+        {
+            get;
+            set;
+        }
+
         //Width of game window
         public static int WindowWidth
         {

@@ -84,3 +84,13 @@ D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\title2.png
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\title2.png
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\main_menu.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\ally_plane.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\base.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\enemy_bullet.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\enemy_plane.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\main_menu.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\player_bullet.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\player_plane.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\smoke.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\title2.png
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\selector.png
