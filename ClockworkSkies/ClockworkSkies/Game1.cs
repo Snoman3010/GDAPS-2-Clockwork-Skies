@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Audio;
 #endregion
 
 namespace ClockworkSkies
@@ -58,6 +59,7 @@ namespace ClockworkSkies
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
             // TODO: use this.Content to load your game content here
             GameVariables.GameTitle = Content.Load<Texture2D>("title2");
             GameVariables.PlayerImage = Content.Load<Texture2D>("player_plane");
@@ -75,9 +77,23 @@ namespace ClockworkSkies
 
             GameVariables.MainGame = this;
 
+            GameVariables.BGM = Content.Load<SoundEffect>("pianoMusic");
+            GameVariables.BulletSound = Content.Load<SoundEffect>("gunshot");
+            GameVariables.ExplosionSound = Content.Load<SoundEffect>("explosion");
+
             gameMenu = new Menu(MenuState.Title, this);
             
-
+            //requires openAL
+            try
+            {
+                SoundEffectInstance instance = GameVariables.BGM.CreateInstance();
+                instance.IsLooped = true;
+                instance.Play();
+            }
+            catch(System.DllNotFoundException)
+            {
+                Console.WriteLine("OpenAL not found, no sound will play.");
+            }
         }
 
         /// <summary>
@@ -96,6 +112,8 @@ namespace ClockworkSkies
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            
+
             // TODO: Add your update logic here
             MouseState mState = Mouse.GetState();
 

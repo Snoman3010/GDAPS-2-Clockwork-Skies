@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ClockworkSkies
 {
@@ -59,6 +60,18 @@ namespace ClockworkSkies
             {
                 Remove();
                 dead = true;
+                try
+                {
+                    SoundEffectInstance instance = GameVariables.ExplosionSound.CreateInstance();
+                    instance.Volume = .3F;
+                    instance.Play();
+                }
+                catch (System.DllNotFoundException)
+                {
+                }
+                catch (InstancePlayLimitException)
+                {
+                }
                 return;
             }
             speedChangeTimer--;
@@ -155,6 +168,18 @@ namespace ClockworkSkies
 
                 Bullet bullet = new Bullet(direction, new Vector2(image.PosX + halfWidthX, image.PosY - halfWidthY), Friendly);
                 savedFireTime = Environment.TickCount; // sets the new fire time
+                try
+                {
+                    SoundEffectInstance instance = GameVariables.BulletSound.CreateInstance();
+                    instance.Volume = .2F;
+                    instance.Play();
+                }
+                catch (System.DllNotFoundException)
+                { 
+                }
+                catch (InstancePlayLimitException)
+                {
+                }
             }
 
             if (Image.PosX < 0)

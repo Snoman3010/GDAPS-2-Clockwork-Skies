@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ClockworkSkies
 {
@@ -42,6 +43,18 @@ namespace ClockworkSkies
             if(life <= 0)
             {
                 Remove();
+                try
+                {
+                    SoundEffectInstance instance = GameVariables.ExplosionSound.CreateInstance();
+                    instance.Volume = .3F;
+                    instance.Play();
+                }
+                catch (System.DllNotFoundException)
+                {
+                }
+                catch (InstancePlayLimitException)
+                {
+                }
                 dead = true;
             }
             if (life <= 3 && smokeTimer <= 0)
