@@ -41,12 +41,12 @@ namespace ClockworkSkies
             //set target ally if present
             if ((victory == victoryConditions.Escort) || (victory == victoryConditions.DoubleEscort))
             {
-                targetAlly = new Ally(GameVariables.AllyImage, new Vector2(allyTarget.X, allyTarget.Y), (float)(Math.PI * 2 * allyTarget.Z / 8));
+                targetAlly = new Ally(GameVariables.AllyEscortImage, new Vector2(allyTarget.X, allyTarget.Y), (float)(Math.PI * 2 * allyTarget.Z / 8));
             }
             //set target enemy if present
             if ((victory == victoryConditions.EnemyEscort)||(victory == victoryConditions.DoubleEscort))
             {
-                targetEnemy = new Enemy(GameVariables.EnemyImage, new Vector2(enemyTarget.X, enemyTarget.Y), (float)(Math.PI * 2 * enemyTarget.Z / 8), p1);
+                targetEnemy = new Enemy(GameVariables.EnemyEscortImage, new Vector2(enemyTarget.X, enemyTarget.Y), (float)(Math.PI * 2 * enemyTarget.Z / 8), p1);
             }
             //set allied base if present
             if ((victory == victoryConditions.DefendBase)||(victory == victoryConditions.DoubleBase))

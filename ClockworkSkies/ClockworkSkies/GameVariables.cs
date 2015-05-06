@@ -48,12 +48,23 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D AllyEscortImage
+        {
+            get;
+            set;
+        }
 
         public static Texture2D EnemyImage
         {
             get;
             set;
         }
+        public static Texture2D EnemyEscortImage
+        {
+            get;
+            set;
+        }
+
         //bullet sprite
         public static Texture2D BulletImage
         {
@@ -72,10 +83,13 @@ namespace ClockworkSkies
             set;
         }
 
-<<<<<<< HEAD
         // selector sprite
         public static Texture2D SelectorImage
-=======
+        {
+            get;
+            set;
+        }
+
         public static SoundEffect BGM
         {
             get;
@@ -89,7 +103,6 @@ namespace ClockworkSkies
         }
 
         public static SoundEffect ExplosionSound
->>>>>>> 9b698f7102a9b1f392a0f389d3ee7fcbfffe2444
         {
             get;
             set;
@@ -136,6 +149,12 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D EnemyBaseImage
+        {
+            get;
+            set;
+        }
+
         //game font
         public static SpriteFont TextFont
         {
