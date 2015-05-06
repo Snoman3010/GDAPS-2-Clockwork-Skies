@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ClockworkSkies
 {
@@ -66,6 +67,24 @@ namespace ClockworkSkies
         }
         // smoke sprite
         public static Texture2D SmokeImage
+        {
+            get;
+            set;
+        }
+
+        public static SoundEffect BGM
+        {
+            get;
+            set;
+        }
+
+        public static SoundEffect BulletSound
+        {
+            get;
+            set;
+        }
+
+        public static SoundEffect ExplosionSound
         {
             get;
             set;
