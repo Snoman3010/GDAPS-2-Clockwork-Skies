@@ -208,8 +208,18 @@ namespace ClockworkSkies
             get { return (float)(WindowHeight / 1080.0); }
         }
 
-        // Background
+        // Backgrounds
         public static Texture2D MainMenu
+        {
+            get;
+            set;
+        }
+        public static Texture2D BarrenRiverBackground
+        {
+            get;
+            set;
+        }
+        public static Texture2D CoastalTroubleBackground
         {
             get;
             set;

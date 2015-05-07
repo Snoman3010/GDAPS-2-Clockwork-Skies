@@ -62,6 +62,7 @@ namespace ClockworkSkies
 
             // TODO: use this.Content to load your game content here
             GameVariables.GameTitle = Content.Load<Texture2D>("title2");
+
             GameVariables.PlayerImage = Content.Load<Texture2D>("player_plane");
             GameVariables.AllyImage = Content.Load<Texture2D>("ally_plane");
             GameVariables.AllyEscortImage = Content.Load<Texture2D>("ally_escort");
@@ -77,6 +78,8 @@ namespace ClockworkSkies
             GameVariables.SelectorImage = Content.Load<Texture2D>("selector");
 
             GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
+            GameVariables.BarrenRiverBackground = Content.Load<Texture2D>("level1");
+            GameVariables.CoastalTroubleBackground = Content.Load<Texture2D>("level2");
 
             GameVariables.MainGame = this;
 
@@ -115,8 +118,6 @@ namespace ClockworkSkies
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
-
             // TODO: Add your update logic here
             MouseState mState = Mouse.GetState();
 
@@ -195,6 +196,11 @@ namespace ClockworkSkies
                 case MenuState.Main:
                     {
                         spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Play:
+                    {
+                        spriteBatch.Draw(GameVariables.BarrenRiverBackground, screen, Color.White);
                         break;
                     }
                 case MenuState.GameOver:

@@ -102,3 +102,5 @@ D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\pianoMusic.xnb
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\explosion.xnb
 D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\gunshot.xnb
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\level1.png
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\level2.png
