@@ -83,6 +83,7 @@ namespace ClockworkSkies
             GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
             GameVariables.BarrenRiverBackground = Content.Load<Texture2D>("level1");
             GameVariables.CoastalTroubleBackground = Content.Load<Texture2D>("level2");
+            GameVariables.CurrentBackground = GameVariables.BarrenRiverBackground;
 
             GameVariables.MainGame = this;
 
@@ -194,19 +195,41 @@ namespace ClockworkSkies
                 case MenuState.Title:
                     {
                         spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        spriteBatch.Draw(GameVariables.GameTitle, new Rectangle((int)(GameVariables.WindowWidth * .166), GameVariables.WindowHeight / 6, (int)(GameVariables.WindowWidth / 1.5), GameVariables.WindowHeight / 2), Color.White);
                         break;
                     }
                 case MenuState.Main:
                     {
                         spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        spriteBatch.Draw(GameVariables.GameTitle, new Rectangle(GameVariables.WindowWidth / 4, GameVariables.WindowHeight / 6, GameVariables.WindowWidth / 2, GameVariables.WindowHeight / 3), Color.White);
                         break;
                     }
                 case MenuState.Play:
                     {
-                        spriteBatch.Draw(GameVariables.BarrenRiverBackground, screen, Color.White);
+                        spriteBatch.Draw(GameVariables.CurrentBackground, screen, Color.White);
                         break;
                     }
                 case MenuState.GameOver:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Pause:
+                    {
+                        spriteBatch.Draw(GameVariables.CurrentBackground, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Options:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Tutorial:
+                    {
+                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        break;
+                    }
+                case MenuState.Credits:
                     {
                         spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
                         break;

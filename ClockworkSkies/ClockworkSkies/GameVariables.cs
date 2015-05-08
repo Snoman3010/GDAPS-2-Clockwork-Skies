@@ -155,6 +155,29 @@ namespace ClockworkSkies
             set;
         }
 
+        // Backgrounds
+        public static Texture2D MainMenu
+        {
+            get;
+            set;
+        }
+        public static Texture2D BarrenRiverBackground
+        {
+            get;
+            set;
+        }
+        public static Texture2D CoastalTroubleBackground
+        {
+            get;
+            set;
+        }
+
+        public static Texture2D CurrentBackground
+        {
+            get;
+            set;
+        }
+
         //game font
         public static SpriteFont TextFont
         {
