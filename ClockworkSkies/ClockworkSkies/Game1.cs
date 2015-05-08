@@ -31,8 +31,11 @@ namespace ClockworkSkies
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = false;
-            graphics.PreferredBackBufferWidth = GameVariables.WindowWidth;
-            graphics.PreferredBackBufferHeight = GameVariables.WindowHeight;
+
+            GameVariables.GraphicsDeviceManager = graphics;
+
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         }
 
         /// <summary>

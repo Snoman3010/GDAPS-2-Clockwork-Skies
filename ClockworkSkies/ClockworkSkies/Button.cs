@@ -44,9 +44,13 @@ namespace ClockworkSkies
                 if (mState.X >= rect.X && mState.X <= rect.X + rect.Width && mState.Y >= rect.Y && mState.Y <= rect.Y + rect.Height)
                 {
                     // checks if the left mouse button is pressed and if it is, sets clicked to true
-                    if (mState.LeftButton == ButtonState.Pressed)
+                    if (mState.LeftButton == ButtonState.Pressed && !previousMouse)
                     {
                         clicked = true;
+                    }
+                    else
+                    {
+                        clicked = false;
                     }
                 }
             }

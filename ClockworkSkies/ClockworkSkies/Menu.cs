@@ -63,7 +63,7 @@ namespace ClockworkSkies
             gameOverMessage = "";
         }
 
-        private void SetButtons()
+        public void SetButtons()
         {
             switch (state)
             {

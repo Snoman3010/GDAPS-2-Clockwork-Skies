@@ -124,6 +124,10 @@ namespace ClockworkSkies
             levelName = null;
             timeLimit = 0;
             victoryCondition = -1;
+
+            play.rect = new Rectangle((int)(GameVariables.ButtonWidth * 6.25), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight);
+            next.rect = new Rectangle((int)(GameVariables.ButtonWidth * 2.25), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight);
+            previous.rect = new Rectangle((GameVariables.ButtonWidth / 4), (int)(GameVariables.ButtonHeight * 6.5), GameVariables.ButtonWidth, GameVariables.ButtonHeight);
         }
 
         public void HideLevels()

@@ -111,12 +111,12 @@ namespace ClockworkSkies
         //Width of game window
         public static int WindowWidth
         {
-            get { return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width; }
+            get { return GraphicsDeviceManager.PreferredBackBufferWidth; }
         }
         //height of game window
         public static int WindowHeight
         {
-            get { return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; }
+            get { return GraphicsDeviceManager.PreferredBackBufferHeight; }
         }
         //List of all pieces
         public static List<Piece> pieces = new List<Piece>();
@@ -220,6 +220,12 @@ namespace ClockworkSkies
             set;
         }
         public static Texture2D CoastalTroubleBackground
+        {
+            get;
+            set;
+        }
+
+        public static GraphicsDeviceManager GraphicsDeviceManager
         {
             get;
             set;
