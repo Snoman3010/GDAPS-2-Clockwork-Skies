@@ -72,10 +72,13 @@ namespace ClockworkSkies
             set;
         }
 
-<<<<<<< HEAD
         // selector sprite
         public static Texture2D SelectorImage
-=======
+        {
+            get;
+            set;
+        }
+
         public static SoundEffect BGM
         {
             get;
@@ -89,7 +92,6 @@ namespace ClockworkSkies
         }
 
         public static SoundEffect ExplosionSound
->>>>>>> 9b698f7102a9b1f392a0f389d3ee7fcbfffe2444
         {
             get;
             set;
