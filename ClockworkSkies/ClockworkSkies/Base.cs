@@ -49,7 +49,7 @@ namespace ClockworkSkies
                 try
                 {
                     SoundEffectInstance instance = GameVariables.ExplosionSound.CreateInstance();
-                    instance.Volume = .2F;
+                    instance.Volume = .4F;
                     instance.Play();
                 }
                 catch (System.DllNotFoundException)
