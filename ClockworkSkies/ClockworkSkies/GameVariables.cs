@@ -48,12 +48,23 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D AllyEscortImage
+        {
+            get;
+            set;
+        }
 
         public static Texture2D EnemyImage
         {
             get;
             set;
         }
+        public static Texture2D EnemyEscortImage
+        {
+            get;
+            set;
+        }
+
         //bullet sprite
         public static Texture2D BulletImage
         {
@@ -138,6 +149,12 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D EnemyBaseImage
+        {
+            get;
+            set;
+        }
+
         //game font
         public static SpriteFont TextFont
         {
@@ -191,8 +208,18 @@ namespace ClockworkSkies
             get { return (float)(WindowHeight / 1080.0); }
         }
 
-        // Background
+        // Backgrounds
         public static Texture2D MainMenu
+        {
+            get;
+            set;
+        }
+        public static Texture2D BarrenRiverBackground
+        {
+            get;
+            set;
+        }
+        public static Texture2D CoastalTroubleBackground
         {
             get;
             set;

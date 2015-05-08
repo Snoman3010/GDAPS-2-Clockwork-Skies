@@ -34,6 +34,9 @@ namespace ClockworkSkies
             dead = false;
             flashTimer = 0;
             isHit = false;
+
+            if (!allied)
+                image = new Sprite(GameVariables.EnemyBaseImage, pos, GameVariables.PlaneSize * 2, GameVariables.PlaneSize * 2);
         }
 
         public override void Update()
