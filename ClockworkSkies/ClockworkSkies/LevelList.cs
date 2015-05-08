@@ -425,24 +425,25 @@ namespace ClockworkSkies
 
             if (gameMenu.State == MenuState.Play && currentLevel == null)
             {
+                spriteBatch.Draw(GameVariables.ButtonImage, new Rectangle((int)(845 * GameVariables.WidthMultiplier), (int)(40 * GameVariables.HeightMultiplier), (int)(660 * GameVariables.WidthMultiplier), (int)(200 * GameVariables.HeightMultiplier)), Color.White);
                 play.Draw(spriteBatch);
                 next.Draw(spriteBatch);
                 previous.Draw(spriteBatch);
-                spriteBatch.DrawString(GameVariables.TextFont, "Selected Level:", new Vector2(900 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "Selected Level:", new Vector2(900 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 if (levelName != null)
                 {
-                    spriteBatch.DrawString(GameVariables.TextFont, levelName, new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                    spriteBatch.DrawString(GameVariables.TextFont, levelName, new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 }
                 else
                 {
-                    spriteBatch.DrawString(GameVariables.TextFont, "Please choose a level", new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                    spriteBatch.DrawString(GameVariables.TextFont, "Please choose a level", new Vector2(1200 * GameVariables.WidthMultiplier, 70 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 }
-                spriteBatch.DrawString(GameVariables.TextFont, "Time Limit:", new Vector2(900 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
-                spriteBatch.DrawString(GameVariables.TextFont, "" + timeLimit, new Vector2(1200 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
-                spriteBatch.DrawString(GameVariables.TextFont, "Victory Condition:", new Vector2(900 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "Time Limit:", new Vector2(900 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "" + timeLimit, new Vector2(1200 * GameVariables.WidthMultiplier, 120 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                spriteBatch.DrawString(GameVariables.TextFont, "Victory Condition:", new Vector2(900 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 if (victoryCondition != -1)
                 {
-                    spriteBatch.DrawString(GameVariables.TextFont, "" + (victoryConditions)victoryCondition, new Vector2(1200 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.BlueViolet, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                    spriteBatch.DrawString(GameVariables.TextFont, "" + (victoryConditions)victoryCondition, new Vector2(1200 * GameVariables.WidthMultiplier, 170 * GameVariables.HeightMultiplier), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 }
             }
 
