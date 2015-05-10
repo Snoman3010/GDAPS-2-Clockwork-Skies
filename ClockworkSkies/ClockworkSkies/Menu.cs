@@ -340,12 +340,12 @@ namespace ClockworkSkies
 
             if (state == MenuState.Credits)
             {
-                Vector2 messageSize = GameVariables.TextFont.MeasureString("This Game was created by:");
-                spriteBatch.Draw(GameVariables.ButtonImage, new Rectangle(GameVariables.WindowWidth / 4, GameVariables.WindowHeight / 6, GameVariables.WindowWidth / 2, GameVariables.WindowHeight / 5), Color.White);
-                spriteBatch.DrawString(GameVariables.TextFont, "This Game was created by:", new Vector2((GameVariables.WindowWidth / 2) - (messageSize.X / 2), (GameVariables.WindowHeight / 6) + messageSize.Y), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+                Vector2 messageSize = GameVariables.TextFont.MeasureString("This game was created by:");
+                spriteBatch.Draw(GameVariables.BronzePlaque, new Rectangle(GameVariables.WindowWidth / 4, GameVariables.WindowHeight / 6, GameVariables.WindowWidth / 2, GameVariables.WindowHeight / 5), Color.White);
+                spriteBatch.DrawString(GameVariables.TextFont, "This game was created by:", new Vector2((GameVariables.WindowWidth / 2) - (messageSize.X / 2), (GameVariables.WindowHeight / 6) + messageSize.Y), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 Vector2 messageSize2 = GameVariables.TextFont.MeasureString("William Allen, Ryan Jones, Erin McAnany, and Ellen Chen");
                 spriteBatch.DrawString(GameVariables.TextFont, "William Allen, Ryan Jones, Erin McAnany, and Ellen Chen", new Vector2((GameVariables.WindowWidth / 2) - (messageSize2.X / 2), (GameVariables.WindowHeight / 6) + (messageSize2.Y * 3)), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
-                spriteBatch.Draw(GameVariables.ButtonImage, new Rectangle((int)(GameVariables.WindowWidth * .115), (GameVariables.WindowHeight / 6) * 3 - 10, (int)(GameVariables.WindowWidth / 1.3), GameVariables.WindowHeight / 7 - 10), Color.White);
+                spriteBatch.Draw(GameVariables.BronzePlaque, new Rectangle((int)(GameVariables.WindowWidth * .115), (GameVariables.WindowHeight / 6) * 3 - 10, (int)(GameVariables.WindowWidth / 1.3), GameVariables.WindowHeight / 7 - 10), Color.White);
                 Vector2 messageSize3 = GameVariables.TextFont.MeasureString("BGM created by Connum and licensed under the Creative Commons Attribution-NonCommercial license");
                 spriteBatch.DrawString(GameVariables.TextFont, "BGM created by Connum and licensed under the Creative Commons Attribution-NonCommercial license", new Vector2((GameVariables.WindowWidth / 2) - (messageSize3.X / 2), ((GameVariables.WindowHeight / 6) * 3) + (messageSize3.Y)), Color.Yellow, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
                 Vector2 messageSize4 = GameVariables.TextFont.MeasureString("Art assets created by Ellen Chen");

@@ -143,6 +143,12 @@ namespace ClockworkSkies
             get;
             set;
         }
+        // plaque sprite
+        public static Texture2D BronzePlaque
+        {
+            get;
+            set;
+        }
         //base sprite
         public static Texture2D BaseImage
         {

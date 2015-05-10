@@ -66,6 +66,7 @@ namespace ClockworkSkies
             // TODO: use this.Content to load your game content here
             GameVariables.GameTitle = Content.Load<Texture2D>("title2");
 
+            // player/ally/enemy assets
             GameVariables.PlayerImage = Content.Load<Texture2D>("player_plane");
             GameVariables.AllyImage = Content.Load<Texture2D>("ally_plane");
             GameVariables.AllyEscortImage = Content.Load<Texture2D>("ally_escort");
@@ -73,13 +74,21 @@ namespace ClockworkSkies
             GameVariables.EnemyEscortImage = Content.Load<Texture2D>("enemy_escort");
             GameVariables.BulletImage = Content.Load<Texture2D>("player_bullet");
             GameVariables.EnemyBulletImage = Content.Load<Texture2D>("enemy_bullet");
-            GameVariables.ButtonImage = Content.Load<Texture2D>("button");
+            GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
+
+            // bases
             GameVariables.BaseImage = Content.Load<Texture2D>("base_ally");
             GameVariables.EnemyBaseImage = Content.Load<Texture2D>("base_enemy");
+
+            // font
             GameVariables.TextFont = Content.Load<SpriteFont>("mainFont");
-            GameVariables.SmokeImage = Content.Load<Texture2D>("smoke");
+
+            // in-game assets
+            GameVariables.BronzePlaque = Content.Load<Texture2D>("bronze_plaque");
+            GameVariables.ButtonImage = Content.Load<Texture2D>("button");
             GameVariables.SelectorImage = Content.Load<Texture2D>("selector");
 
+            // background assets
             GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
             GameVariables.BarrenRiverBackground = Content.Load<Texture2D>("level1");
             GameVariables.CoastalTroubleBackground = Content.Load<Texture2D>("level2");
@@ -87,6 +96,7 @@ namespace ClockworkSkies
 
             GameVariables.MainGame = this;
 
+            // sounds
             GameVariables.BGM = Content.Load<SoundEffect>("pianoMusic");
             GameVariables.BulletSound = Content.Load<SoundEffect>("gunshot");
             GameVariables.ExplosionSound = Content.Load<SoundEffect>("explosion");
