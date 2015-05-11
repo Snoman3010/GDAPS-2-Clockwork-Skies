@@ -93,6 +93,7 @@ namespace ClockworkSkies
             GameVariables.BarrenRiverBackground = Content.Load<Texture2D>("level1");
             GameVariables.CoastalTroubleBackground = Content.Load<Texture2D>("level2");
             GameVariables.CurrentBackground = GameVariables.BarrenRiverBackground;
+            GameVariables.HowToPlay = Content.Load<Texture2D>("howtoplay_menu");
 
             GameVariables.MainGame = this;
 
@@ -236,7 +237,7 @@ namespace ClockworkSkies
                     }
                 case MenuState.Tutorial:
                     {
-                        spriteBatch.Draw(GameVariables.MainMenu, screen, Color.White);
+                        spriteBatch.Draw(GameVariables.HowToPlay, screen, Color.White);
                         break;
                     }
                 case MenuState.Credits:

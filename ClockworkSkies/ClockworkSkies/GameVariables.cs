@@ -184,6 +184,12 @@ namespace ClockworkSkies
             set;
         }
 
+        public static Texture2D HowToPlay
+        {
+            get;
+            set;
+        }
+
         //game font
         public static SpriteFont TextFont
         {

@@ -112,6 +112,9 @@
     <Content Include="Content\enemy_plane.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\howtoplay_menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\level1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
