@@ -1,0 +1,9 @@
+Level generated with the official Clockwork Skies level editor.
+:L-The Battle of the Base
+:T-180
+:V-5
+:P-971,512,6
+:F-1440,268
+:E-160,524,2,0
+:E-480,524,2,0
+:E-1440,780,6,1
