@@ -1,5 +1,5 @@
 Level generated with the official Clockwork Skies level editor.
-:L-test1
+:L-The Battle of|the Basic Skirmish
 :T-180
 :V-0
 :P-1065,704,0

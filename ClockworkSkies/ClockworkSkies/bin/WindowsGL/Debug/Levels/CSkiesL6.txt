@@ -1,0 +1,11 @@
+Level generated with the official Clockwork Skies level editor.
+:L-The Battle of|Protect the General
+:T-180
+:V-2
+:P-971,864,0
+:A-960,972,0
+:E-864,972,0,1
+:E-1056,972,0,1
+:E-128,172,3,0
+:E-992,76,4,0
+:E-1728,236,5,0

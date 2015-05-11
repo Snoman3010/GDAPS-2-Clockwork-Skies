@@ -1,0 +1,13 @@
+Level generated with the official Clockwork Skies level editor.
+:L-The Battle of|Try Not to Die
+:T-30
+:V-1
+:P-971,544,0
+:E-96,108,3,0
+:E-96,556,2,0
+:E-96,972,1,0
+:E-960,108,4,0
+:E-960,972,0,0
+:E-1824,108,5,0
+:E-1824,556,6,0
+:E-1824,972,7,0

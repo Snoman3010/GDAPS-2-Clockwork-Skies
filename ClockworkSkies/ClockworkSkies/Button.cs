@@ -33,6 +33,10 @@ namespace ClockworkSkies
             clicked = false;
             clickable = false;
             previousMouse = false;
+            if (text.Contains("|"))
+            {
+                text = text.Replace("|", "\n");
+            }
         }
 
         // Update method
