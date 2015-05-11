@@ -25,7 +25,7 @@ namespace ClockworkSkies
 
         // constructor
         public Base(Vector2 pos, bool allied)
-            : base(GameVariables.BaseImage, 0, pos, GameVariables.PlaneSize * 2, GameVariables.PlaneSize * 2, allied)
+            : base(GameVariables.BaseImage, 0, pos, (int)(GameVariables.PlaneSize * 1.8), (int)(GameVariables.PlaneSize * 1.8), allied)
         {
             life = 10;
             position = pos;
@@ -36,7 +36,7 @@ namespace ClockworkSkies
             isHit = false;
 
             if (!allied)
-                image = new Sprite(GameVariables.EnemyBaseImage, pos, GameVariables.PlaneSize * 2, GameVariables.PlaneSize * 2);
+                image = new Sprite(GameVariables.EnemyBaseImage, pos, (int)(GameVariables.PlaneSize * 1.8), (int)(GameVariables.PlaneSize * 1.8));
         }
 
         public override void Update()
