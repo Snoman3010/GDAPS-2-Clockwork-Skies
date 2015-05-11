@@ -429,7 +429,7 @@ namespace ClockworkSkies
 
             if (gameMenu.State == MenuState.Play && currentLevel == null)
             {
-                spriteBatch.Draw(GameVariables.ButtonImage, new Rectangle((int)(845 * GameVariables.WidthMultiplier), (int)(40 * GameVariables.HeightMultiplier), (int)(660 * GameVariables.WidthMultiplier), (int)(200 * GameVariables.HeightMultiplier)), Color.White);
+                spriteBatch.Draw(GameVariables.BronzePlaque, new Rectangle((int)(845 * GameVariables.WidthMultiplier), (int)(40 * GameVariables.HeightMultiplier), (int)(660 * GameVariables.WidthMultiplier), (int)(200 * GameVariables.HeightMultiplier)), Color.White);
                 play.Draw(spriteBatch);
                 next.Draw(spriteBatch);
                 previous.Draw(spriteBatch);

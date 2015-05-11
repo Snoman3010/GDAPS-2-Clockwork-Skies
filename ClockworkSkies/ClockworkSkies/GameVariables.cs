@@ -125,12 +125,12 @@ namespace ClockworkSkies
         //Max speed of plane
         public static int PlaneMaxSpeed
         {
-            get { return 8; }
+            get { return 12; }
         }
         //Min speed of plane
         public static int PlaneMinSpeed
         {
-            get { return 5; }
+            get { return 7; }
         }
         //bullet speed
         public static int BulletSpeed
@@ -193,7 +193,7 @@ namespace ClockworkSkies
         //size of the plane
         public static int PlaneSize
         {
-            get { return WindowWidth / 50; } //made it a function of window width so it will be easier to make it playable on multiple resolutions
+            get { return WindowWidth / 35; } //made it a function of window width so it will be easier to make it playable on multiple resolutions
         }
         //how fast the plane can turn
         public static float PlaneAngleSpeed
