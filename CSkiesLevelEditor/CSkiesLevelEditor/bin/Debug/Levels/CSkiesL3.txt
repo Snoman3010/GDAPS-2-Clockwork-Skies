@@ -1,0 +1,9 @@
+Level generated with the official Clockwork Skies level editor.
+:L-You Will Not Survive
+:T-180
+:V-0
+:P-971,512,0
+:E-160,524,2,0
+:E-1760,524,6,0
+:E-960,172,4,0
+:E-960,908,0,0

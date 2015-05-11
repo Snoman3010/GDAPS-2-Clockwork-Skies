@@ -1,1 +1,2 @@
 NPCs may get stuck going in circles just off screen
+When changing resolution, the wrong resolution may be selected

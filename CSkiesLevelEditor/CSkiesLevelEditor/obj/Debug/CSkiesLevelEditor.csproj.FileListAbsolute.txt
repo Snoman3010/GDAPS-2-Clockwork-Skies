@@ -7,3 +7,11 @@ D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\CSkiesLevelEditor\CSkiesLevel
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.csproj.GenerateResource.Cache
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.exe
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.pdb
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\bin\Debug\CSkiesLevelEditor.exe.config
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.exe
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.pdb
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\bin\Debug\CSkiesLevelEditor.exe
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\bin\Debug\CSkiesLevelEditor.pdb
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.Form1.resources
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.Properties.Resources.resources
+D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\CSkiesLevelEditor\CSkiesLevelEditor\obj\Debug\CSkiesLevelEditor.csproj.GenerateResource.Cache
