@@ -131,7 +131,8 @@ namespace ClockworkSkies
         {
             if (drawOptions)
             {
-                spriteBatch.DrawString(GameVariables.TextFont, "Resolutions: ", new Vector2(GameVariables.WindowWidth / 6, GameVariables.WindowHeight / 4), Color.White);
+                Vector2 fontScale = new Vector2(0.75f * GameVariables.WidthMultiplier, 0.75f * GameVariables.HeightMultiplier);
+                spriteBatch.DrawString(GameVariables.TextFont, "Resolutions: ", new Vector2(GameVariables.WindowWidth / 6, GameVariables.WindowHeight / 4), Color.White, 0, Vector2.Zero, fontScale, SpriteEffects.None, 0);
 
                 foreach (Button x in buttons)
                 {
