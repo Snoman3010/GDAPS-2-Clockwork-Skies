@@ -18,6 +18,8 @@ namespace ClockworkSkies
 
         private static bool running = true;
 
+        private static bool soundError = false;
+
         public static bool GameUnpaused
         {
             get { return running; }
@@ -252,6 +254,12 @@ namespace ClockworkSkies
         {
             get;
             set;
+        }
+
+        public static bool OALError
+        {
+            get { return soundError; }
+            set { soundError = value; }
         }
     }
 }

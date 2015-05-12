@@ -115,6 +115,7 @@ namespace ClockworkSkies
             catch(System.DllNotFoundException)
             {
                 Console.WriteLine("OpenAL not found, no sound will play.");
+                GameVariables.OALError = true;
             }
         }
 

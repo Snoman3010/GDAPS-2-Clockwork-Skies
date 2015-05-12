@@ -337,6 +337,11 @@ namespace ClockworkSkies
                 pair.Value.Draw(spriteBatch);
             }
 
+            if (state == MenuState.Title && GameVariables.OALError)
+            {
+                spriteBatch.DrawString(GameVariables.TextFont, "OpenAL not found, no sound will play.", Vector2.Zero, Color.Red, 0, Vector2.Zero, new Vector2(GameVariables.WidthMultiplier, GameVariables.HeightMultiplier), SpriteEffects.None, 0);
+            }
+
             if (state == MenuState.GameOver)
             {
                 Vector2 messageSize = GameVariables.TextFont.MeasureString(gameOverMessage);
