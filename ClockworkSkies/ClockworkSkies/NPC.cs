@@ -147,17 +147,19 @@ namespace ClockworkSkies
                 //}
                 //wasOffScreen = false;
                 //On-screen AI Logic
+            try
+            {
                 if (hunting)
                 {
                     burstTimer++;
 
-                    if(burstTimer >= burstTimerMax && isBursting)
+                    if (burstTimer >= burstTimerMax && isBursting)
                     {
                         burstTimer = 0;
                         plane.keyPressed["spaceKey"] = false;
                         isBursting = false;
                     }
-                    else if(burstTimer >= burstTimerDelay && !isBursting)
+                    else if (burstTimer >= burstTimerDelay && !isBursting)
                     {
                         burstTimer = 0;
                         plane.keyPressed["spaceKey"] = true;
@@ -286,7 +288,7 @@ namespace ClockworkSkies
                             plane.keyPressed["leftKey"] = true;
                             plane.keyPressed["rightKey"] = false;
                         }
-                        else if (angle <  Math.PI + 0.05 && angle > Math.PI - 0.05)
+                        else if (angle < Math.PI + 0.05 && angle > Math.PI - 0.05)
                         {
                             plane.keyPressed["leftKey"] = false;
                             plane.keyPressed["rightKey"] = false;
@@ -298,6 +300,11 @@ namespace ClockworkSkies
                         }
                     }
                 }
+            }
+            catch
+            {
+
+            }
             //}
         }
 
