@@ -1,2 +1,37 @@
-NPCs may get stuck going in circles just off screen
-When changing resolution, the wrong resolution may be selected
+Clockwork Skies:
+
+	Controls:
+		W - accelerate
+		S - decelerate
+		D - turn clockwise
+		A - turn counter-clockwise
+		Space - shoot (can be held down for continuous fire)
+		Menus are mouse controlled
+	Objectives:
+		Elimination - Destroy all enemies within the time limit
+		Survival - Destroy all enemies or avoid destruction until the time limit
+		Escort - Destroy all enemies or protect the target ally until the time limit
+		EnemyEscort - Destroy the target enemy within the time limit
+		DoubleEscort - Destroy the target enemy within the time limit while protecting the target ally
+		DestroyBase - Destroy the enemy base within the time limit
+		DefendBase - Destroy all enemies or protect the allied base until the time limit
+		DoubleBase - Destroy the enemy base within the time limit while protecting the allied base
+	Sound Error:
+		If OpenAL is not installed an error will appear on the title screen and no sound will play. To fix this, please install OpenAL.
+
+Level Editor:
+	The Level Name field will determine the level's name. The level must have a name or it cannot be exported, and a | character
+		can be used to insert a line break.
+	The Time Limit field will determine the time limit for the level in seconds.
+	The Victory Condition field will determine what the objective for the level is, and the targets will be made available as
+		appropriate for the objective.
+	The Target Ally and Target Enemy fields will determine the starting posittion and rotation of the targeted ally or enemy,
+		but they will only be editable if an appropriate victory condition is selected.
+	The Allied Base and Enemy Base fields will determine the position of the allied and enemy bases, but they will only be
+		editable if an appropriate victory condition is selected.
+	The Player Start Position field will determine where the player starts and what direction they are facing.
+	The NPC List contains all of the NPCs in the level that are not the targeted NPCs. The New button will add an NPC to the
+		list and then its starting position, rotation and if it is an enemy or an ally can be changed.
+	The Export button will save a file that contains the information about the level. This file will be created in the Debug/Levels
+		folder in the CSkiesLevelEditor project, and must be copied to the Debug/Levels forlder in the ClockworkSkies project
+		before it will apper in-game.
