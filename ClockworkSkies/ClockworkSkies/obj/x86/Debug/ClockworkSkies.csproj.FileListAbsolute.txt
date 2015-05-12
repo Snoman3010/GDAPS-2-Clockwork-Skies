@@ -128,3 +128,5 @@ D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\bronze_plaque.png
 D:\Users\rpj5582\Documents\Visual Studio 2013\Projects\Clockwork Skies\ClockworkSkies\ClockworkSkies\obj\x86\Debug\ClockworkSkies.csprojResolveAssemblyReference.cache
 D:\Users\wsa9283\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\howtoplay_menu.png
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\howtoplay_menu.png
+D:\Users\emc7541\Documents\GDAPS-2-Clockwork-Skies\ClockworkSkies\ClockworkSkies\bin\WindowsGL\Debug\Content\level3.png

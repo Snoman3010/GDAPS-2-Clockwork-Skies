@@ -177,6 +177,11 @@ namespace ClockworkSkies
             get;
             set;
         }
+        public static Texture2D DestroyedCityBackground
+        {
+            get;
+            set;
+        }
 
         public static Texture2D CurrentBackground
         {

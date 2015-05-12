@@ -116,7 +116,7 @@ namespace ClockworkSkies
                         buttons["Main"].clickable = true;
                         levels.ShowLevels();
                         buttonsSet = true;
-                        switch (GameVariables.GetRandom(0, 2))
+                        switch (GameVariables.GetRandom(0, 3))
                         {
                             case 0:
                                 {
@@ -126,6 +126,11 @@ namespace ClockworkSkies
                             case 1:
                                 {
                                     GameVariables.CurrentBackground = GameVariables.CoastalTroubleBackground;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    GameVariables.CurrentBackground = GameVariables.DestroyedCityBackground;
                                     break;
                                 }
                             default:

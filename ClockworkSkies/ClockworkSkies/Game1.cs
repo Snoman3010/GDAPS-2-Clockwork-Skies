@@ -92,7 +92,8 @@ namespace ClockworkSkies
             GameVariables.MainMenu = Content.Load<Texture2D>("main_menu");
             GameVariables.BarrenRiverBackground = Content.Load<Texture2D>("level1");
             GameVariables.CoastalTroubleBackground = Content.Load<Texture2D>("level2");
-            GameVariables.CurrentBackground = GameVariables.BarrenRiverBackground;
+            GameVariables.DestroyedCityBackground = Content.Load<Texture2D>("level3");
+            GameVariables.CurrentBackground = GameVariables.BarrenRiverBackground;  // default
             GameVariables.HowToPlay = Content.Load<Texture2D>("howtoplay_menu");
 
             GameVariables.MainGame = this;

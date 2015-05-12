@@ -121,6 +121,9 @@
     <Content Include="Content\level2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\level3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\main_menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
