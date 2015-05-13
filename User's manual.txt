@@ -1,10 +1,10 @@
 Clockwork Skies:
 
 	Controls:
-		W - accelerate
-		S - decelerate
-		D - turn clockwise
-		A - turn counter-clockwise
+		Up - accelerate
+		Down - decelerate
+		Right - turn clockwise
+		Left - turn counter-clockwise
 		Space - shoot (can be held down for continuous fire)
 		Menus are mouse controlled
 	Objectives:
